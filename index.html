@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#09090b" />
+  <meta name="description" content="Our wedding countdown — 24 December 2026 at Quaid-e-Azam Grand Ballroom, Birmingham." />
+  <title>Our Wedding — 24.12.2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #08080a;
+      --panel: rgba(255, 255, 255, 0.065);
+      --panel-strong: rgba(255, 255, 255, 0.09);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #f8f5ee;
+      --muted: rgba(248, 245, 238, 0.62);
+      --gold: #dfbd78;
+      --gold-soft: #f0d8a5;
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 50% -10%, rgba(223, 189, 120, 0.11), transparent 34%),
+        linear-gradient(180deg, #0d0c0f 0%, var(--bg) 42%, #070709 100%);
+      font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 20;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+    }
+
+    .ambient {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(90px);
+      opacity: 0.18;
+      animation: drift 18s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+
+    .orb.one {
+      width: 34rem;
+      height: 34rem;
+      top: 6%;
+      left: -14rem;
+      background: #c89445;
+    }
+
+    .orb.two {
+      width: 30rem;
+      height: 30rem;
+      right: -12rem;
+      top: 28%;
+      background: #745a9c;
+      animation-delay: -7s;
+    }
+
+    .orb.three {
+      width: 24rem;
+      height: 24rem;
+      left: 38%;
+      bottom: -14rem;
+      background: #8f6238;
+      animation-delay: -11s;
+    }
+
+    @keyframes drift {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to { transform: translate3d(4rem, 2.5rem, 0) scale(1.16); }
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 28px 0 52px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+      opacity: 0;
+      transform: translateY(-12px);
+      animation: enter .75s ease .05s forwards;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(223, 189, 120, .38);
+      border-radius: 50%;
+      color: var(--gold-soft);
+      background: rgba(223, 189, 120, .06);
+      box-shadow: inset 0 0 20px rgba(223, 189, 120, .05);
+    }
+
+    .nav-date {
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      min-height: 690px;
+      display: grid;
+      align-items: center;
+      padding: clamp(34px, 7vw, 82px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.095), rgba(255,255,255,.025) 60%),
+        rgba(13, 12, 15, .62);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      opacity: 0;
+      transform: translateY(20px) scale(.985);
+      animation: enter .9s cubic-bezier(.2,.8,.2,1) .12s forwards;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 560px;
+      height: 560px;
+      right: -180px;
+      top: -210px;
+      border: 1px solid rgba(223, 189, 120, .12);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 54px rgba(223, 189, 120, .025),
+        0 0 0 108px rgba(223, 189, 120, .018),
+        0 0 100px rgba(223, 189, 120, .08);
+      z-index: -1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      margin-bottom: 24px;
+      padding: 9px 13px;
+      border: 1px solid rgba(223, 189, 120, .22);
+      border-radius: 999px;
+      background: rgba(223, 189, 120, .055);
+      color: var(--gold-soft);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 0 rgba(223, 189, 120, .45);
+      animation: pulse 2.1s infinite;
+    }
+
+    @keyframes pulse {
+      70% { box-shadow: 0 0 0 9px rgba(223, 189, 120, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(223, 189, 120, 0); }
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 850px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(58px, 9.5vw, 126px);
+      font-weight: 600;
+      line-height: .88;
+      letter-spacing: -.055em;
+    }
+
+    h1 .script {
+      display: block;
+      margin-top: .11em;
+      font-style: italic;
+      font-weight: 600;
+      background: linear-gradient(110deg, #fff 12%, var(--gold-soft) 55%, #b98e4d 94%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      max-width: 610px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 19px);
+      line-height: 1.7;
+    }
+
+    .date-line {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 28px;
+      color: rgba(248, 245, 238, .84);
+      font-weight: 600;
+    }
+
+    .date-separator { color: var(--gold); }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 42px;
+    }
+
+    .time-card {
+      position: relative;
+      overflow: hidden;
+      padding: 22px 20px 19px;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 20px;
+      background: rgba(255,255,255,.045);
+      transition: transform .35s ease, border-color .35s ease, background .35s ease;
+    }
+
+    .time-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(223,189,120,.32);
+      background: rgba(255,255,255,.067);
+    }
+
+    .time-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -30% -80% -30%;
+      height: 120px;
+      background: radial-gradient(circle, rgba(223,189,120,.15), transparent 66%);
+      pointer-events: none;
+    }
+
+    .time-number {
+      display: block;
+      font-size: clamp(37px, 5.7vw, 64px);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -.055em;
+      font-variant-numeric: tabular-nums;
+      transition: transform .24s ease, opacity .24s ease;
+    }
+
+    .time-number.tick {
+      transform: translateY(-7px);
+      opacity: .5;
+    }
+
+    .time-label {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-top: 28px;
+    }
+
+    .button {
+      appearance: none;
+      border: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 0 17px;
+      border-radius: 14px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+    .button:active { transform: translateY(0) scale(.985); }
+
+    .button.primary {
+      color: #18130d;
+      background: linear-gradient(135deg, #f0d9a9, #c99a50);
+      box-shadow: 0 10px 30px rgba(201, 154, 80, .16);
+    }
+
+    .button.secondary {
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .panel {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(25px, 4vw, 38px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 18px 60px rgba(0,0,0,.2);
+      opacity: 0;
+      transform: translateY(18px);
+      animation: enter .8s ease forwards;
+    }
+
+    .venue { animation-delay: .3s; }
+    .progress-panel { animation-delay: .42s; }
+
+    .panel-kicker {
+      margin: 0 0 11px;
+      color: var(--gold-soft);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .panel h2 {
+      margin: 0;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(30px, 4.2vw, 49px);
+      line-height: 1.05;
+      letter-spacing: -.035em;
+    }
+
+    .venue-address {
+      display: flex;
+      gap: 12px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .venue-address svg {
+      flex: 0 0 auto;
+      margin-top: 3px;
+      color: var(--gold);
+    }
+
+    .venue-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .progress-panel {
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .ring-wrap {
+      position: relative;
+      width: min(210px, 62vw);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+    }
+
+    .ring {
+      position: absolute;
+      inset: 0;
+      transform: rotate(-90deg);
+    }
+
+    .ring circle {
+      fill: none;
+      stroke-width: 7;
+    }
+
+    .ring .track { stroke: rgba(255,255,255,.08); }
+    .ring .value {
+      stroke: url(#goldGradient);
+      stroke-linecap: round;
+      stroke-dasharray: 565.49;
+      stroke-dashoffset: 565.49;
+      transition: stroke-dashoffset 1.2s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .ring-copy strong {
+      display: block;
+      font-size: 38px;
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+
+    .ring-copy span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .tiny {
+      max-width: 260px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 26px 4px 2px;
+      color: rgba(248,245,238,.4);
+      font-size: 12px;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      z-index: 30;
+      transform: translate(-50%, 18px);
+      padding: 11px 15px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+      background: rgba(20,19,22,.9);
+      color: var(--text);
+      box-shadow: 0 15px 50px rgba(0,0,0,.36);
+      backdrop-filter: blur(16px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease, transform .25s ease;
+      font-size: 13px;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    @keyframes enter {
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @media (max-width: 780px) {
+      .shell { width: min(100% - 18px, 1180px); padding-top: 14px; }
+      .nav { padding: 0 6px; }
+      .nav-date { display: none; }
+      .hero { min-height: auto; padding: 35px 20px 28px; border-radius: 26px; }
+      .hero::before { width: 390px; height: 390px; right: -190px; top: -170px; }
+      h1 { font-size: clamp(55px, 17vw, 88px); }
+      .hero-sub { margin-top: 20px; }
+      .countdown { grid-template-columns: repeat(2, minmax(0,1fr)); margin-top: 30px; }
+      .time-card { padding: 19px 16px 17px; }
+      .time-number { font-size: clamp(38px, 13vw, 58px); }
+      .section-grid { grid-template-columns: 1fr; }
+      .progress-panel { min-height: 330px; }
+    }
+
+    @media (max-width: 420px) {
+      .hero-actions, .venue-actions { display: grid; grid-template-columns: 1fr; }
+      .button { width: 100%; }
+      .date-line { font-size: 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ambient" aria-hidden="true">
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
+  </div>
+
+  <main class="shell">
+    <nav class="nav" aria-label="Wedding countdown">
+      <a class="brand" href="#top" aria-label="Our wedding countdown home">
+        <span class="brand-mark">♡</span>
+        <span>Our Wedding</span>
+      </a>
+      <span class="nav-date">24 · 12 · 2026</span>
+    </nav>
+
+    <section class="hero" id="top">
+      <div>
+        <div class="eyebrow"><span class="pulse-dot"></span> The countdown is on</div>
+
+        <h1>
+          Until we say
+          <span class="script">I do.</span>
+        </h1>
+
+        <p class="hero-sub">
+          One date. One unforgettable day. Every second now takes us closer to forever.
+        </p>
+
+        <div class="date-line">
+          <span>Thursday, 24 December 2026</span>
+          <span class="date-separator">✦</span>
+          <span>Birmingham, UK</span>
+        </div>
+
+        <div class="countdown" aria-label="Time remaining until the wedding">
+          <div class="time-card">
+            <span class="time-number" id="days">000</span>
+            <span class="time-label">Days</span>
+          </div>
+          <div class="time-card">
+            <span class="time-number" id="hours">00</span>
+            <span class="time-label">Hours</span>
+          </div>
+          <div class="time-card">
+            <span class="time-number" id="minutes">00</span>
+            <span class="time-label">Minutes</span>
+          </div>
+          <div class="time-card">
+            <span class="time-number" id="seconds">00</span>
+            <span class="time-label">Seconds</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <button class="button primary" id="calendarBtn" type="button" aria-label="Add wedding date to calendar">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 2v3M17 2v3M3.5 9h17M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            Add to calendar
+          </button>
+          <button class="button secondary" id="shareBtn" type="button" aria-label="Share wedding countdown">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 8a3 3 0 1 0-2.83-4A3 3 0 0 0 18 8ZM6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12 7a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM8.6 10.55l6.8-3.1M8.6 13.45l6.8 3.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            Share countdown
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-grid" aria-label="Wedding details">
+      <article class="panel venue">
+        <p class="panel-kicker">The venue</p>
+        <h2>Quaid‑e‑Azam<br />Grand Ballroom</h2>
+        <div class="venue-address">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.7"/></svg>
+          <span>Montague Street<br />Birmingham B4 7XH<br />United Kingdom</span>
+        </div>
+
+        <div class="venue-actions">
+          <a class="button primary" href="https://www.google.com/maps/search/?api=1&query=Quaid-e-Azam+Grand+Ballroom+Montague+Street+Birmingham+B4+7XH" target="_blank" rel="noopener noreferrer">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.8"/></svg>
+            Get directions
+          </a>
+          <a class="button secondary" href="https://quaid-e-azam.co.uk/" target="_blank" rel="noopener noreferrer">Venue website ↗</a>
+        </div>
+      </article>
+
+      <article class="panel progress-panel">
+        <div>
+          <p class="panel-kicker">Getting closer</p>
+          <div class="ring-wrap" aria-label="Wedding countdown progress">
+            <svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+              <defs>
+                <linearGradient id="goldGradient" x1="0" x2="1">
+                  <stop offset="0%" stop-color="#f1d9a5" />
+                  <stop offset="100%" stop-color="#b9813d" />
+                </linearGradient>
+              </defs>
+              <circle class="track" cx="100" cy="100" r="90" />
+              <circle class="value" id="progressRing" cx="100" cy="100" r="90" />
+            </svg>
+            <div class="ring-copy">
+              <strong id="daysBig">—</strong>
+              <span>days to go</span>
+            </div>
+          </div>
+          <p class="tiny" id="progressMessage">The best day is getting closer.</p>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <span>24.12.2026 · Birmingham</span>
+      <span>Our forever starts here ♡</span>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // Midnight at the start of 24 December 2026 in Birmingham (GMT).
+    const weddingDate = new Date("2026-12-24T00:00:00Z");
+    const countdownStart = new Date("2026-09-03T00:00:00Z");
+    const circumference = 2 * Math.PI * 90;
+
+    const nodes = {
+      days: document.getElementById("days"),
+      hours: document.getElementById("hours"),
+      minutes: document.getElementById("minutes"),
+      seconds: document.getElementById("seconds"),
+      daysBig: document.getElementById("daysBig"),
+      progressRing: document.getElementById("progressRing"),
+      progressMessage: document.getElementById("progressMessage"),
+      toast: document.getElementById("toast")
+    };
+
+    let previous = {};
+
+    function pad(value, width = 2) {
+      return String(value).padStart(width, "0");
+    }
+
+    function animateNumber(node, value, key) {
+      if (previous[key] === value) return;
+      node.classList.add("tick");
+      window.setTimeout(() => {
+        node.textContent = value;
+        node.classList.remove("tick");
+      }, 120);
+      previous[key] = value;
+    }
+
+    function updateCountdown() {
+      const now = new Date();
+      const difference = Math.max(0, weddingDate.getTime() - now.getTime());
+
+      const days = Math.floor(difference / 86400000);
+      const hours = Math.floor((difference % 86400000) / 3600000);
+      const minutes = Math.floor((difference % 3600000) / 60000);
+      const seconds = Math.floor((difference % 60000) / 1000);
+
+      animateNumber(nodes.days, pad(days, 3), "days");
+      animateNumber(nodes.hours, pad(hours), "hours");
+      animateNumber(nodes.minutes, pad(minutes), "minutes");
+      animateNumber(nodes.seconds, pad(seconds), "seconds");
+      nodes.daysBig.textContent = days;
+
+      const total = weddingDate.getTime() - countdownStart.getTime();
+      const elapsed = now.getTime() - countdownStart.getTime();
+      const progress = Math.max(0, Math.min(1, elapsed / total));
+      nodes.progressRing.style.strokeDashoffset = circumference * (1 - progress);
+
+      if (difference === 0) {
+        nodes.progressMessage.textContent = "Today is the day. ♡";
+      } else if (days <= 7) {
+        nodes.progressMessage.textContent = "Wedding week. This is really happening.";
+      } else if (days <= 30) {
+        nodes.progressMessage.textContent = "Less than a month until forever.";
+      } else if (days < 100) {
+        nodes.progressMessage.textContent = "Double digits. The final countdown is on.";
+      } else {
+        nodes.progressMessage.textContent = "The best day is getting closer.";
+      }
+    }
+
+    function showToast(message) {
+      nodes.toast.textContent = message;
+      nodes.toast.classList.add("show");
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => nodes.toast.classList.remove("show"), 2200);
+    }
+
+    document.getElementById("shareBtn").addEventListener("click", async () => {
+      const shareData = {
+        title: "Our Wedding Countdown",
+        text: "Countdown to 24 December 2026 ♡",
+        url: window.location.href
+      };
+
+      try {
+        if (navigator.share) {
+          await navigator.share(shareData);
+        } else {
+          await navigator.clipboard.writeText(window.location.href);
+          showToast("Countdown link copied");
+        }
+      } catch (error) {
+        if (error?.name !== "AbortError") showToast("Couldn’t share — copy the page link instead");
+      }
+    });
+
+    document.getElementById("calendarBtn").addEventListener("click", () => {
+      const ics = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Our Wedding//Countdown//EN",
+        "BEGIN:VEVENT",
+        "UID:wedding-20261224@ourwedding",
+        "DTSTAMP:20260903T000000Z",
+        "DTSTART;VALUE=DATE:20261224",
+        "DTEND;VALUE=DATE:20261225",
+        "SUMMARY:Our Wedding ♡",
+        "LOCATION:Quaid-e-Azam Grand Ballroom\\, Montague Street\\, Birmingham B4 7XH\\, United Kingdom",
+        "DESCRIPTION:Our wedding day — 24 December 2026.",
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\r\n");
+
+      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "our-wedding-24-december-2026.ics";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      showToast("Calendar event ready");
+    });
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
