@@ -3,107 +3,178 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#09090b" />
-  <meta name="description" content="Our wedding countdown — 24 December 2026 at Quaid-e-Azam Grand Ballroom, Birmingham." />
-  <title>Our Wedding — 24.12.2026</title>
+  <meta name="theme-color" content="#080808" />
+  <meta name="description" content="Umar Siddiqui & Ansa Talib — wedding countdown to 24 December 2026 at Quaid-e-Azam Grand Ballroom, Birmingham." />
+  <meta property="og:title" content="Umar & Ansa — 24.12.2026" />
+  <meta property="og:description" content="Counting down to our wedding day at Quaid-e-Azam Grand Ballroom, Birmingham." />
+  <meta property="og:type" content="website" />
+  <title>Umar & Ansa — 24.12.2026</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #08080a;
-      --panel: rgba(255, 255, 255, 0.065);
-      --panel-strong: rgba(255, 255, 255, 0.09);
-      --border: rgba(255, 255, 255, 0.12);
-      --text: #f8f5ee;
-      --muted: rgba(248, 245, 238, 0.62);
-      --gold: #dfbd78;
-      --gold-soft: #f0d8a5;
-      --shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
-      --radius-xl: 32px;
-      --radius-lg: 24px;
+      --bg: #070707;
+      --bg-2: #0d0c0a;
+      --text: #f6f2e9;
+      --muted: rgba(246, 242, 233, .58);
+      --muted-2: rgba(246, 242, 233, .38);
+      --gold: #d8b26e;
+      --gold-light: #f3d9a2;
+      --gold-deep: #a97937;
+      --line: rgba(255, 255, 255, .1);
+      --glass: rgba(255, 255, 255, .055);
+      --glass-2: rgba(255, 255, 255, .085);
+      --radius-xl: 38px;
+      --radius-lg: 26px;
+      --shadow: 0 40px 120px rgba(0, 0, 0, .52);
     }
 
     * { box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
 
     body {
       margin: 0;
       min-height: 100vh;
       overflow-x: hidden;
       color: var(--text);
-      background:
-        radial-gradient(circle at 50% -10%, rgba(223, 189, 120, 0.11), transparent 34%),
-        linear-gradient(180deg, #0d0c0f 0%, var(--bg) 42%, #070709 100%);
-      font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Manrope", "DM Sans", system-ui, sans-serif;
       -webkit-font-smoothing: antialiased;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(216,178,110,.12), transparent 30%),
+        radial-gradient(circle at 10% 42%, rgba(99,69,33,.12), transparent 29%),
+        radial-gradient(circle at 92% 55%, rgba(87,70,115,.11), transparent 27%),
+        linear-gradient(180deg, #0b0b0b 0%, #070707 45%, #090806 100%);
     }
 
-    body::before {
+    body::after {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
-      z-index: 20;
-      opacity: 0.035;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+      z-index: 30;
+      opacity: .035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.7'/%3E%3C/svg%3E");
+    }
+
+    a, button { -webkit-tap-highlight-color: transparent; }
+
+    .intro {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      background: #080808;
+      transition: opacity .8s cubic-bezier(.2,.8,.2,1), visibility .8s;
+    }
+
+    .intro.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .intro-inner { text-align: center; }
+
+    .intro-monogram {
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid rgba(216,178,110,.45);
+      color: var(--gold-light);
+      font-family: "Italiana", serif;
+      font-size: 26px;
+      letter-spacing: -.06em;
+      animation: introPulse 1.6s ease both;
+      box-shadow: inset 0 0 42px rgba(216,178,110,.07), 0 0 60px rgba(216,178,110,.06);
+    }
+
+    .intro-copy {
+      overflow: hidden;
+      color: rgba(246,242,233,.66);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+    }
+
+    .intro-copy span {
+      display: inline-block;
+      animation: introRise 1s cubic-bezier(.2,.8,.2,1) .25s both;
+    }
+
+    @keyframes introPulse {
+      0% { opacity: 0; transform: scale(.78) rotate(-8deg); }
+      100% { opacity: 1; transform: scale(1) rotate(0); }
+    }
+
+    @keyframes introRise {
+      from { opacity: 0; transform: translateY(120%); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .ambient {
       position: fixed;
       inset: 0;
-      pointer-events: none;
-      overflow: hidden;
       z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
     }
 
     .orb {
       position: absolute;
       border-radius: 999px;
-      filter: blur(90px);
-      opacity: 0.18;
-      animation: drift 18s ease-in-out infinite alternate;
+      filter: blur(100px);
+      opacity: .17;
       will-change: transform;
+      animation: float 18s ease-in-out infinite alternate;
     }
 
     .orb.one {
-      width: 34rem;
-      height: 34rem;
-      top: 6%;
-      left: -14rem;
-      background: #c89445;
+      width: 520px;
+      height: 520px;
+      left: -220px;
+      top: 8%;
+      background: #a86f2b;
     }
 
     .orb.two {
-      width: 30rem;
-      height: 30rem;
-      right: -12rem;
-      top: 28%;
-      background: #745a9c;
+      width: 460px;
+      height: 460px;
+      right: -220px;
+      top: 32%;
+      background: #5b4779;
       animation-delay: -7s;
     }
 
     .orb.three {
-      width: 24rem;
-      height: 24rem;
+      width: 380px;
+      height: 380px;
       left: 38%;
-      bottom: -14rem;
-      background: #8f6238;
-      animation-delay: -11s;
+      bottom: -230px;
+      background: #90602e;
+      animation-delay: -10s;
     }
 
-    @keyframes drift {
-      from { transform: translate3d(0, 0, 0) scale(1); }
-      to { transform: translate3d(4rem, 2.5rem, 0) scale(1.16); }
+    @keyframes float {
+      from { transform: translate3d(0,0,0) scale(1); }
+      to { transform: translate3d(60px,36px,0) scale(1.17); }
     }
 
     .shell {
-      width: min(1180px, calc(100% - 28px));
+      width: min(1200px, calc(100% - 28px));
       margin: 0 auto;
-      padding: 28px 0 52px;
+      padding: 24px 0 56px;
     }
 
     .nav {
@@ -111,38 +182,43 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
+      min-height: 52px;
       margin-bottom: 18px;
       opacity: 0;
       transform: translateY(-12px);
-      animation: enter .75s ease .05s forwards;
+      animation: enter .8s ease .35s forwards;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 11px;
       color: var(--text);
       text-decoration: none;
+      font-size: 14px;
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: -.02em;
     }
 
     .brand-mark {
+      width: 38px;
+      height: 38px;
       display: grid;
       place-items: center;
-      width: 34px;
-      height: 34px;
-      border: 1px solid rgba(223, 189, 120, .38);
       border-radius: 50%;
-      color: var(--gold-soft);
-      background: rgba(223, 189, 120, .06);
-      box-shadow: inset 0 0 20px rgba(223, 189, 120, .05);
+      border: 1px solid rgba(216,178,110,.34);
+      background: rgba(216,178,110,.055);
+      color: var(--gold-light);
+      font-family: "Italiana", serif;
+      font-size: 14px;
+      box-shadow: inset 0 0 24px rgba(216,178,110,.05);
     }
 
     .nav-date {
       color: var(--muted);
-      font-size: 13px;
-      letter-spacing: .16em;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .18em;
       text-transform: uppercase;
     }
 
@@ -150,53 +226,66 @@
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      min-height: 690px;
+      min-height: 720px;
       display: grid;
       align-items: center;
-      padding: clamp(34px, 7vw, 82px);
-      border: 1px solid var(--border);
+      padding: clamp(34px, 7vw, 84px);
+      border: 1px solid var(--line);
       border-radius: var(--radius-xl);
       background:
-        linear-gradient(145deg, rgba(255,255,255,.095), rgba(255,255,255,.025) 60%),
-        rgba(13, 12, 15, .62);
+        linear-gradient(140deg, rgba(255,255,255,.09), rgba(255,255,255,.018) 62%),
+        rgba(12,12,12,.67);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
+      backdrop-filter: blur(26px);
+      -webkit-backdrop-filter: blur(26px);
       opacity: 0;
-      transform: translateY(20px) scale(.985);
-      animation: enter .9s cubic-bezier(.2,.8,.2,1) .12s forwards;
+      transform: translateY(22px) scale(.988);
+      animation: enter 1s cubic-bezier(.2,.8,.2,1) .42s forwards;
     }
 
     .hero::before {
       content: "";
       position: absolute;
-      width: 560px;
-      height: 560px;
-      right: -180px;
-      top: -210px;
-      border: 1px solid rgba(223, 189, 120, .12);
+      width: 650px;
+      height: 650px;
+      right: -220px;
+      top: -270px;
+      border: 1px solid rgba(216,178,110,.14);
       border-radius: 50%;
       box-shadow:
-        0 0 0 54px rgba(223, 189, 120, .025),
-        0 0 0 108px rgba(223, 189, 120, .018),
-        0 0 100px rgba(223, 189, 120, .08);
+        0 0 0 70px rgba(216,178,110,.025),
+        0 0 0 140px rgba(216,178,110,.014),
+        0 0 110px rgba(216,178,110,.05);
       z-index: -1;
     }
 
+    .hero::after {
+      content: "24 · 12 · 26";
+      position: absolute;
+      right: 28px;
+      bottom: 24px;
+      z-index: -1;
+      color: rgba(246,242,233,.04);
+      font-family: "Italiana", serif;
+      font-size: clamp(42px, 7vw, 92px);
+      letter-spacing: -.04em;
+      white-space: nowrap;
+    }
+
     .eyebrow {
+      width: fit-content;
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      width: fit-content;
-      margin-bottom: 24px;
-      padding: 9px 13px;
-      border: 1px solid rgba(223, 189, 120, .22);
+      margin-bottom: 28px;
+      padding: 10px 14px;
+      border: 1px solid rgba(216,178,110,.22);
       border-radius: 999px;
-      background: rgba(223, 189, 120, .055);
-      color: var(--gold-soft);
-      font-size: 12px;
+      background: rgba(216,178,110,.055);
+      color: var(--gold-light);
+      font-size: 10px;
       font-weight: 700;
-      letter-spacing: .14em;
+      letter-spacing: .2em;
       text-transform: uppercase;
     }
 
@@ -205,156 +294,176 @@
       height: 7px;
       border-radius: 50%;
       background: var(--gold);
-      box-shadow: 0 0 0 0 rgba(223, 189, 120, .45);
-      animation: pulse 2.1s infinite;
+      box-shadow: 0 0 0 0 rgba(216,178,110,.45);
+      animation: pulse 2.2s infinite;
     }
 
     @keyframes pulse {
-      70% { box-shadow: 0 0 0 9px rgba(223, 189, 120, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(223, 189, 120, 0); }
+      70% { box-shadow: 0 0 0 9px rgba(216,178,110,0); }
+      100% { box-shadow: 0 0 0 0 rgba(216,178,110,0); }
     }
 
     h1 {
       margin: 0;
-      max-width: 850px;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(58px, 9.5vw, 126px);
-      font-weight: 600;
-      line-height: .88;
-      letter-spacing: -.055em;
+      max-width: 1020px;
+      font-family: "Italiana", Georgia, serif;
+      font-size: clamp(65px, 11vw, 138px);
+      font-weight: 400;
+      line-height: .84;
+      letter-spacing: -.065em;
     }
 
-    h1 .script {
-      display: block;
-      margin-top: .11em;
-      font-style: italic;
-      font-weight: 600;
-      background: linear-gradient(110deg, #fff 12%, var(--gold-soft) 55%, #b98e4d 94%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    h1 .amp {
+      display: inline-block;
+      margin: 0 .08em;
+      color: var(--gold);
+      font-size: .6em;
+      vertical-align: .13em;
+      text-shadow: 0 0 38px rgba(216,178,110,.12);
     }
+
+    .full-names {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 9px 13px;
+      margin-top: 24px;
+      color: rgba(246,242,233,.72);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .full-names .dot { color: var(--gold); }
 
     .hero-sub {
-      max-width: 610px;
-      margin: 28px 0 0;
+      max-width: 650px;
+      margin: 25px 0 0;
       color: var(--muted);
-      font-size: clamp(16px, 2vw, 19px);
-      line-height: 1.7;
+      font-size: clamp(15px, 2vw, 18px);
+      line-height: 1.75;
     }
 
     .date-line {
       display: flex;
-      align-items: center;
       flex-wrap: wrap;
-      gap: 13px;
-      margin-top: 28px;
-      color: rgba(248, 245, 238, .84);
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+      color: rgba(246,242,233,.82);
+      font-size: 14px;
       font-weight: 600;
     }
 
-    .date-separator { color: var(--gold); }
+    .date-line .sep { color: var(--gold); }
 
     .countdown {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0,1fr));
       gap: 12px;
       margin-top: 42px;
+      max-width: 900px;
     }
 
     .time-card {
       position: relative;
       overflow: hidden;
-      padding: 22px 20px 19px;
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 20px;
-      background: rgba(255,255,255,.045);
+      min-height: 128px;
+      padding: 22px 20px 18px;
+      border: 1px solid rgba(255,255,255,.095);
+      border-radius: 22px;
+      background: rgba(255,255,255,.043);
       transition: transform .35s ease, border-color .35s ease, background .35s ease;
     }
 
     .time-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(223,189,120,.32);
-      background: rgba(255,255,255,.067);
+      transform: translateY(-5px);
+      border-color: rgba(216,178,110,.32);
+      background: rgba(255,255,255,.066);
     }
 
     .time-card::after {
       content: "";
       position: absolute;
-      inset: auto -30% -80% -30%;
-      height: 120px;
-      background: radial-gradient(circle, rgba(223,189,120,.15), transparent 66%);
+      left: -20%;
+      right: -20%;
+      bottom: -95px;
+      height: 130px;
+      background: radial-gradient(circle, rgba(216,178,110,.16), transparent 68%);
       pointer-events: none;
     }
 
     .time-number {
       display: block;
-      font-size: clamp(37px, 5.7vw, 64px);
-      font-weight: 600;
+      font-size: clamp(38px, 6vw, 66px);
+      font-weight: 500;
       line-height: 1;
-      letter-spacing: -.055em;
+      letter-spacing: -.06em;
       font-variant-numeric: tabular-nums;
-      transition: transform .24s ease, opacity .24s ease;
+      transition: transform .22s ease, opacity .22s ease, filter .22s ease;
     }
 
     .time-number.tick {
-      transform: translateY(-7px);
-      opacity: .5;
+      transform: translateY(-8px) scale(.98);
+      opacity: .44;
+      filter: blur(2px);
     }
 
     .time-label {
       display: block;
       margin-top: 10px;
       color: var(--muted);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
-      letter-spacing: .16em;
+      letter-spacing: .2em;
       text-transform: uppercase;
     }
 
-    .hero-actions {
+    .hero-actions, .venue-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 11px;
+      gap: 10px;
       margin-top: 28px;
     }
 
     .button {
       appearance: none;
       border: 0;
+      min-height: 48px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 9px;
-      min-height: 46px;
-      padding: 0 17px;
-      border-radius: 14px;
+      padding: 0 18px;
+      border-radius: 15px;
       cursor: pointer;
+      color: inherit;
       font: inherit;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       text-decoration: none;
       transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease;
     }
 
+    .button svg { width: 17px; height: 17px; }
     .button:hover { transform: translateY(-2px); }
     .button:active { transform: translateY(0) scale(.985); }
 
     .button.primary {
-      color: #18130d;
-      background: linear-gradient(135deg, #f0d9a9, #c99a50);
-      box-shadow: 0 10px 30px rgba(201, 154, 80, .16);
+      color: #17120c;
+      background: linear-gradient(135deg, #f2dba8 0%, #c9964b 100%);
+      box-shadow: 0 13px 36px rgba(201,150,75,.17);
     }
 
     .button.secondary {
-      color: var(--text);
-      border: 1px solid rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.11);
       background: rgba(255,255,255,.05);
     }
 
     .section-grid {
       display: grid;
-      grid-template-columns: 1.25fr .75fr;
+      grid-template-columns: 1.2fr .8fr;
       gap: 16px;
       margin-top: 16px;
     }
@@ -362,57 +471,54 @@
     .panel {
       position: relative;
       overflow: hidden;
-      padding: clamp(25px, 4vw, 38px);
-      border: 1px solid var(--border);
+      padding: clamp(26px,4vw,40px);
+      border: 1px solid var(--line);
       border-radius: var(--radius-lg);
-      background: var(--panel);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      box-shadow: 0 18px 60px rgba(0,0,0,.2);
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 20px 70px rgba(0,0,0,.22);
       opacity: 0;
-      transform: translateY(18px);
-      animation: enter .8s ease forwards;
+      transform: translateY(20px);
+      animation: enter .9s ease forwards;
     }
 
-    .venue { animation-delay: .3s; }
-    .progress-panel { animation-delay: .42s; }
+    .venue { animation-delay: .62s; }
+    .progress-panel { animation-delay: .72s; }
 
     .panel-kicker {
-      margin: 0 0 11px;
-      color: var(--gold-soft);
-      font-size: 11px;
+      margin: 0 0 12px;
+      color: var(--gold-light);
+      font-size: 10px;
       font-weight: 700;
-      letter-spacing: .16em;
+      letter-spacing: .21em;
       text-transform: uppercase;
     }
 
     .panel h2 {
       margin: 0;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(30px, 4.2vw, 49px);
-      line-height: 1.05;
-      letter-spacing: -.035em;
+      font-family: "Italiana", Georgia, serif;
+      font-size: clamp(34px, 4.5vw, 54px);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -.04em;
     }
 
     .venue-address {
       display: flex;
       gap: 12px;
-      margin: 20px 0 0;
+      margin: 22px 0 0;
       color: var(--muted);
-      line-height: 1.6;
+      font-size: 14px;
+      line-height: 1.7;
     }
 
     .venue-address svg {
       flex: 0 0 auto;
-      margin-top: 3px;
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
       color: var(--gold);
-    }
-
-    .venue-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
     }
 
     .progress-panel {
@@ -423,7 +529,7 @@
 
     .ring-wrap {
       position: relative;
-      width: min(210px, 62vw);
+      width: min(225px, 62vw);
       aspect-ratio: 1;
       display: grid;
       place-items: center;
@@ -440,70 +546,114 @@
       stroke-width: 7;
     }
 
-    .ring .track { stroke: rgba(255,255,255,.08); }
+    .ring .track { stroke: rgba(255,255,255,.075); }
     .ring .value {
       stroke: url(#goldGradient);
       stroke-linecap: round;
       stroke-dasharray: 565.49;
       stroke-dashoffset: 565.49;
-      transition: stroke-dashoffset 1.2s cubic-bezier(.2,.8,.2,1);
+      transition: stroke-dashoffset 1.4s cubic-bezier(.2,.8,.2,1);
+      filter: drop-shadow(0 0 6px rgba(216,178,110,.22));
     }
 
-    .ring-copy strong {
+    .ring-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .ring-days {
       display: block;
-      font-size: 38px;
+      font-size: 50px;
+      font-weight: 500;
       line-height: 1;
-      letter-spacing: -.04em;
+      letter-spacing: -.06em;
     }
 
-    .ring-copy span {
+    .ring-label {
       display: block;
-      margin-top: 7px;
+      margin-top: 8px;
       color: var(--muted);
-      font-size: 12px;
-      letter-spacing: .12em;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .18em;
       text-transform: uppercase;
     }
 
-    .tiny {
-      max-width: 260px;
-      margin: 18px auto 0;
+    .progress-copy {
+      max-width: 330px;
+      margin: 20px auto 0;
       color: var(--muted);
       font-size: 13px;
-      line-height: 1.6;
+      line-height: 1.65;
+    }
+
+    .ticker {
+      position: relative;
+      overflow: hidden;
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.035);
+      opacity: 0;
+      animation: enter .9s ease .82s forwards;
+    }
+
+    .ticker-track {
+      width: max-content;
+      display: flex;
+      gap: 32px;
+      padding: 21px 0;
+      animation: marquee 22s linear infinite;
+      color: rgba(246,242,233,.5);
+      font-family: "Italiana", serif;
+      font-size: 24px;
+      letter-spacing: .02em;
+      white-space: nowrap;
+    }
+
+    .ticker-track span { color: var(--gold); }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
 
     .footer {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 16px;
-      flex-wrap: wrap;
-      padding: 26px 4px 2px;
-      color: rgba(248,245,238,.4);
-      font-size: 12px;
+      padding: 26px 4px 0;
+      color: var(--muted-2);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
     }
 
     .toast {
       position: fixed;
       left: 50%;
       bottom: 24px;
-      z-index: 30;
-      transform: translate(-50%, 18px);
-      padding: 11px 15px;
+      z-index: 80;
+      transform: translate(-50%, 24px);
+      padding: 12px 16px;
       border: 1px solid rgba(255,255,255,.12);
-      border-radius: 999px;
-      background: rgba(20,19,22,.9);
+      border-radius: 14px;
+      background: rgba(20,20,20,.88);
       color: var(--text);
-      box-shadow: 0 15px 50px rgba(0,0,0,.36);
-      backdrop-filter: blur(16px);
+      box-shadow: 0 16px 50px rgba(0,0,0,.35);
+      backdrop-filter: blur(18px);
       opacity: 0;
-      pointer-events: none;
-      transition: opacity .25s ease, transform .25s ease;
-      font-size: 13px;
+      visibility: hidden;
+      transition: .3s ease;
+      font-size: 12px;
+      font-weight: 700;
     }
 
     .toast.show {
       opacity: 1;
+      visibility: visible;
       transform: translate(-50%, 0);
     }
 
@@ -511,39 +661,54 @@
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    @media (max-width: 780px) {
-      .shell { width: min(100% - 18px, 1180px); padding-top: 14px; }
-      .nav { padding: 0 6px; }
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 18px, 1200px); padding-top: 12px; }
+      .nav { padding: 0 4px; }
       .nav-date { display: none; }
-      .hero { min-height: auto; padding: 35px 20px 28px; border-radius: 26px; }
-      .hero::before { width: 390px; height: 390px; right: -190px; top: -170px; }
-      h1 { font-size: clamp(55px, 17vw, 88px); }
-      .hero-sub { margin-top: 20px; }
+      .hero { min-height: auto; padding: 42px 20px 28px; border-radius: 30px; }
+      .hero::before { width: 430px; height: 430px; right: -250px; top: -170px; }
+      .hero::after { right: 18px; bottom: 16px; font-size: 42px; }
+      h1 { font-size: clamp(62px, 21vw, 92px); line-height: .86; }
+      h1 .amp { margin: 0 .03em; }
+      .full-names { margin-top: 18px; font-size: 10px; line-height: 1.6; }
+      .hero-sub { margin-top: 20px; font-size: 14px; line-height: 1.65; }
+      .date-line { font-size: 12px; line-height: 1.6; }
       .countdown { grid-template-columns: repeat(2, minmax(0,1fr)); margin-top: 30px; }
-      .time-card { padding: 19px 16px 17px; }
-      .time-number { font-size: clamp(38px, 13vw, 58px); }
+      .time-card { min-height: 110px; padding: 18px 16px 16px; }
+      .time-number { font-size: 44px; }
       .section-grid { grid-template-columns: 1fr; }
-      .progress-panel { min-height: 330px; }
+      .panel { border-radius: 24px; }
+      .hero-actions .button { flex: 1 1 145px; }
+      .footer { flex-direction: column; align-items: flex-start; line-height: 1.6; }
+      .ticker-track { font-size: 20px; }
     }
 
-    @media (max-width: 420px) {
-      .hero-actions, .venue-actions { display: grid; grid-template-columns: 1fr; }
-      .button { width: 100%; }
-      .date-line { font-size: 14px; }
+    @media (max-width: 390px) {
+      .hero { padding-left: 17px; padding-right: 17px; }
+      h1 { font-size: 60px; }
+      .countdown { gap: 8px; }
+      .time-card { border-radius: 18px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
+        scroll-behavior: auto !important;
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
         transition-duration: .01ms !important;
       }
+      .intro { display: none; }
     }
   </style>
 </head>
-
 <body>
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-inner">
+      <div class="intro-monogram">U+A</div>
+      <div class="intro-copy"><span>24 · December · 2026</span></div>
+    </div>
+  </div>
+
   <div class="ambient" aria-hidden="true">
     <div class="orb one"></div>
     <div class="orb two"></div>
@@ -552,191 +717,190 @@
 
   <main class="shell">
     <nav class="nav" aria-label="Wedding countdown">
-      <a class="brand" href="#top" aria-label="Our wedding countdown home">
-        <span class="brand-mark">♡</span>
-        <span>Our Wedding</span>
+      <a class="brand" href="#top">
+        <span class="brand-mark">U+A</span>
+        <span>Umar & Ansa</span>
       </a>
-      <span class="nav-date">24 · 12 · 2026</span>
+      <div class="nav-date">24 · 12 · 2026 — Birmingham</div>
     </nav>
 
     <section class="hero" id="top">
       <div>
-        <div class="eyebrow"><span class="pulse-dot"></span> The countdown is on</div>
+        <div class="eyebrow"><span class="pulse-dot"></span> The countdown to forever</div>
 
-        <h1>
-          Until we say
-          <span class="script">I do.</span>
-        </h1>
+        <h1>Umar <span class="amp">&</span> Ansa</h1>
+
+        <div class="full-names">
+          <span>Umar Siddiqui</span><span class="dot">◆</span><span>Ansa Talib</span>
+        </div>
 
         <p class="hero-sub">
-          One date. One unforgettable day. Every second now takes us closer to forever.
+          One date. One day. One beginning. Counting every last moment until we say yes to forever.
         </p>
 
         <div class="date-line">
           <span>Thursday, 24 December 2026</span>
-          <span class="date-separator">✦</span>
-          <span>Birmingham, UK</span>
+          <span class="sep">◆</span>
+          <span>Quaid-e-Azam Grand Ballroom</span>
+          <span class="sep">◆</span>
+          <span>Birmingham</span>
         </div>
 
-        <div class="countdown" aria-label="Time remaining until the wedding">
-          <div class="time-card">
-            <span class="time-number" id="days">000</span>
-            <span class="time-label">Days</span>
-          </div>
-          <div class="time-card">
-            <span class="time-number" id="hours">00</span>
-            <span class="time-label">Hours</span>
-          </div>
-          <div class="time-card">
-            <span class="time-number" id="minutes">00</span>
-            <span class="time-label">Minutes</span>
-          </div>
-          <div class="time-card">
-            <span class="time-number" id="seconds">00</span>
-            <span class="time-label">Seconds</span>
-          </div>
+        <div class="countdown" aria-label="Countdown to the wedding">
+          <div class="time-card"><span class="time-number" id="days">000</span><span class="time-label">Days</span></div>
+          <div class="time-card"><span class="time-number" id="hours">00</span><span class="time-label">Hours</span></div>
+          <div class="time-card"><span class="time-number" id="minutes">00</span><span class="time-label">Minutes</span></div>
+          <div class="time-card"><span class="time-number" id="seconds">00</span><span class="time-label">Seconds</span></div>
         </div>
 
         <div class="hero-actions">
-          <button class="button primary" id="calendarBtn" type="button" aria-label="Add wedding date to calendar">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 2v3M17 2v3M3.5 9h17M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-            Add to calendar
-          </button>
-          <button class="button secondary" id="shareBtn" type="button" aria-label="Share wedding countdown">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 8a3 3 0 1 0-2.83-4A3 3 0 0 0 18 8ZM6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12 7a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM8.6 10.55l6.8-3.1M8.6 13.45l6.8 3.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <button class="button primary" id="shareButton" type="button" aria-label="Share our countdown">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.6 6.8-4.2M8.6 13.4l6.8 4.2"/></svg>
             Share countdown
           </button>
+          <a class="button secondary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Umar%20%26%20Ansa%27s%20Wedding&dates=20261224%2F20261225&location=Quaid-e-Azam%20Grand%20Ballroom%2C%20Montague%20Street%2C%20Birmingham%20B4%207XH&details=Umar%20Siddiqui%20%26%20Ansa%20Talib%20%E2%80%94%20Wedding%20Day" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
+            Add to calendar
+          </a>
         </div>
       </div>
     </section>
 
     <section class="section-grid" aria-label="Wedding details">
       <article class="panel venue">
-        <p class="panel-kicker">The venue</p>
-        <h2>Quaid‑e‑Azam<br />Grand Ballroom</h2>
+        <p class="panel-kicker">Where we're celebrating</p>
+        <h2>Quaid-e-Azam<br />Grand Ballroom</h2>
         <div class="venue-address">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.7"/></svg>
-          <span>Montague Street<br />Birmingham B4 7XH<br />United Kingdom</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <div>Montague Street<br />Birmingham, B4 7XH<br />United Kingdom</div>
         </div>
-
         <div class="venue-actions">
-          <a class="button primary" href="https://www.google.com/maps/search/?api=1&query=Quaid-e-Azam+Grand+Ballroom+Montague+Street+Birmingham+B4+7XH" target="_blank" rel="noopener noreferrer">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.8"/></svg>
+          <a class="button primary" href="https://www.google.com/maps/search/?api=1&query=Quaid-e-Azam+Grand+Ballroom+Montague+Street+Birmingham+B4+7XH" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
             Get directions
           </a>
-          <a class="button secondary" href="https://quaid-e-azam.co.uk/" target="_blank" rel="noopener noreferrer">Venue website ↗</a>
         </div>
       </article>
 
       <article class="panel progress-panel">
         <div>
-          <p class="panel-kicker">Getting closer</p>
-          <div class="ring-wrap" aria-label="Wedding countdown progress">
+          <p class="panel-kicker">Nearly there</p>
+          <div class="ring-wrap">
             <svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
               <defs>
                 <linearGradient id="goldGradient" x1="0" x2="1">
-                  <stop offset="0%" stop-color="#f1d9a5" />
-                  <stop offset="100%" stop-color="#b9813d" />
+                  <stop offset="0" stop-color="#a97937" />
+                  <stop offset=".5" stop-color="#f3d9a2" />
+                  <stop offset="1" stop-color="#d8b26e" />
                 </linearGradient>
               </defs>
               <circle class="track" cx="100" cy="100" r="90" />
               <circle class="value" id="progressRing" cx="100" cy="100" r="90" />
             </svg>
-            <div class="ring-copy">
-              <strong id="daysBig">—</strong>
-              <span>days to go</span>
+            <div class="ring-content">
+              <span class="ring-days" id="ringDays">—</span>
+              <span class="ring-label">Days to go</span>
             </div>
           </div>
-          <p class="tiny" id="progressMessage">The best day is getting closer.</p>
+          <p class="progress-copy" id="progressCopy">Every day brings us closer to 24 December 2026.</p>
         </div>
       </article>
     </section>
 
+    <section class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        Umar Siddiqui <span>◆</span> Ansa Talib <span>◆</span> 24 December 2026 <span>◆</span> Birmingham <span>◆</span> Forever starts here <span>◆</span>
+        Umar Siddiqui <span>◆</span> Ansa Talib <span>◆</span> 24 December 2026 <span>◆</span> Birmingham <span>◆</span> Forever starts here <span>◆</span>
+      </div>
+    </section>
+
     <footer class="footer">
-      <span>24.12.2026 · Birmingham</span>
-      <span>Our forever starts here ♡</span>
+      <span>Umar Siddiqui × Ansa Talib</span>
+      <span>24.12.2026 · Birmingham, UK</span>
     </footer>
   </main>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite">Link copied</div>
 
   <script>
-    // Midnight at the start of 24 December 2026 in Birmingham (GMT).
-    const weddingDate = new Date("2026-12-24T00:00:00Z");
-    const countdownStart = new Date("2026-09-03T00:00:00Z");
-    const circumference = 2 * Math.PI * 90;
+    const WEDDING_DATE = new Date('2026-12-24T00:00:00+00:00');
+    const COUNTDOWN_START = new Date('2026-09-03T00:00:00+01:00');
+    const CIRCUMFERENCE = 565.49;
 
+    const $ = (id) => document.getElementById(id);
     const nodes = {
-      days: document.getElementById("days"),
-      hours: document.getElementById("hours"),
-      minutes: document.getElementById("minutes"),
-      seconds: document.getElementById("seconds"),
-      daysBig: document.getElementById("daysBig"),
-      progressRing: document.getElementById("progressRing"),
-      progressMessage: document.getElementById("progressMessage"),
-      toast: document.getElementById("toast")
+      days: $('days'),
+      hours: $('hours'),
+      minutes: $('minutes'),
+      seconds: $('seconds')
     };
 
-    let previous = {};
+    const pad = (value, length = 2) => String(value).padStart(length, '0');
 
-    function pad(value, width = 2) {
-      return String(value).padStart(width, "0");
-    }
-
-    function animateNumber(node, value, key) {
-      if (previous[key] === value) return;
-      node.classList.add("tick");
-      window.setTimeout(() => {
-        node.textContent = value;
-        node.classList.remove("tick");
-      }, 120);
-      previous[key] = value;
+    function animateNumber(node, nextValue) {
+      if (node.textContent === nextValue) return;
+      node.classList.add('tick');
+      setTimeout(() => {
+        node.textContent = nextValue;
+        node.classList.remove('tick');
+      }, 115);
     }
 
     function updateCountdown() {
       const now = new Date();
-      const difference = Math.max(0, weddingDate.getTime() - now.getTime());
+      const diff = WEDDING_DATE.getTime() - now.getTime();
 
-      const days = Math.floor(difference / 86400000);
-      const hours = Math.floor((difference % 86400000) / 3600000);
-      const minutes = Math.floor((difference % 3600000) / 60000);
-      const seconds = Math.floor((difference % 60000) / 1000);
+      if (diff <= 0) {
+        animateNumber(nodes.days, '000');
+        animateNumber(nodes.hours, '00');
+        animateNumber(nodes.minutes, '00');
+        animateNumber(nodes.seconds, '00');
+        $('ringDays').textContent = '0';
+        $('progressCopy').textContent = 'Today is the day. Umar & Ansa — forever starts now.';
+        $('progressRing').style.strokeDashoffset = '0';
+        return;
+      }
 
-      animateNumber(nodes.days, pad(days, 3), "days");
-      animateNumber(nodes.hours, pad(hours), "hours");
-      animateNumber(nodes.minutes, pad(minutes), "minutes");
-      animateNumber(nodes.seconds, pad(seconds), "seconds");
-      nodes.daysBig.textContent = days;
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
 
-      const total = weddingDate.getTime() - countdownStart.getTime();
-      const elapsed = now.getTime() - countdownStart.getTime();
-      const progress = Math.max(0, Math.min(1, elapsed / total));
-      nodes.progressRing.style.strokeDashoffset = circumference * (1 - progress);
+      animateNumber(nodes.days, pad(days, 3));
+      animateNumber(nodes.hours, pad(hours));
+      animateNumber(nodes.minutes, pad(minutes));
+      animateNumber(nodes.seconds, pad(seconds));
+      $('ringDays').textContent = days;
 
-      if (difference === 0) {
-        nodes.progressMessage.textContent = "Today is the day. ♡";
-      } else if (days <= 7) {
-        nodes.progressMessage.textContent = "Wedding week. This is really happening.";
+      const fullWindow = WEDDING_DATE.getTime() - COUNTDOWN_START.getTime();
+      const elapsed = now.getTime() - COUNTDOWN_START.getTime();
+      const progress = Math.max(0, Math.min(1, elapsed / fullWindow));
+      $('progressRing').style.strokeDashoffset = String(CIRCUMFERENCE * (1 - progress));
+
+      if (days <= 7) {
+        $('progressCopy').textContent = "It's wedding week. The final countdown is officially on.";
       } else if (days <= 30) {
-        nodes.progressMessage.textContent = "Less than a month until forever.";
+        $('progressCopy').textContent = 'Less than one month until Umar & Ansa become husband and wife.';
       } else if (days < 100) {
-        nodes.progressMessage.textContent = "Double digits. The final countdown is on.";
+        $('progressCopy').textContent = 'Double digits. Wedding day is getting very, very close.';
       } else {
-        nodes.progressMessage.textContent = "The best day is getting closer.";
+        $('progressCopy').textContent = 'Every day brings us closer to 24 December 2026.';
       }
     }
 
     function showToast(message) {
-      nodes.toast.textContent = message;
-      nodes.toast.classList.add("show");
-      clearTimeout(showToast.timer);
-      showToast.timer = setTimeout(() => nodes.toast.classList.remove("show"), 2200);
+      const toast = $('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
     }
 
-    document.getElementById("shareBtn").addEventListener("click", async () => {
+    $('shareButton').addEventListener('click', async () => {
       const shareData = {
-        title: "Our Wedding Countdown",
-        text: "Countdown to 24 December 2026 ♡",
+        title: 'Umar & Ansa — 24.12.2026',
+        text: 'Our wedding countdown — 24 December 2026.',
         url: window.location.href
       };
 
@@ -745,44 +909,30 @@
           await navigator.share(shareData);
         } else {
           await navigator.clipboard.writeText(window.location.href);
-          showToast("Countdown link copied");
+          showToast('Countdown link copied');
         }
       } catch (error) {
-        if (error?.name !== "AbortError") showToast("Couldn’t share — copy the page link instead");
+        if (error && error.name !== 'AbortError') {
+          try {
+            await navigator.clipboard.writeText(window.location.href);
+            showToast('Countdown link copied');
+          } catch (_) {
+            showToast('Copy the page address to share it');
+          }
+        }
       }
-    });
-
-    document.getElementById("calendarBtn").addEventListener("click", () => {
-      const ics = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "PRODID:-//Our Wedding//Countdown//EN",
-        "BEGIN:VEVENT",
-        "UID:wedding-20261224@ourwedding",
-        "DTSTAMP:20260903T000000Z",
-        "DTSTART;VALUE=DATE:20261224",
-        "DTEND;VALUE=DATE:20261225",
-        "SUMMARY:Our Wedding ♡",
-        "LOCATION:Quaid-e-Azam Grand Ballroom\\, Montague Street\\, Birmingham B4 7XH\\, United Kingdom",
-        "DESCRIPTION:Our wedding day — 24 December 2026.",
-        "END:VEVENT",
-        "END:VCALENDAR"
-      ].join("\r\n");
-
-      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "our-wedding-24-december-2026.ics";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-      showToast("Calendar event ready");
     });
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
+
+    window.addEventListener('load', () => {
+      setTimeout(() => $('intro').classList.add('is-hidden'), 1350);
+    });
+
+    window.addEventListener('pageshow', () => {
+      setTimeout(() => $('intro').classList.add('is-hidden'), 1350);
+    });
   </script>
 </body>
 </html>
