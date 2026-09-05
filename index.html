@@ -267,6 +267,14 @@
     const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const salaamSection=$('salaamSection'),salaamEnter=$('salaamEnter'),heroTop=$('top');
     if(salaamEnter&&heroTop){salaamEnter.addEventListener('click',()=>heroTop.scrollIntoView({behavior:prefersReducedMotion?'auto':'smooth',block:'start'}))}
+    document.querySelectorAll('a[href^="#"]').forEach(link=>{
+      const target=document.getElementById(link.getAttribute('href').slice(1));
+      if(!target)return;
+      link.addEventListener('click',e=>{
+        e.preventDefault();
+        target.scrollIntoView({behavior:prefersReducedMotion?'auto':'smooth',block:'start'});
+      });
+    });
     if(salaamSection&&!prefersReducedMotion&&'IntersectionObserver' in window){const salaamObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{salaamSection.classList.toggle('exiting',entry.boundingClientRect.top<-40&&entry.intersectionRatio<.6)})},{threshold:[0,.2,.4,.6,.8,1]});salaamObserver.observe(salaamSection)}
   </script>
 
