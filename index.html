@@ -102,7 +102,7 @@
     }
     .salaam-calligraphy{
       width:min(97vw,1320px);
-      aspect-ratio:4 / 1;
+      aspect-ratio:1.84 / 1;
       margin:0 auto;
       -webkit-mask-size:contain;
       mask-size:contain;
@@ -280,25 +280,25 @@
       const fitSalaam = () => {
         cancelAnimationFrame(frame);
         frame = requestAnimationFrame(() => {
-          content.style.setProperty('--salaam-fit','1');
+          const vv = window.visualViewport;
+          const viewportWidth = vv ? vv.width : document.documentElement.clientWidth;
+          const viewportHeight = vv ? vv.height : window.innerHeight;
+          const styles = getComputedStyle(section);
+          const padX = parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
+          const padY = parseFloat(styles.paddingTop) + parseFloat(styles.paddingBottom);
+          const maxWidth = Math.max(240, viewportWidth - padX - 4);
+          const maxHeight = Math.max(280, viewportHeight - padY - 4);
 
-          requestAnimationFrame(() => {
-            const vv = window.visualViewport;
-            const viewportWidth = vv ? vv.width : document.documentElement.clientWidth;
-            const viewportHeight = vv ? vv.height : window.innerHeight;
-            const styles = getComputedStyle(section);
-            const padX = parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
-            const padY = parseFloat(styles.paddingTop) + parseFloat(styles.paddingBottom);
-            const maxWidth = Math.max(240, viewportWidth - padX - 4);
-            const maxHeight = Math.max(280, viewportHeight - padY - 4);
+          // offsetWidth/offsetHeight reflect the untransformed layout size,
+          // so the natural size can be read directly without resetting the
+          // scale first and waiting a frame for it to repaint.
+          const naturalWidth = content.offsetWidth;
+          const naturalHeight = content.offsetHeight;
+          const widthScale = maxWidth / naturalWidth;
+          const heightScale = maxHeight / naturalHeight;
+          const scale = Math.min(1, widthScale, heightScale);
 
-            const rect = content.getBoundingClientRect();
-            const widthScale = maxWidth / rect.width;
-            const heightScale = maxHeight / rect.height;
-            const scale = Math.min(1, widthScale, heightScale);
-
-            content.style.setProperty('--salaam-fit', String(Math.max(0.45, scale)));
-          });
+          content.style.setProperty('--salaam-fit', String(Math.max(0.45, scale)));
         });
       };
 
