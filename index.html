@@ -164,8 +164,31 @@
     @media(max-width:600px){.secondary-salaam{width:96vw;padding:16px}}
     @media(prefers-reduced-motion:reduce){.intro-stage.two .secondary-salaam .salaam-wrap{opacity:1;transform:none;filter:none;transition:none}}
   </style>
+
+  <style id="transition-order-fix">
+    body.intro-sequence-active{overflow:hidden}
+    body.intro-sequence-active > .salaam-section,
+    body.intro-sequence-active > .ambient,
+    body.intro-sequence-active > .shell,
+    body.intro-sequence-active > .toast{visibility:hidden!important}
+    .intro{z-index:2147483000!important;isolation:isolate;background:radial-gradient(circle at 50% 45%,rgba(213,173,102,.075),transparent 28%),#0b0907!important}
+    .intro::before,.intro::after{z-index:0}
+    .intro-stage{z-index:2}
+    .intro-stage.one{z-index:3}
+    .intro-stage.one.exit{z-index:1}
+    .intro-stage.two{z-index:2}
+    .intro-stage.two.show{z-index:4}
+    .intro.sequence-gone{display:none!important}
+    @media(prefers-reduced-motion:reduce){
+      body.intro-sequence-active{overflow:auto}
+      body.intro-sequence-active > .salaam-section,
+      body.intro-sequence-active > .ambient,
+      body.intro-sequence-active > .shell,
+      body.intro-sequence-active > .toast{visibility:visible!important}
+    }
+  </style>
 </head>
-<body>
+<body class="intro-sequence-active">
   <div class="intro" id="intro" aria-hidden="true">
     <div class="intro-stage one" id="introStageOne">
       <div class="intro-inner">
@@ -247,7 +270,7 @@
     $('shareButton').addEventListener('click',shareInvitation);$('shareButtonBottom').addEventListener('click',shareInvitation);
     const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.14,rootMargin:'0px 0px -40px'});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
     updateCountdown();setInterval(updateCountdown,1000);
-    let introPlayed=false;function playIntro(){if(introPlayed)return;introPlayed=true;const intro=$('intro'),one=$('introStageOne'),two=$('introStageTwo');setTimeout(()=>one.classList.add('exit'),2800);setTimeout(()=>two.classList.add('show'),3400);setTimeout(()=>two.classList.add('exit'),6900);setTimeout(()=>intro.classList.add('hidden'),7750)}
+    let introPlayed=false;function playIntro(){if(introPlayed)return;introPlayed=true;const intro=$('intro'),one=$('introStageOne'),two=$('introStageTwo');if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){document.body.classList.remove('intro-sequence-active');intro.classList.add('hidden','sequence-gone');return}document.body.classList.add('intro-sequence-active');window.scrollTo(0,0);one.classList.remove('exit');two.classList.remove('show','exit');intro.classList.remove('hidden','sequence-gone');setTimeout(()=>one.classList.add('exit'),2800);setTimeout(()=>two.classList.add('show'),3400);setTimeout(()=>two.classList.add('exit'),6900);setTimeout(()=>intro.classList.add('hidden'),7750);setTimeout(()=>{intro.classList.add('sequence-gone');document.body.classList.remove('intro-sequence-active');window.scrollTo(0,0)},8900)}
     window.addEventListener('load',playIntro);window.addEventListener('pageshow',playIntro);
     const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const salaamSection=$('salaamSection'),salaamEnter=$('salaamEnter'),heroTop=$('top');
