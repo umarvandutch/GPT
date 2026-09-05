@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /umar-ansa-private-241226/
+
+Sitemap: https://umar-ansa.co.uk/
