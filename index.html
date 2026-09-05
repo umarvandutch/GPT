@@ -187,6 +187,26 @@
       body.intro-sequence-active > .toast{visibility:visible!important}
     }
   </style>
+
+  <style id="hard-gateway-lock-fix">
+    #salaamSection.gateway-locked{
+      visibility:hidden!important;
+      opacity:0!important;
+      pointer-events:none!important;
+    }
+    #salaamSection.gateway-ready{
+      visibility:visible!important;
+      opacity:1!important;
+      pointer-events:auto!important;
+      transition:opacity .55s cubic-bezier(.22,.8,.2,1);
+    }
+    html.intro-lock,html.intro-lock body{overflow:hidden!important;overscroll-behavior:none}
+    #intro{background:#0b0907!important}
+    #intro::marker{display:none}
+    @media(prefers-reduced-motion:reduce){
+      #salaamSection.gateway-locked{visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+    }
+  </style>
 </head>
 <body class="intro-sequence-active">
   <div class="intro" id="intro" aria-hidden="true">
@@ -210,7 +230,7 @@
       </div>
     </div>
 
-  <section class="salaam-section" id="salaamSection" aria-label="As-salamu alaykum — peace be upon you">
+  <section class="salaam-section gateway-locked" id="salaamSection" aria-label="As-salamu alaykum — peace be upon you">
     <div class="salaam-glow" aria-hidden="true"></div>
     <div class="salaam-content">
       <div class="salaam-frame" aria-hidden="true">
@@ -270,8 +290,8 @@
     $('shareButton').addEventListener('click',shareInvitation);$('shareButtonBottom').addEventListener('click',shareInvitation);
     const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.14,rootMargin:'0px 0px -40px'});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
     updateCountdown();setInterval(updateCountdown,1000);
-    let introPlayed=false;function playIntro(){if(introPlayed)return;introPlayed=true;const intro=$('intro'),one=$('introStageOne'),two=$('introStageTwo');if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){document.body.classList.remove('intro-sequence-active');intro.classList.add('hidden','sequence-gone');return}document.body.classList.add('intro-sequence-active');window.scrollTo(0,0);one.classList.remove('exit');two.classList.remove('show','exit');intro.classList.remove('hidden','sequence-gone');setTimeout(()=>one.classList.add('exit'),2800);setTimeout(()=>two.classList.add('show'),3400);setTimeout(()=>two.classList.add('exit'),6900);setTimeout(()=>intro.classList.add('hidden'),7750);setTimeout(()=>{intro.classList.add('sequence-gone');document.body.classList.remove('intro-sequence-active');window.scrollTo(0,0)},8900)}
-    window.addEventListener('load',playIntro);window.addEventListener('pageshow',playIntro);
+    let introPlayed=false;function playIntro(){if(introPlayed)return;introPlayed=true;const intro=$('intro'),one=$('introStageOne'),two=$('introStageTwo'),gateway=$('salaamSection');const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;document.documentElement.classList.add('intro-lock');document.body.classList.add('intro-sequence-active');if(gateway){gateway.classList.add('gateway-locked');gateway.classList.remove('gateway-ready')}window.scrollTo(0,0);one.classList.remove('exit');two.classList.remove('show','exit');intro.classList.remove('hidden','sequence-gone');if(reduced){setTimeout(()=>{intro.classList.add('hidden','sequence-gone');if(gateway){gateway.classList.remove('gateway-locked');gateway.classList.add('gateway-ready')}document.body.classList.remove('intro-sequence-active');document.documentElement.classList.remove('intro-lock');window.scrollTo(0,0)},250);return}setTimeout(()=>one.classList.add('exit'),2800);setTimeout(()=>two.classList.add('show'),3400);setTimeout(()=>two.classList.add('exit'),6900);setTimeout(()=>intro.classList.add('hidden'),7750);setTimeout(()=>{intro.classList.add('sequence-gone');if(gateway){gateway.classList.remove('gateway-locked');gateway.classList.add('gateway-ready')}document.body.classList.remove('intro-sequence-active');document.documentElement.classList.remove('intro-lock');window.scrollTo(0,0);window.dispatchEvent(new Event('resize'))},8900)}
+    window.addEventListener('load',playIntro);window.addEventListener('pageshow',e=>{if(e.persisted){introPlayed=false;playIntro()}else{playIntro()}});
     const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const salaamSection=$('salaamSection'),salaamEnter=$('salaamEnter'),heroTop=$('top');
     if(salaamEnter&&heroTop){salaamEnter.addEventListener('click',()=>heroTop.scrollIntoView({behavior:prefersReducedMotion?'auto':'smooth',block:'start'}))}
