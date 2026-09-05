@@ -1,0 +1,31 @@
+name: Restore exact Salaam artwork
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/restore-exact-salaam.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fetch backup branch
+        run: |
+          git fetch origin backup-before-secondary-salaam-transition-2026-09-05
+          git show origin/backup-before-secondary-salaam-transition-2026-09-05:index.html > /tmp/index-before-secondary.html
+      - name: Restore exact Salaam artwork in both places
+        run: python3 patch_restore_exact_salaam.py
+      - name: Commit website update
+        run: |
+          git config user.name "umarvandutch"
+          git config user.email "96899121+umarvandutch@users.noreply.github.com"
+          git add index.html
+          git commit -m "Reuse exact Salaam artwork in transition and gateway"
+          git push
