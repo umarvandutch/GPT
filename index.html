@@ -31,8 +31,6 @@
     @media(max-width:760px){.salaam-calligraphy{width:min(72vw,300px)}}
     @keyframes salaamGlow{to{transform:scale(1.12);opacity:.65}}@keyframes sealIn{from{opacity:0;transform:scale(.74) rotate(-8deg)}to{opacity:1;transform:scale(1)}}@keyframes lineGrow{from{height:0;opacity:0}to{height:52px;opacity:1}}@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
     .salaam-section{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden;padding:36px 20px;isolation:isolate}
-    .salaam-frame{width:min(40vw,300px);margin:0 auto 18px;pointer-events:none}.salaam-frame svg{width:100%;height:auto;display:block;opacity:.55}
-    @media(max-width:760px){.salaam-frame{width:min(56vw,230px);margin-bottom:12px}}
     .salaam-content{position:relative;z-index:2;display:grid;justify-items:center;text-align:center;transition:opacity .8s cubic-bezier(.22,.8,.2,1),transform .8s cubic-bezier(.22,.8,.2,1)}
     .salaam-section.exiting .salaam-content{opacity:0;transform:translateY(-48px) scale(.97)}
     .salaam-brand{display:flex;align-items:center;gap:10px;color:var(--text);font-size:13px;font-weight:600;margin-bottom:8px}.salaam-brand .brand-mark{width:36px;height:36px;font-size:13px}
@@ -74,7 +72,7 @@
     }
     .salaam-content{
       --salaam-fit:1;
-      width:min(96vw,1220px);
+      width:min(97vw,1400px);
       max-height:none;
       align-content:initial;
       transform:scale(var(--salaam-fit));
@@ -84,10 +82,6 @@
     .salaam-section.exiting .salaam-content{
       opacity:0;
       transform:scale(var(--salaam-fit)) translateY(-48px);
-    }
-    .salaam-frame{
-      width:min(46vw,240px);
-      margin:0 auto clamp(14px,2.2dvh,24px);
     }
     .salaam-brand{
       gap:12px;
@@ -107,7 +101,7 @@
       margin-bottom:14px;
     }
     .salaam-calligraphy{
-      width:min(96vw,1160px);
+      width:min(97vw,1320px);
       aspect-ratio:4 / 1;
       margin:0 auto;
       -webkit-mask-size:contain;
@@ -134,9 +128,8 @@
     }
 
     @media(max-width:760px){
-      .salaam-content{width:min(96vw,920px)}
-      .salaam-frame{width:min(50vw,210px)}
-      .salaam-calligraphy{width:min(96vw,860px)}
+      .salaam-content{width:min(96vw,960px)}
+      .salaam-calligraphy{width:min(96vw,900px)}
       .salaam-brand{font-size:14px}
       .salaam-brand .brand-mark{width:42px;height:42px;font-size:14px}
       .latin-salaam{font-size:clamp(25px,7.2vw,34px)}
@@ -145,7 +138,6 @@
 
     @media(max-width:390px){
       .salaam-content{width:98vw}
-      .salaam-frame{width:min(55vw,190px)}
       .salaam-calligraphy{width:98vw}
     }
 
@@ -222,17 +214,6 @@
       <span class="petal" style="--x:52%;--s:12px;--o:.15;--d:16.5s;--delay:-8s;--drift:13px">✿</span>
     </div>
     <div class="salaam-content">
-      <div class="salaam-frame" aria-hidden="true">
-        <svg viewBox="0 0 400 210" preserveAspectRatio="xMidYMid meet">
-          <path d="M40 205 C40 190 40 190 40 190 C40 175 52 168 58 168 C64 168 66 158 60 150 C76 148 84 138 80 128 C96 128 106 116 100 104 C118 106 130 92 122 78 C140 82 154 66 144 50 C160 58 176 42 200 20 C224 42 240 58 256 50 C246 66 260 82 278 78 C270 92 282 106 300 104 C294 116 304 128 320 128 C316 138 324 148 340 150 C334 158 336 168 342 168 C348 168 360 175 360 190 C360 190 360 190 360 205" stroke="rgba(240,212,155,.44)" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
-          <path d="M68 205 C68 192 68 192 68 192 C68 180 78 174 83 174 C88 174 90 166 85 159 C99 157 106 148 102 140 C116 140 124 130 119 120 C134 121 144 110 138 98 C153 101 165 88 157 75 C171 80 183 66 200 48 C217 66 229 80 243 75 C235 88 247 101 262 98 C256 110 264 121 279 120 C274 130 282 140 296 140 C292 148 300 157 314 159 C309 166 311 174 316 174 C321 174 332 180 332 192 C332 192 332 192 332 205" stroke="rgba(240,212,155,.2)" stroke-width="1" fill="none" stroke-linejoin="round"/>
-          <circle cx="200" cy="18" r="2.6" fill="rgba(240,212,155,.6)"/>
-          <circle cx="40" cy="205" r="2" fill="rgba(240,212,155,.32)"/>
-          <circle cx="360" cy="205" r="2" fill="rgba(240,212,155,.32)"/>
-          <circle cx="80" cy="128" r="1.4" fill="rgba(240,212,155,.4)"/>
-          <circle cx="320" cy="128" r="1.4" fill="rgba(240,212,155,.4)"/>
-        </svg>
-      </div>
       <div class="salaam-brand"><span class="brand-mark">U+A</span><span>Umar & Ansa</span></div>
       <p class="salaam-kicker">Our journey begins</p>
       <div class="salaam-wrap">
