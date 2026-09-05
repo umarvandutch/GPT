@@ -79,6 +79,8 @@
     .salaam-calligraphy{
       width:min(48vw,440px);
       aspect-ratio:4 / 1;
+      -webkit-mask-size:100% auto;
+      mask-size:100% auto;
     }
     .salaam-brand{margin-bottom:clamp(3px,.8svh,8px)}
     .salaam-kicker{margin-bottom:clamp(2px,.6svh,6px)}
@@ -89,8 +91,13 @@
     .salaam-orb{width:clamp(42px,6svh,52px);height:clamp(42px,6svh,52px)}
 
     @media(max-width:760px){
-      .salaam-frame{width:min(56vw,230px,26svh);margin-bottom:clamp(5px,1.2svh,12px)}
-      .salaam-calligraphy{width:min(72vw,300px);aspect-ratio:4 / 1}
+      .salaam-frame{width:min(64vw,260px,30svh);margin-bottom:clamp(7px,1.4svh,14px)}
+      .salaam-calligraphy{width:min(86vw,360px);aspect-ratio:4 / 1}
+
+      .salaam-brand{font-size:15px;gap:12px}
+      .salaam-brand .brand-mark{width:42px;height:42px;font-size:15px}
+      .latin-salaam{font-size:clamp(24px,7vw,31px)}
+      .salaam-orb{width:58px;height:58px}
     }
 
     /* Short laptop windows and landscape tablets/phones. */
