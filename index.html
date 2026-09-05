@@ -74,7 +74,7 @@
     }
     .salaam-content{
       --salaam-fit:1;
-      width:min(94vw,780px);
+      width:min(94vw,920px);
       max-height:none;
       align-content:initial;
       transform:scale(var(--salaam-fit));
@@ -86,7 +86,7 @@
       transform:scale(var(--salaam-fit)) translateY(-48px);
     }
     .salaam-frame{
-      width:min(62vw,340px);
+      width:min(46vw,240px);
       margin:0 auto clamp(14px,2.2dvh,24px);
     }
     .salaam-brand{
@@ -107,7 +107,7 @@
       margin-bottom:14px;
     }
     .salaam-calligraphy{
-      width:min(92vw,720px);
+      width:min(94vw,860px);
       aspect-ratio:4 / 1;
       margin:0 auto;
       -webkit-mask-size:contain;
@@ -134,9 +134,9 @@
     }
 
     @media(max-width:760px){
-      .salaam-content{width:min(94vw,700px)}
-      .salaam-frame{width:min(68vw,300px)}
-      .salaam-calligraphy{width:min(92vw,640px)}
+      .salaam-content{width:min(94vw,820px)}
+      .salaam-frame{width:min(50vw,210px)}
+      .salaam-calligraphy{width:min(94vw,760px)}
       .salaam-brand{font-size:14px}
       .salaam-brand .brand-mark{width:42px;height:42px;font-size:14px}
       .latin-salaam{font-size:clamp(25px,7.2vw,34px)}
@@ -144,9 +144,9 @@
     }
 
     @media(max-width:390px){
-      .salaam-content{width:94vw}
-      .salaam-frame{width:min(70vw,275px)}
-      .salaam-calligraphy{width:94vw}
+      .salaam-content{width:96vw}
+      .salaam-frame{width:min(55vw,190px)}
+      .salaam-calligraphy{width:96vw}
     }
 
     @media(prefers-reduced-motion:reduce){
@@ -156,6 +156,39 @@
         transform:scale(var(--salaam-fit));
       }
     }
+
+    .petals-side{
+      position:absolute;
+      top:0;
+      bottom:0;
+      width:22%;
+      overflow:hidden;
+      pointer-events:none;
+      z-index:1;
+    }
+    .petals-side.petals-left{left:0}
+    .petals-side.petals-right{right:0}
+    .petal{
+      position:absolute;
+      top:-12%;
+      left:var(--x,50%);
+      font-size:var(--s,16px);
+      color:var(--gold2);
+      opacity:0;
+      filter:blur(.3px);
+      animation:petalFall var(--d,16s) linear infinite;
+      animation-delay:var(--delay,0s);
+      will-change:transform,opacity;
+    }
+    @keyframes petalFall{
+      0%{transform:translateY(0) translateX(0) rotate(0deg);opacity:0}
+      8%{opacity:var(--o,.2)}
+      50%{transform:translateY(56vh) translateX(var(--drift,18px)) rotate(180deg)}
+      92%{opacity:var(--o,.2)}
+      100%{transform:translateY(118vh) translateX(0) rotate(360deg);opacity:0}
+    }
+    @media(max-width:760px){.petals-side{width:16%}}
+    @media(prefers-reduced-motion:reduce){.petals-side{display:none}}
   </style>
 </head>
 <body>
@@ -172,6 +205,22 @@
 
   <section class="salaam-section" id="salaamSection" aria-label="As-salamu alaykum — peace be upon you">
     <div class="salaam-glow" aria-hidden="true"></div>
+    <div class="petals-side petals-left" aria-hidden="true">
+      <span class="petal" style="--x:8%;--s:15px;--o:.16;--d:17s;--delay:-2s;--drift:14px">✿</span>
+      <span class="petal" style="--x:34%;--s:11px;--o:.13;--d:14s;--delay:-9s;--drift:-10px">❀</span>
+      <span class="petal" style="--x:58%;--s:17px;--o:.18;--d:19s;--delay:-5s;--drift:16px">✿</span>
+      <span class="petal" style="--x:18%;--s:10px;--o:.12;--d:13s;--delay:-11s;--drift:-8px">❀</span>
+      <span class="petal" style="--x:76%;--s:14px;--o:.15;--d:16s;--delay:-7s;--drift:10px">✿</span>
+      <span class="petal" style="--x:46%;--s:12px;--o:.14;--d:15s;--delay:-13s;--drift:-12px">❀</span>
+    </div>
+    <div class="petals-side petals-right" aria-hidden="true">
+      <span class="petal" style="--x:12%;--s:16px;--o:.17;--d:18s;--delay:-4s;--drift:-14px">❀</span>
+      <span class="petal" style="--x:40%;--s:11px;--o:.13;--d:14.5s;--delay:-1s;--drift:12px">✿</span>
+      <span class="petal" style="--x:64%;--s:15px;--o:.16;--d:17.5s;--delay:-10s;--drift:-16px">❀</span>
+      <span class="petal" style="--x:24%;--s:10px;--o:.12;--d:13.5s;--delay:-6s;--drift:9px">✿</span>
+      <span class="petal" style="--x:82%;--s:13px;--o:.14;--d:15.5s;--delay:-12s;--drift:-11px">❀</span>
+      <span class="petal" style="--x:52%;--s:12px;--o:.15;--d:16.5s;--delay:-8s;--drift:13px">✿</span>
+    </div>
     <div class="salaam-content">
       <div class="salaam-frame" aria-hidden="true">
         <svg viewBox="0 0 400 210" preserveAspectRatio="xMidYMid meet">
@@ -193,7 +242,7 @@
       </div>
       <button class="salaam-enter" id="salaamEnter" type="button" aria-label="Enter our invitation">
         <span class="salaam-orb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-        <span class="salaam-enter-label">Enter our invitation</span>
+        <span class="salaam-enter-label">Click here to enter our invitation</span>
       </button>
     </div>
   </section>
