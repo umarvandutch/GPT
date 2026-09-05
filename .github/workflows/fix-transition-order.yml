@@ -1,0 +1,26 @@
+name: Fix transition order
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-transition-order.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply ordering fix
+        run: python3 patch_transition_order.py
+      - name: Commit fix and clean runner
+        run: |
+          git config user.name "umarvandutch"
+          git config user.email "96899121+umarvandutch@users.noreply.github.com"
+          git add index.html
+          git rm patch_transition_order.py .github/workflows/fix-transition-order.yml
+          git commit -m "Fix transition layering and enforce intro sequence"
+          git push
