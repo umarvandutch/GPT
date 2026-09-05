@@ -59,77 +59,100 @@
     @media(max-width:390px){h1{font-size:60px}.hero-inner{padding-left:16px;padding-right:16px}.countdown{gap:8px}.time-card{padding:17px}.date-meta{letter-spacing:.15em}.arabic-salaam{font-size:58px}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.intro{display:none}.reveal{opacity:1;transform:none}.salaam-section.exiting .salaam-content{opacity:1;transform:none}}
   </style>
-  <style id="salaam-responsive-fit">
-    /* Responsive viewport-fit correction for the Salaam screen only. */
+
+  <style id="salaam-responsive-fit-v2">
+    /* Salaam v2: preserve the full artwork, then scale the whole composition only when needed. */
     .salaam-section{
       height:100vh;
-      height:100svh;
-      min-height:0;
-      padding:max(10px,env(safe-area-inset-top)) clamp(14px,3vw,24px) max(10px,env(safe-area-inset-bottom));
+      height:100dvh;
+      min-height:100vh;
+      min-height:100dvh;
+      padding:max(14px,env(safe-area-inset-top)) clamp(14px,3vw,24px) max(14px,env(safe-area-inset-bottom));
+      overflow:hidden;
     }
     .salaam-content{
-      width:min(960px,100%);
-      max-height:100%;
-      align-content:center;
+      --salaam-fit:1;
+      width:min(94vw,620px);
+      max-height:none;
+      align-content:initial;
+      transform:scale(var(--salaam-fit));
+      transform-origin:center center;
+      will-change:transform;
+    }
+    .salaam-section.exiting .salaam-content{
+      opacity:0;
+      transform:scale(var(--salaam-fit)) translateY(-48px);
     }
     .salaam-frame{
-      width:min(40vw,300px,28svh);
-      margin-bottom:clamp(6px,1.4svh,18px);
+      width:min(62vw,340px);
+      margin:0 auto clamp(14px,2.2dvh,24px);
+    }
+    .salaam-brand{
+      gap:12px;
+      margin-bottom:10px;
+      font-size:15px;
+    }
+    .salaam-brand .brand-mark{
+      width:44px;
+      height:44px;
+      font-size:15px;
+    }
+    .salaam-kicker{
+      margin-bottom:8px;
+      font-size:10px;
+    }
+    .salaam-ornament{
+      margin-bottom:14px;
     }
     .salaam-calligraphy{
-      width:min(48vw,440px);
+      width:min(88vw,500px);
       aspect-ratio:4 / 1;
-      -webkit-mask-size:100% auto;
-      mask-size:100% auto;
+      margin:0 auto;
+      -webkit-mask-size:contain;
+      mask-size:contain;
+      -webkit-mask-position:center;
+      mask-position:center;
+      -webkit-mask-repeat:no-repeat;
+      mask-repeat:no-repeat;
     }
-    .salaam-brand{margin-bottom:clamp(3px,.8svh,8px)}
-    .salaam-kicker{margin-bottom:clamp(2px,.6svh,6px)}
-    .salaam-ornament{margin-bottom:clamp(3px,1svh,12px)}
-    .latin-salaam{margin-top:clamp(6px,1.4svh,16px)}
-    .salaam-note{margin-top:clamp(4px,.9svh,10px)}
-    .salaam-enter{margin-top:clamp(8px,2.2svh,28px);gap:clamp(6px,1.2svh,11px)}
-    .salaam-orb{width:clamp(42px,6svh,52px);height:clamp(42px,6svh,52px)}
+    .latin-salaam{
+      margin-top:clamp(18px,2.2dvh,26px);
+      font-size:clamp(26px,5.8vw,36px);
+    }
+    .salaam-note{
+      margin-top:9px;
+    }
+    .salaam-enter{
+      margin-top:clamp(22px,3dvh,34px);
+      gap:11px;
+    }
+    .salaam-orb{
+      width:60px;
+      height:60px;
+    }
 
     @media(max-width:760px){
-      .salaam-frame{width:min(64vw,260px,30svh);margin-bottom:clamp(7px,1.4svh,14px)}
-      .salaam-calligraphy{width:min(86vw,360px);aspect-ratio:4 / 1}
-
-      .salaam-brand{font-size:15px;gap:12px}
-      .salaam-brand .brand-mark{width:42px;height:42px;font-size:15px}
-      .latin-salaam{font-size:clamp(24px,7vw,31px)}
+      .salaam-content{width:min(94vw,560px)}
+      .salaam-frame{width:min(68vw,300px)}
+      .salaam-calligraphy{width:min(88vw,460px)}
+      .salaam-brand{font-size:14px}
+      .salaam-brand .brand-mark{width:42px;height:42px;font-size:14px}
+      .latin-salaam{font-size:clamp(25px,7.2vw,34px)}
       .salaam-orb{width:58px;height:58px}
     }
 
-    /* Short laptop windows and landscape tablets/phones. */
-    @media(max-height:700px){
-      .salaam-frame{width:min(34vw,220px,22svh);margin-bottom:clamp(3px,.8svh,8px)}
-      .salaam-calligraphy{width:min(52vw,380px);aspect-ratio:4 / 1}
-      .latin-salaam{font-size:clamp(19px,2.6vw,27px);margin-top:clamp(3px,1svh,8px)}
-      .salaam-note{margin-top:3px}
-      .salaam-enter{margin-top:clamp(4px,1.2svh,10px);gap:5px}
-      .salaam-orb{width:44px;height:44px}
-    }
-
-    /* Extreme short viewports: keep every control visible without browser zoom. */
-    @media(max-height:520px){
-      .salaam-section{padding-top:max(5px,env(safe-area-inset-top));padding-bottom:max(5px,env(safe-area-inset-bottom))}
-      .salaam-frame{width:min(26vw,150px,20svh);margin-bottom:2px}
-      .salaam-brand{font-size:11px;margin-bottom:1px;gap:7px}
-      .salaam-brand .brand-mark{width:30px;height:30px;font-size:11px}
-      .salaam-kicker{font-size:8px;margin-bottom:0}
-      .salaam-ornament{margin-bottom:0;gap:10px;font-size:9px}
-      .salaam-ornament::before,.salaam-ornament::after{width:34px}
-      .salaam-calligraphy{width:min(50vw,300px);aspect-ratio:4 / 1}
-      .latin-salaam{font-size:18px;margin-top:2px}
-      .salaam-note{font-size:7px;margin-top:1px}
-      .salaam-enter{margin-top:2px;gap:2px;padding:2px}
-      .salaam-orb{width:36px;height:36px}
-      .salaam-orb svg{width:15px;height:15px}
-      .salaam-enter-label{font-size:7px}
+    @media(max-width:390px){
+      .salaam-content{width:94vw}
+      .salaam-frame{width:min(70vw,275px)}
+      .salaam-calligraphy{width:90vw}
     }
 
     @media(prefers-reduced-motion:reduce){
-      .salaam-section.exiting .salaam-content{opacity:1;transform:none}
+      .salaam-content,
+      .salaam-section.exiting .salaam-content{
+        opacity:1;
+        transform:scale(var(--salaam-fit));
+      }
     }
   </style>
 </head>
@@ -211,6 +234,52 @@
     const salaamSection=$('salaamSection'),salaamEnter=$('salaamEnter'),heroTop=$('top');
     if(salaamEnter&&heroTop){salaamEnter.addEventListener('click',()=>heroTop.scrollIntoView({behavior:prefersReducedMotion?'auto':'smooth',block:'start'}))}
     if(salaamSection&&!prefersReducedMotion&&'IntersectionObserver' in window){const salaamObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{salaamSection.classList.toggle('exiting',entry.boundingClientRect.top<-40&&entry.intersectionRatio<.6)})},{threshold:[0,.2,.4,.6,.8,1]});salaamObserver.observe(salaamSection)}
+  </script>
+
+  <script id="salaam-autofit-v2">
+    (() => {
+      const section = document.getElementById('salaamSection');
+      const content = section && section.querySelector('.salaam-content');
+      if (!section || !content) return;
+
+      let frame = 0;
+      const fitSalaam = () => {
+        cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(() => {
+          content.style.setProperty('--salaam-fit','1');
+
+          requestAnimationFrame(() => {
+            const vv = window.visualViewport;
+            const viewportWidth = vv ? vv.width : document.documentElement.clientWidth;
+            const viewportHeight = vv ? vv.height : window.innerHeight;
+            const styles = getComputedStyle(section);
+            const padX = parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
+            const padY = parseFloat(styles.paddingTop) + parseFloat(styles.paddingBottom);
+            const maxWidth = Math.max(240, viewportWidth - padX - 4);
+            const maxHeight = Math.max(280, viewportHeight - padY - 4);
+
+            const rect = content.getBoundingClientRect();
+            const widthScale = maxWidth / rect.width;
+            const heightScale = maxHeight / rect.height;
+            const scale = Math.min(1, widthScale, heightScale);
+
+            content.style.setProperty('--salaam-fit', String(Math.max(0.45, scale)));
+          });
+        });
+      };
+
+      window.addEventListener('load', fitSalaam, {passive:true});
+      window.addEventListener('pageshow', fitSalaam, {passive:true});
+      window.addEventListener('resize', fitSalaam, {passive:true});
+      window.addEventListener('orientationchange', fitSalaam, {passive:true});
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', fitSalaam, {passive:true});
+      }
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(fitSalaam);
+      }
+      fitSalaam();
+    })();
   </script>
 </body>
 </html>
