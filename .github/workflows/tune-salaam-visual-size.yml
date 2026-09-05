@@ -1,0 +1,30 @@
+name: One-time Salaam visual sizing tune
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/tune-salaam-visual-size.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  tune:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tune Salaam visual sizing
+        run: |
+          python3 -c 'from pathlib import Path; p=Path("index.html"); s=p.read_text(encoding="utf-8"); old="""    .salaam-calligraphy{\n      width:min(48vw,440px);\n      aspect-ratio:4 / 1;\n    }"""; new="""    .salaam-calligraphy{\n      width:min(48vw,440px);\n      aspect-ratio:4 / 1;\n      -webkit-mask-size:100% auto;\n      mask-size:100% auto;\n    }"""; assert old in s; s=s.replace(old,new,1); s=s.replace(".salaam-frame{width:min(56vw,230px,26svh);margin-bottom:clamp(5px,1.2svh,12px)}", ".salaam-frame{width:min(64vw,260px,30svh);margin-bottom:clamp(7px,1.4svh,14px)}",1); s=s.replace(".salaam-calligraphy{width:min(72vw,300px);aspect-ratio:4 / 1}", ".salaam-calligraphy{width:min(86vw,360px);aspect-ratio:4 / 1}",1); insert="""\n      .salaam-brand{font-size:15px;gap:12px}\n      .salaam-brand .brand-mark{width:42px;height:42px;font-size:15px}\n      .latin-salaam{font-size:clamp(24px,7vw,31px)}\n      .salaam-orb{width:58px;height:58px}\n"""; needle="""      .salaam-calligraphy{width:min(86vw,360px);aspect-ratio:4 / 1}\n"""; assert needle in s; s=s.replace(needle,needle+insert,1); p.write_text(s,encoding="utf-8")'
+      - name: Commit tune
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config user.name "umarvandutch"
+          git config user.email "96899121+umarvandutch@users.noreply.github.com"
+          git add index.html
+          git commit -m "Restore large Salaam artwork while preserving viewport fit"
+          git push
