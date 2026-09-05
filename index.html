@@ -59,6 +59,72 @@
     @media(max-width:390px){h1{font-size:60px}.hero-inner{padding-left:16px;padding-right:16px}.countdown{gap:8px}.time-card{padding:17px}.date-meta{letter-spacing:.15em}.arabic-salaam{font-size:58px}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.intro{display:none}.reveal{opacity:1;transform:none}.salaam-section.exiting .salaam-content{opacity:1;transform:none}}
   </style>
+  <style id="salaam-responsive-fit">
+    /* Responsive viewport-fit correction for the Salaam screen only. */
+    .salaam-section{
+      height:100vh;
+      height:100svh;
+      min-height:0;
+      padding:max(10px,env(safe-area-inset-top)) clamp(14px,3vw,24px) max(10px,env(safe-area-inset-bottom));
+    }
+    .salaam-content{
+      width:min(960px,100%);
+      max-height:100%;
+      align-content:center;
+    }
+    .salaam-frame{
+      width:min(40vw,300px,28svh);
+      margin-bottom:clamp(6px,1.4svh,18px);
+    }
+    .salaam-calligraphy{
+      width:min(48vw,440px);
+      aspect-ratio:4 / 1;
+    }
+    .salaam-brand{margin-bottom:clamp(3px,.8svh,8px)}
+    .salaam-kicker{margin-bottom:clamp(2px,.6svh,6px)}
+    .salaam-ornament{margin-bottom:clamp(3px,1svh,12px)}
+    .latin-salaam{margin-top:clamp(6px,1.4svh,16px)}
+    .salaam-note{margin-top:clamp(4px,.9svh,10px)}
+    .salaam-enter{margin-top:clamp(8px,2.2svh,28px);gap:clamp(6px,1.2svh,11px)}
+    .salaam-orb{width:clamp(42px,6svh,52px);height:clamp(42px,6svh,52px)}
+
+    @media(max-width:760px){
+      .salaam-frame{width:min(56vw,230px,26svh);margin-bottom:clamp(5px,1.2svh,12px)}
+      .salaam-calligraphy{width:min(72vw,300px);aspect-ratio:4 / 1}
+    }
+
+    /* Short laptop windows and landscape tablets/phones. */
+    @media(max-height:700px){
+      .salaam-frame{width:min(34vw,220px,22svh);margin-bottom:clamp(3px,.8svh,8px)}
+      .salaam-calligraphy{width:min(52vw,380px);aspect-ratio:4 / 1}
+      .latin-salaam{font-size:clamp(19px,2.6vw,27px);margin-top:clamp(3px,1svh,8px)}
+      .salaam-note{margin-top:3px}
+      .salaam-enter{margin-top:clamp(4px,1.2svh,10px);gap:5px}
+      .salaam-orb{width:44px;height:44px}
+    }
+
+    /* Extreme short viewports: keep every control visible without browser zoom. */
+    @media(max-height:520px){
+      .salaam-section{padding-top:max(5px,env(safe-area-inset-top));padding-bottom:max(5px,env(safe-area-inset-bottom))}
+      .salaam-frame{width:min(26vw,150px,20svh);margin-bottom:2px}
+      .salaam-brand{font-size:11px;margin-bottom:1px;gap:7px}
+      .salaam-brand .brand-mark{width:30px;height:30px;font-size:11px}
+      .salaam-kicker{font-size:8px;margin-bottom:0}
+      .salaam-ornament{margin-bottom:0;gap:10px;font-size:9px}
+      .salaam-ornament::before,.salaam-ornament::after{width:34px}
+      .salaam-calligraphy{width:min(50vw,300px);aspect-ratio:4 / 1}
+      .latin-salaam{font-size:18px;margin-top:2px}
+      .salaam-note{font-size:7px;margin-top:1px}
+      .salaam-enter{margin-top:2px;gap:2px;padding:2px}
+      .salaam-orb{width:36px;height:36px}
+      .salaam-orb svg{width:15px;height:15px}
+      .salaam-enter-label{font-size:7px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      .salaam-section.exiting .salaam-content{opacity:1;transform:none}
+    }
+  </style>
 </head>
 <body>
   <div class="intro" id="intro" aria-hidden="true">
