@@ -345,7 +345,7 @@
         <h2>We can't wait to celebrate with you</h2>
         <form id="rsvpYesForm" class="rsvp-form">
           <input type="text" name="_honey" class="rsvp-honey" tabindex="-1" autocomplete="off" />
-          <label class="rsvp-field"><span>Family / guest name</span><input type="text" name="family_name" required placeholder="e.g. The Khan Family" /></label>
+          <label class="rsvp-field"><span>Your name or family name</span><input type="text" name="family_name" required placeholder="e.g. Ahmed Khan / Khan Family" /></label>
           <label class="rsvp-field"><span>Number joining (including you)</span>
             <div class="rsvp-stepper">
               <button type="button" class="rsvp-step-btn" data-step-down aria-label="Decrease guest count">−</button>
@@ -364,7 +364,7 @@
         <p class="rsvp-copy">We really hope you'll change your mind — but if not, please know you'll be with us in spirit and missed dearly. Let us know who's sending their love:</p>
         <form id="rsvpNoForm" class="rsvp-form">
           <input type="text" name="_honey" class="rsvp-honey" tabindex="-1" autocomplete="off" />
-          <label class="rsvp-field"><span>Your name (optional)</span><input type="text" name="family_name" placeholder="e.g. The Khan Family" /></label>
+          <label class="rsvp-field"><span>Your name (optional)</span><input type="text" name="family_name" placeholder="e.g. Ahmed Khan / Khan Family" /></label>
           <button class="button primary" type="submit">Send with love</button>
           <button class="rsvp-back" type="button" data-back>Back</button>
         </form>
@@ -402,7 +402,7 @@
       $('rsvpDismiss').addEventListener('click',()=>{closeModal();showToast("No problem — we won't ask again on this device")});
       overlay.querySelectorAll('[data-back]').forEach(b=>b.addEventListener('click',()=>showStep('ask')));
       $('rsvpDoneClose').addEventListener('click',closeModal);
-      const RSVP_ENDPOINT='https://formsubmit.co/ajax/umarsidiqui84@googlemail.com';
+      const RSVP_ENDPOINT='https://api.umar-ansa.co.uk/rsvp';
       async function submitRSVP(attending,formEl,doneTitle,doneCopy){
         const submitBtn=formEl.querySelector('button[type="submit"]');const original=submitBtn.textContent;
         submitBtn.disabled=true;submitBtn.textContent='Sending…';
