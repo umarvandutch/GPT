@@ -60,15 +60,32 @@
     .rsvp-close{position:absolute;top:16px;right:16px;width:34px;height:34px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(240,212,155,.2);background:rgba(255,255,255,.03);color:var(--muted);cursor:pointer;transition:border-color .25s ease,color .25s ease}
     .rsvp-close:hover{border-color:rgba(240,212,155,.5);color:var(--gold2)}
     .rsvp-close svg{width:14px;height:14px}
-    .rsvp-modal h2{margin:10px 0 0;font-family:"Italiana",serif;font-weight:400;font-size:clamp(26px,4vw,32px);color:var(--paper)}
+    .rsvp-modal h2{margin:10px 0 0;font-family:"Italiana",serif;font-weight:400;font-size:clamp(26px,4vw,32px);color:var(--paper);line-height:1.25}
     .rsvp-copy{margin:14px auto 0;max-width:340px;color:var(--muted);font-size:13.5px;line-height:1.8}
+    .rsvp-monogram{width:52px;height:52px;margin:0 auto 16px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(240,212,155,.35);color:var(--gold2);font-family:"Italiana",serif;font-size:15px;white-space:nowrap;background:rgba(213,173,102,.045);box-shadow:inset 0 0 20px rgba(213,173,102,.08)}
+    .rsvp-step:not([hidden]) .rsvp-monogram{animation:rsvpRise .5s cubic-bezier(.2,.8,.2,1) both}
+    .rsvp-step:not([hidden]) .kicker{animation:rsvpRise .5s cubic-bezier(.2,.8,.2,1) .04s both}
+    .rsvp-step:not([hidden]) h2{animation:rsvpRise .5s cubic-bezier(.2,.8,.2,1) .08s both}
+    .rsvp-step:not([hidden]) .heart-line{animation:rsvpRise .5s cubic-bezier(.2,.8,.2,1) .12s both}
+    .rsvp-step:not([hidden]) .rsvp-copy{animation:rsvpRise .5s cubic-bezier(.2,.8,.2,1) .15s both}
+    .rsvp-step:not([hidden]) .rsvp-choices,.rsvp-step:not([hidden]) .rsvp-form{animation:rsvpRise .5s cubic-bezier(.2,.8,.2,1) .18s both}
+    @keyframes rsvpRise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+    .rsvp-step .heart-line{margin:18px auto 0}
     .rsvp-choices{display:flex;flex-direction:column;gap:10px;margin-top:26px}
     .rsvp-choices .button{width:100%}
+    .rsvp-choices .button svg{width:15px;height:15px}
     .rsvp-form{margin-top:24px;display:flex;flex-direction:column;gap:16px}
     .rsvp-field{display:block;text-align:left}
     .rsvp-field span{display:block;margin-bottom:8px;color:var(--gold2);font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
     .rsvp-field input{width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(240,212,155,.18);background:rgba(255,255,255,.035);color:var(--text);font:inherit;font-size:15px;transition:border-color .25s ease,background .25s ease}
     .rsvp-field input:focus{outline:none;border-color:rgba(240,212,155,.5);background:rgba(255,255,255,.055)}
+    .rsvp-stepper{display:flex;align-items:center;gap:0;border-radius:14px;border:1px solid rgba(240,212,155,.18);background:rgba(255,255,255,.035);overflow:hidden}
+    .rsvp-stepper input{flex:1;text-align:center;border:0!important;background:transparent!important;border-radius:0!important;padding:14px 4px!important;-moz-appearance:textfield}
+    .rsvp-stepper input::-webkit-outer-spin-button,.rsvp-stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+    .rsvp-step-btn{width:44px;flex-shrink:0;align-self:stretch;border:0;background:transparent;color:var(--gold2);font-size:18px;line-height:1;cursor:pointer;transition:background .2s ease}
+    .rsvp-step-btn:hover{background:rgba(240,212,155,.08)}
+    .rsvp-step-btn:first-child{border-right:1px solid rgba(240,212,155,.14)}
+    .rsvp-step-btn:last-child{border-left:1px solid rgba(240,212,155,.14)}
     .rsvp-form .button{margin-top:4px;width:100%}
     .rsvp-back{background:none;border:0;color:var(--muted);font:inherit;font-size:12px;letter-spacing:.06em;cursor:pointer;padding:4px;transition:color .2s ease}
     .rsvp-back:hover{color:var(--gold2)}
@@ -281,7 +298,7 @@
         <div class="invite-copy">would love for you to join us as we celebrate the beginning of our forever.</div>
         <p class="invite-sub">With hearts full of gratitude and joy, we invite you to share in a day of love, family and celebration as we become husband and wife.</p>
         <div class="date-lockup" aria-label="Wedding date"><div class="date-rule"></div><div class="date-center"><div class="date-day">24 · 12 · 2026</div><div class="date-meta">Thursday · Birmingham</div></div><div class="date-rule"></div></div>
-        <div class="hero-actions"><button class="button primary" id="rsvpOpenBtn" type="button">RSVP now</button><a class="button secondary" href="#details">View invitation details</a><button class="button secondary" id="shareButton" type="button" aria-label="Share this wedding invitation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.6 6.8-4.2M8.6 13.4l6.8 4.2"/></svg>Share invitation</button></div>
+        <div class="hero-actions"><button class="button primary" id="rsvpOpenBtn" type="button">Kindly Respond</button><a class="button secondary" href="#details">View invitation details</a><button class="button secondary" id="shareButton" type="button" aria-label="Share this wedding invitation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.6 6.8-4.2M8.6 13.4l6.8 4.2"/></svg>Share invitation</button></div>
       </div><div class="scroll-cue" aria-hidden="true">Our day<span></span></div>
     </section>
     <section class="section welcome reveal"><div class="petals-side petals-left" aria-hidden="true"><span class="petal" style="--x:15%;--s:12px;--o:.11;--d:15s;--delay:-3s;--drift:10px">✿</span><span class="petal" style="--x:55%;--s:9px;--o:.09;--d:12s;--delay:-8s;--drift:-8px">❀</span><span class="petal" style="--x:80%;--s:11px;--o:.1;--d:14s;--delay:-6s;--drift:9px">✿</span></div><div class="petals-side petals-right" aria-hidden="true"><span class="petal" style="--x:20%;--s:10px;--o:.09;--d:13s;--delay:-1s;--drift:-9px">❀</span><span class="petal" style="--x:50%;--s:12px;--o:.11;--d:15.5s;--delay:-9s;--drift:8px">✿</span><span class="petal" style="--x:78%;--s:9px;--o:.1;--d:12.5s;--delay:-5s;--drift:-7px">❀</span></div><p class="kicker">A little note from us</p><h2>We can't wait to celebrate with you.</h2><p>This day means so much to us, and having the people we love there will make it even more special. We hope you'll join us for an unforgettable celebration as two families come together and our next chapter begins.</p><div class="heart-line" aria-hidden="true">♡</div></section>
@@ -300,28 +317,36 @@
   <div class="progress-rail" aria-hidden="true"><div class="bar" id="progressBar"></div></div>
   <div class="rsvp-overlay" id="rsvpOverlay" role="dialog" aria-modal="true" aria-labelledby="rsvpTitle">
     <div class="rsvp-modal">
-      <button class="rsvp-close" id="rsvpClose" type="button" aria-label="Close RSVP">
+      <button class="rsvp-close" id="rsvpClose" type="button" aria-label="Close">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
 
       <div class="rsvp-step" data-step="ask">
-        <p class="kicker">RSVP</p>
-        <h2 id="rsvpTitle">Will you be joining us?</h2>
-        <p class="rsvp-copy">We'd love to know so we can prepare for our big day on 24 December 2026.</p>
+        <div class="rsvp-monogram">U+A</div>
+        <p class="kicker">Join Us</p>
+        <h2 id="rsvpTitle">Will you be there to celebrate with us?</h2>
+        <div class="heart-line" aria-hidden="true">♡</div>
+        <p class="rsvp-copy">Your presence would mean the world to us — let us know if we'll see you on 24 December 2026.</p>
         <div class="rsvp-choices">
-          <button class="button primary" id="rsvpYesBtn" type="button">Yes, I'll be there</button>
-          <button class="button secondary" id="rsvpNoBtn" type="button">I can't make it</button>
+          <button class="button primary" id="rsvpYesBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg>Yes, with joy</button>
+          <button class="button secondary" id="rsvpNoBtn" type="button">Sadly, I can't make it</button>
         </div>
       </div>
 
       <div class="rsvp-step" data-step="yes" hidden>
         <p class="kicker">Wonderful</p>
-        <h2>We can't wait to see you</h2>
+        <h2>We can't wait to celebrate with you</h2>
         <form id="rsvpYesForm" class="rsvp-form">
           <input type="text" name="_honey" class="rsvp-honey" tabindex="-1" autocomplete="off" />
           <label class="rsvp-field"><span>Family / guest name</span><input type="text" name="family_name" required placeholder="e.g. The Khan Family" /></label>
-          <label class="rsvp-field"><span>Number of guests (including you)</span><input type="number" name="guest_count" min="1" max="12" required value="1" /></label>
-          <button class="button primary" type="submit">Send RSVP</button>
+          <label class="rsvp-field"><span>Number joining (including you)</span>
+            <div class="rsvp-stepper">
+              <button type="button" class="rsvp-step-btn" data-step-down aria-label="Decrease guest count">−</button>
+              <input type="number" name="guest_count" min="1" max="12" required value="1" inputmode="numeric" />
+              <button type="button" class="rsvp-step-btn" data-step-up aria-label="Increase guest count">+</button>
+            </div>
+          </label>
+          <button class="button primary" type="submit">Save our seats</button>
           <button class="rsvp-back" type="button" data-back>Back</button>
         </form>
       </div>
@@ -329,11 +354,11 @@
       <div class="rsvp-step" data-step="no" hidden>
         <p class="kicker">We'll miss you</p>
         <h2>So sorry you can't make it</h2>
-        <p class="rsvp-copy">We really hope you'll change your mind — but if not, please know you'll be with us in spirit and we'll miss you dearly. Let us know who's sending their love:</p>
+        <p class="rsvp-copy">We really hope you'll change your mind — but if not, please know you'll be with us in spirit and missed dearly. Let us know who's sending their love:</p>
         <form id="rsvpNoForm" class="rsvp-form">
           <input type="text" name="_honey" class="rsvp-honey" tabindex="-1" autocomplete="off" />
           <label class="rsvp-field"><span>Your name (optional)</span><input type="text" name="family_name" placeholder="e.g. The Khan Family" /></label>
-          <button class="button primary" type="submit">Let them know</button>
+          <button class="button primary" type="submit">Send with love</button>
           <button class="rsvp-back" type="button" data-back>Back</button>
         </form>
       </div>
@@ -341,7 +366,7 @@
       <div class="rsvp-step" data-step="done" hidden>
         <div class="rsvp-done-orb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg></div>
         <h2 id="rsvpDoneTitle">Thank you!</h2>
-        <p class="rsvp-copy" id="rsvpDoneCopy">Your RSVP has been received.</p>
+        <p class="rsvp-copy" id="rsvpDoneCopy">Your reply has been received with love.</p>
         <button class="button secondary" id="rsvpDoneClose" type="button">Close</button>
       </div>
     </div>
@@ -389,8 +414,17 @@
           submitBtn.disabled=false;submitBtn.textContent=original;
         }
       }
-      $('rsvpYesForm').addEventListener('submit',e=>{e.preventDefault();submitRSVP('Yes',e.target,'Thank you!',"We can't wait to celebrate with you on 24 December 2026!")});
+      $('rsvpYesForm').addEventListener('submit',e=>{e.preventDefault();submitRSVP('Yes',e.target,'Thank you, with love!',"We can't wait to celebrate with you on 24 December 2026!")});
       $('rsvpNoForm').addEventListener('submit',e=>{e.preventDefault();submitRSVP('No',e.target,"We'll miss you","Thank you for letting us know — we hope to celebrate with you another time soon.")});
+      const guestInput=overlay.querySelector('input[name="guest_count"]');
+      overlay.querySelectorAll('[data-step-down],[data-step-up]').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          const min=parseInt(guestInput.min||'1',10);const max=parseInt(guestInput.max||'12',10);
+          let val=parseInt(guestInput.value||'1',10)||min;
+          val+=btn.hasAttribute('data-step-up')?1:-1;
+          guestInput.value=Math.min(max,Math.max(min,val));
+        });
+      });
       const salaamEnterBtn=$('salaamEnter');
       if(salaamEnterBtn){
         salaamEnterBtn.addEventListener('click',()=>{
