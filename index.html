@@ -392,14 +392,14 @@
       const steps=overlay.querySelectorAll('.rsvp-step');
       const showStep=name=>{steps.forEach(s=>{s.hidden=s.dataset.step!==name})};
       const openModal=()=>{overlay.classList.add('open');document.body.style.overflow='hidden'};
-      const closeModal=()=>{overlay.classList.remove('open');document.body.style.overflow='';safeSet('local','rsvp_seen','1')};
+      const closeModal=()=>{overlay.classList.remove('open');document.body.style.overflow=''};
       $('rsvpOpenBtn').addEventListener('click',()=>{showStep('ask');openModal()});
       $('rsvpClose').addEventListener('click',closeModal);
       overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal()});
       document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('open'))closeModal()});
       $('rsvpYesBtn').addEventListener('click',()=>showStep('yes'));
       $('rsvpNoBtn').addEventListener('click',()=>showStep('no'));
-      $('rsvpDismiss').addEventListener('click',()=>{closeModal();showToast("No problem — we won't ask again on this device")});
+      $('rsvpDismiss').addEventListener('click',()=>{safeSet('local','rsvp_seen','1');closeModal();showToast("No problem — we won't ask again on this device")});
       overlay.querySelectorAll('[data-back]').forEach(b=>b.addEventListener('click',()=>showStep('ask')));
       $('rsvpDoneClose').addEventListener('click',closeModal);
       const RSVP_ENDPOINT='https://api.umar-ansa.co.uk/rsvp';
