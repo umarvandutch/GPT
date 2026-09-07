@@ -498,12 +498,24 @@
             // own IntersectionObserver/entrance-run Promise, which showed inconsistent
             // real-world timing across browsers. 5.5s comfortably covers the smooth scroll
             // into the hero plus its ~2.5s reveal, with a short pause before the prompt.
-            setTimeout(()=>{
+            const showIfDue=()=>{
               if(!safeGet('local','rsvp_status')&&!safeGet('local','rsvp_seen')&&!overlay.classList.contains('open')){
                 showStep('ask');
                 openModal();
               }
-            },5500);
+            };
+            const dueAt=Date.now()+5500;
+            setTimeout(showIfDue,5500);
+            // A plain setTimeout can be throttled for a long time (sometimes minutes) if
+            // the guest switches tabs/apps during the wait, since backgrounded timers are
+            // deprioritised by the browser. Re-check the instant the tab is foregrounded
+            // again so a throttled timer can't silently miss the prompt.
+            const onVisible=()=>{
+              if(document.visibilityState!=='visible'||Date.now()<dueAt)return;
+              document.removeEventListener('visibilitychange',onVisible);
+              showIfDue();
+            };
+            document.addEventListener('visibilitychange',onVisible);
           }
         });
       }
