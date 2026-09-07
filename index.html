@@ -69,22 +69,24 @@
     .progress-rail{position:fixed;top:0;left:0;width:100%;height:2px;z-index:90;background:transparent;pointer-events:none}.progress-rail .bar{height:100%;width:0%;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width .1s linear;box-shadow:0 0 12px rgba(213,173,102,.5)}
     .rsvp-section-head{max-width:640px;margin:0 auto}
     .rsvp-section h2{font-size:clamp(38px,5vw,56px)}
-    .rsvp-section-head .rsvp-copy{max-width:520px;font-size:14px}
+    .rsvp-section-head .rsvp-copy{max-width:520px}
     .rsvp-inline{max-width:420px;margin:40px auto 0;position:relative;text-align:center}
+    .rsvp-inline .button{font-size:clamp(14px,1.6vw,16px)}
     .rsvp-state[hidden]{display:none}
     .rsvp-state:not([hidden]){animation:rsvpStateIn .55s cubic-bezier(.2,.8,.2,1) both}
     @keyframes rsvpStateIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
     .rsvp-state h3{margin:0 0 4px;font-family:"Italiana",serif;font-weight:400;font-size:clamp(22px,3vw,28px);color:var(--paper);line-height:1.3;letter-spacing:-.01em}
-    .rsvp-copy{margin:14px auto 0;max-width:340px;color:var(--muted);font-size:13.5px;line-height:1.8}
-    .rsvp-note{margin:16px auto 0;max-width:360px;color:var(--muted2);font-size:11.5px;line-height:1.7}
+    .rsvp-copy{margin:14px auto 0;max-width:340px;color:rgba(246,239,227,.74);font-size:clamp(15px,1.6vw,16px);line-height:1.8}
+    #rsvpSubmitAnother{margin-top:20px}
+    .rsvp-note{margin:16px auto 0;max-width:360px;color:rgba(246,239,227,.55);font-size:clamp(13px,1.4vw,14px);line-height:1.7}
     .rsvp-choices{display:flex;flex-direction:column;gap:14px;margin-top:28px}
     .rsvp-choices .button{width:100%}
     .rsvp-choices .button svg{width:15px;height:15px}
-    .rsvp-decline{background:none;border:0;padding:4px;color:var(--muted);font:inherit;font-size:13px;letter-spacing:.02em;cursor:pointer;transition:color .25s ease}
+    .rsvp-decline{background:none;border:0;padding:4px;color:var(--muted);font:inherit;font-size:clamp(14px,1.5vw,15px);letter-spacing:.02em;cursor:pointer;transition:color .25s ease}
     .rsvp-decline:hover{color:var(--gold2)}
     .rsvp-form{margin-top:24px;display:flex;flex-direction:column;gap:16px}
     .rsvp-field{display:block;text-align:left}
-    .rsvp-field span{display:block;margin-bottom:8px;color:var(--gold2);font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+    .rsvp-field span{display:block;margin-bottom:8px;color:var(--gold2);font-size:clamp(12px,1.2vw,13px);font-weight:600;letter-spacing:.16em;text-transform:uppercase}
     .rsvp-field input{width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(240,212,155,.18);background:rgba(255,255,255,.035);color:var(--text);font:inherit;font-size:15px;transition:border-color .25s ease,background .25s ease}
     .rsvp-field input:focus{outline:none;border-color:rgba(240,212,155,.5);background:rgba(255,255,255,.055)}
     .rsvp-stepper{display:flex;align-items:center;gap:0;border-radius:14px;border:1px solid rgba(240,212,155,.18);background:rgba(255,255,255,.035);overflow:hidden}
@@ -364,8 +366,8 @@
           <div class="rsvp-done-orb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg></div>
           <h3>You've already responded — thank you.</h3>
           <p class="rsvp-copy">We've received your reply with love.</p>
-          <button class="rsvp-back" type="button" id="rsvpSubmitAnother">Submit another RSVP</button>
-          <p class="rsvp-note">This is for a genuinely separate reply — for example another guest or family using this device. Need to change your existing response instead? Please contact us directly.</p>
+          <button class="button secondary" type="button" id="rsvpSubmitAnother">Respond for another guest</button>
+          <p class="rsvp-note">Responding for someone else using this device? You can add their response below. If you need to change your own RSVP, please contact us directly.</p>
         </div>
         <div class="rsvp-state" data-state="ask">
           <div class="rsvp-choices">
