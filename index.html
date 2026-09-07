@@ -494,19 +494,16 @@
       if(salaamEnterBtn){
         salaamEnterBtn.addEventListener('click',()=>{
           if(!safeGet('local','rsvp_status')&&!safeGet('local','rsvp_seen')){
-            // Wait for the hero's own ceremonial entrance to actually begin (set by the
-            // entrance-run trigger further down) before counting the pause - so the guest
-            // sees the full invitation reveal and gets a moment to read it before the RSVP
-            // prompt appears, instead of it interrupting the reveal partway through.
-            const heroEntranceReady=window.__heroEntranceReady||Promise.resolve();
-            heroEntranceReady.then(()=>{
-              setTimeout(()=>{
-                if(!safeGet('local','rsvp_status')&&!safeGet('local','rsvp_seen')&&!overlay.classList.contains('open')){
-                  showStep('ask');
-                  openModal();
-                }
-              },4200);
-            });
+            // Deterministic delay counted directly from this click - not tied to the hero's
+            // own IntersectionObserver/entrance-run Promise, which showed inconsistent
+            // real-world timing across browsers. 5.5s comfortably covers the smooth scroll
+            // into the hero plus its ~2.5s reveal, with a short pause before the prompt.
+            setTimeout(()=>{
+              if(!safeGet('local','rsvp_status')&&!safeGet('local','rsvp_seen')&&!overlay.classList.contains('open')){
+                showStep('ask');
+                openModal();
+              }
+            },5500);
           }
         });
       }
