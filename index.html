@@ -66,7 +66,7 @@
     .scroll-cue{position:absolute;left:50%;bottom:var(--h-cue-bottom);transform:translateX(-50%);display:grid;gap:8px;justify-items:center;color:var(--muted2);font-size:8px;letter-spacing:.22em;text-transform:uppercase;animation:breathe 2.4s ease-in-out infinite}.scroll-cue span{width:1px;height:26px;background:linear-gradient(var(--gold),transparent)}@keyframes breathe{50%{opacity:.48;transform:translateX(-50%) translateY(4px)}}
     .section{position:relative;isolation:isolate;overflow:hidden;margin-top:clamp(50px,9vw,96px)}.reveal{opacity:0;transform:translateY(38px) scale(.98);filter:blur(6px);transition:opacity 1.1s cubic-bezier(.16,.8,.2,1),transform 1.1s cubic-bezier(.16,.8,.2,1),filter 1.1s cubic-bezier(.16,.8,.2,1)}.reveal.visible{opacity:1;transform:none;filter:blur(0)}.section>.petals-side{z-index:-1}
     .section-divider{display:flex;justify-content:center;align-items:center;gap:16px;margin:clamp(50px,9vw,96px) auto 0;color:rgba(240,212,155,.5);opacity:0;transform:translateY(16px);filter:none;transition:opacity 1s cubic-bezier(.16,.8,.2,1),transform 1s cubic-bezier(.16,.8,.2,1)}.section-divider.visible{opacity:1;transform:none}.section-divider::before,.section-divider::after{content:"";width:min(120px,22vw);height:1px;background:linear-gradient(90deg,transparent,rgba(240,212,155,.4))}.section-divider::after{transform:scaleX(-1)}
-    .progress-rail{position:fixed;top:0;left:0;width:100%;height:2px;z-index:90;background:transparent;pointer-events:none}.progress-rail .bar{height:100%;width:0%;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width .1s linear;box-shadow:0 0 12px rgba(213,173,102,.5)}
+    .progress-rail{position:fixed;top:0;left:0;width:100%;height:2px;z-index:90;background:transparent;pointer-events:none}.progress-rail .bar{height:100%;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--gold),var(--gold2));box-shadow:0 0 12px rgba(213,173,102,.5)}
     .rsvp-section-head{max-width:640px;margin:0 auto}
     .rsvp-section h2{font-size:clamp(38px,5vw,56px)}
     .rsvp-section-head .rsvp-copy{max-width:520px}
@@ -110,6 +110,46 @@
     .closing{padding:clamp(48px,8vw,90px);text-align:center;position:relative;overflow:hidden}.closing::before{content:"U + A";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:"Italiana",serif;font-size:clamp(120px,22vw,290px);color:rgba(255,255,255,.018);white-space:nowrap;pointer-events:none}.closing-inner{position:relative;z-index:1}.closing h2{font-size:clamp(48px,7vw,78px)}.closing p{max-width:630px;margin:22px auto 0;color:var(--muted);font-size:15px;line-height:1.9}.signature{margin-top:28px;font-family:"Italiana",serif;font-size:30px;color:var(--gold2)}.closing-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:28px}
     .footer{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:26px 4px 0;color:var(--muted2);font-size:10px;letter-spacing:.13em;text-transform:uppercase}.toast{position:fixed;left:50%;bottom:24px;z-index:80;transform:translate(-50%,24px);padding:12px 16px;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(20,18,15,.92);color:var(--text);box-shadow:0 16px 50px rgba(0,0,0,.35);backdrop-filter:blur(18px);opacity:0;visibility:hidden;transition:.3s ease;font-size:12px;font-weight:600}.toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
     @media(max-width:760px){.shell{width:min(100% - 18px,1180px);padding-top:12px}.nav{padding:0 4px}.nav-date{display:none}.hero-inner{padding-left:20px;padding-right:20px}.invited{font-size:13px;letter-spacing:.2em;gap:10px}.invited::before,.invited::after{width:34px}h1{font-size:clamp(64px,21vw,92px)}.invite-copy{font-size:25px}.date-lockup{grid-template-columns:34px auto 34px;gap:12px}.date-day{font-size:42px}.hero-actions{grid-template-columns:1fr;row-gap:10px}.hero-actions .button{width:min(280px,100%)}.details-grid{grid-template-columns:1fr}.detail-card:not(:last-child){border-right:0;border-bottom:1px solid rgba(240,212,155,.14);padding-bottom:28px;margin-bottom:8px}.countdown{grid-template-columns:repeat(2,1fr)}.time-card:nth-child(2){border-right:0}.time-card:nth-child(-n+2){border-bottom:1px solid rgba(240,212,155,.14);padding-bottom:20px}.footer{flex-direction:column;align-items:flex-start;line-height:1.7}.arabic-salaam{font-size:clamp(46px,16vw,78px)}.salaam-ornament::before,.salaam-ornament::after{width:42px}.section-divider{margin:clamp(40px,9vw,60px) auto 0}.section-divider::before,.section-divider::after{width:min(70px,16vw)}}
+    /* Mobile performance pass: same appearance, cheaper paint/composite.
+       Desktop (mouse/trackpad pointer, or any wide viewport) is completely
+       untouched by this block. Matches on EITHER a narrow viewport (the
+       site's existing mobile breakpoint, portrait phones) OR a short
+       viewport on a coarse (touch) pointer - the latter specifically
+       catches phones rotated to landscape, which are >760px wide but are
+       still touch devices that benefit from the same optimisations. */
+    @media(max-width:760px),(max-height:760px) and (pointer:coarse){
+      /* Three fixed, permanently-animating blur(105px) orbs were the single
+         biggest ongoing cost, running site-wide on every scroll frame. The
+         body background already carries its own static radial-gradient
+         glow, so hiding this bonus parallax layer (already desktop-only
+         anyway, gated on hover:hover/pointer:fine) preserves essentially
+         the same warm dark/gold ambience with zero animation/blur cost. */
+      .ambient{display:none}
+      /* Scroll-reveal: keep the fade/rise, drop the blur-filter transition
+         (filter animation forces repeated rasterization; opacity/transform
+         alone are compositor-only). */
+      .reveal{filter:none;transition:opacity 1.1s cubic-bezier(.16,.8,.2,1),transform 1.1s cubic-bezier(.16,.8,.2,1)}
+      .reveal.visible{filter:none}
+      /* Hero name reveal: same slide/scale choreography, no blur-resolve. */
+      .name-line{filter:none}
+      .hero.entrance-run .name-line{animation-name:nameRevealMobile}
+      /* Decorative bloom SVGs: drop the per-element drop-shadow (9 of them,
+         re-animated on every hero enter/exit toggle). */
+      .bloom svg{filter:none}
+      /* Salaam's ambient glow keeps animating forever by default; freeze it
+         once the gateway has visibly scrolled away (reuses the existing
+         .exiting class already toggled by the page's own scroll observer -
+         no new JS needed). */
+      .salaam-section.exiting .salaam-glow{animation-play-state:paused}
+      /* Intro splash: same cross-fade, no blur-filter transition. */
+      .intro-stage{transition:opacity .75s cubic-bezier(.22,.8,.2,1),transform .75s cubic-bezier(.22,.8,.2,1)}
+      .intro-stage.one.exit,.intro-stage.two,.intro-stage.two.show,.intro-stage.two.exit{filter:none}
+      /* CTA shimmer/glow/twitch: same look, plays once after the hero
+         entrance rather than repainting a box-shadow every 7s forever. */
+      .hero.entrance-run .hero-cta-invite{animation:heroCtaGlow 7s ease-in-out 2.8s 1 forwards,heroCtaTwitch 7s ease-in-out 2.8s 1 forwards}
+      .hero.entrance-run .hero-cta-invite::before{animation:heroCtaSheen 7s ease-in-out 2.8s 1 forwards}
+    }
+    @keyframes nameRevealMobile{to{opacity:1;transform:none}}
     @media(max-width:390px){h1{font-size:60px}.hero-inner{padding-left:16px;padding-right:16px}.countdown{gap:8px}.time-card{padding:17px}.date-meta{letter-spacing:.15em}.arabic-salaam{font-size:58px}}
     /* Hero height-responsiveness: the hero used to size itself purely from
        width (vw-based clamps) with a flat 770px floor, so on a short-but-wide
@@ -366,8 +406,8 @@
           <div class="rsvp-done-orb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg></div>
           <h3>You've already responded — thank you.</h3>
           <p class="rsvp-copy">We've received your reply with love.</p>
-          <button class="button secondary" type="button" id="rsvpSubmitAnother">Respond for another guest</button>
-          <p class="rsvp-note">Responding for someone else using this device? You can add their response below. If you need to change your own RSVP, please contact us directly.</p>
+          <button class="button secondary" type="button" id="rsvpSubmitAnother">Add another guest's response</button>
+          <p class="rsvp-note">Responding for someone else using this device? You can add their response below. If you need to change your own response, please contact us directly.</p>
         </div>
         <div class="rsvp-state" data-state="ask">
           <div class="rsvp-choices">
@@ -458,7 +498,7 @@
           $('rsvpDoneTitle').textContent=doneTitle;$('rsvpDoneCopy').textContent=doneCopy;
           showState('done');
         }catch(err){
-          showToast("Couldn't send your RSVP — please try again");
+          showToast("Couldn't send your response — please try again");
         }finally{
           submitBtn.disabled=false;submitBtn.textContent=original;
         }
@@ -477,7 +517,7 @@
     })();
     const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.14,rootMargin:'0px 0px -40px'});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
     updateCountdown();setInterval(updateCountdown,1000);
-    const progressBar=$('progressBar');if(progressBar){let progressFrame=0;const updateProgress=()=>{cancelAnimationFrame(progressFrame);progressFrame=requestAnimationFrame(()=>{const doc=document.documentElement;const scrollable=doc.scrollHeight-doc.clientHeight;const pct=scrollable>0?(doc.scrollTop/scrollable)*100:0;progressBar.style.width=pct+'%'})};window.addEventListener('scroll',updateProgress,{passive:true});window.addEventListener('resize',updateProgress,{passive:true});updateProgress()}
+    const progressBar=$('progressBar');if(progressBar){let progressFrame=0;const updateProgress=()=>{cancelAnimationFrame(progressFrame);progressFrame=requestAnimationFrame(()=>{const doc=document.documentElement;const scrollable=doc.scrollHeight-doc.clientHeight;const pct=scrollable>0?(doc.scrollTop/scrollable)*100:0;progressBar.style.transform=`scaleX(${pct/100})`})};window.addEventListener('scroll',updateProgress,{passive:true});window.addEventListener('resize',updateProgress,{passive:true});updateProgress()}
     const heroBlooms=$('heroBlooms');const heroEl=document.querySelector('.hero');if(heroBlooms&&heroEl&&'IntersectionObserver' in window){const bloomObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{heroBlooms.classList.toggle('visible',entry.isIntersecting)})},{threshold:.15});bloomObserver.observe(heroEl)}
     // One-shot ceremonial entrance: plays the choreographed hero reveal the first time the
     // guest reaches the hero (via the salaamEnter click's scroll, or a manual scroll past the
@@ -554,12 +594,32 @@
         });
       };
 
+      // Mobile browsers fire both plain 'resize' and visualViewport 'resize'
+      // constantly as the address bar collapses/expands during ordinary
+      // scrolling, not just on genuine size changes - each firing was
+      // forcing fitSalaam's layout reads (getComputedStyle/offsetWidth/
+      // offsetHeight) even while the guest was scrolling through unrelated
+      // sections further down the page. Gate both resize paths on whether
+      // Salaam is actually on screen; the visibility observer re-syncs the
+      // instant it comes back into view, so nothing goes stale while away.
+      let salaamVisible = true;
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            salaamVisible = entry.isIntersecting;
+            if (salaamVisible) fitSalaam();
+          });
+        }, {threshold:0}).observe(section);
+      }
+
       window.addEventListener('load', fitSalaam, {passive:true});
       window.addEventListener('pageshow', fitSalaam, {passive:true});
-      window.addEventListener('resize', fitSalaam, {passive:true});
+      window.addEventListener('resize', () => { if (salaamVisible) fitSalaam(); }, {passive:true});
       window.addEventListener('orientationchange', fitSalaam, {passive:true});
       if (window.visualViewport) {
-        window.visualViewport.addEventListener('resize', fitSalaam, {passive:true});
+        window.visualViewport.addEventListener('resize', () => {
+          if (salaamVisible) fitSalaam();
+        }, {passive:true});
       }
       if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(fitSalaam);
