@@ -318,7 +318,27 @@
       92%{opacity:var(--o,.2)}
       100%{transform:translateY(118vh) translateX(0) rotate(360deg);opacity:0}
     }
+    @keyframes petalFallSoft{
+      0%{transform:translateY(0) translateX(0) rotate(0deg);opacity:0}
+      8%{opacity:var(--o,.2)}
+      50%{transform:translateY(56vh) translateX(var(--drift,18px)) rotate(180deg)}
+      55%{opacity:var(--o,.2)}
+      85%{opacity:0}
+      100%{transform:translateY(118vh) translateX(0) rotate(360deg);opacity:0}
+    }
     @media(max-width:760px){.petals-side{width:16%}}
+    /* Petals were still ~40% opaque when they crossed .petals-side's
+       overflow:hidden bottom edge (container height ~100dvh vs a
+       118vh fall distance), reading as a hard clip along a shared
+       line. Desktop's wider viewport keeps that edge far enough below
+       the fold that it isn't noticeable, so this widens/shifts the
+       fade-out earlier on phones only (same condition as the mobile
+       performance pass, so landscape phones are covered too) rather
+       than touching the shared keyframe. Layout/width is untouched
+       here - only the animation-name changes. */
+    @media(max-width:760px),(max-height:760px) and (pointer:coarse){
+      .petal{animation-name:petalFallSoft}
+    }
     @media(prefers-reduced-motion:reduce){.petals-side{display:none}}
   </style>
 </head>
