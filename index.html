@@ -195,6 +195,70 @@
       .scroll-cue span{height:10px}
     }
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.intro{display:none}.reveal{opacity:1;transform:none;filter:none}.detail-card,.time-card{opacity:1;transform:none}.section-divider{opacity:1;transform:none}.bloom{opacity:1;transform:scale(1) rotate(var(--r))}.salaam-section.exiting .salaam-content{opacity:1;transform:none}.invited,.name-line,.invite-copy,.invite-sub,.date-lockup,.hero-actions{opacity:1}.name-line{transform:none;filter:none}.invited::before,.invited::after,.name-seal,.date-rule{clip-path:none}}
+  
+    /* ROYAL WEDDING INVITATION — cream parchment, red roses, gold arch */
+    body{background:radial-gradient(circle at 8% 35%,rgba(133,37,50,.12),transparent 30%),linear-gradient(180deg,#150f11,#0c0c0e 53%,#130e0f)}
+    .salaam-section{background:radial-gradient(circle at 50% 45%,rgba(202,158,94,.14),transparent 45%),#171013}
+    .salaam-section .petal{color:#bd6767}
+    .hero{position:relative;display:flex;align-items:center;justify-content:flex-start;min-height:850px;overflow:hidden;isolation:isolate;color:#51372f;border:3px solid #b18a55;border-radius:12px;box-shadow:0 20px 80px rgba(0,0,0,.39),inset 0 0 0 5px rgba(249,231,198,.75);
+      background:radial-gradient(ellipse at 38% 32%,rgba(255,252,247,.91),transparent 62%),linear-gradient(145deg,#f1dfcc,#fff8ec 51%,#ecd7bc)}
+    .hero::before{content:"";position:absolute;inset:10px;z-index:1;pointer-events:none;border:1px solid rgba(165,116,60,.58);border-radius:7px}
+    .hero-blooms{display:none}
+    .royal-arch{position:absolute;inset:24px 7% 18px;z-index:0;pointer-events:none}
+    .royal-arch svg{width:100%;height:100%;display:block}
+    .royal-flowers{position:absolute;z-index:3;pointer-events:none;font:normal 54px Georgia,serif;color:#751b2a;text-shadow:5px 5px 1px #d6b284,10px 3px 12px rgba(112,26,37,.31);white-space:nowrap}
+    .royal-flowers span{font-size:1.65em;color:#b98f59}
+    .royal-flowers-left{top:-12px;left:5px;transform:rotate(-23deg)}
+    .royal-flowers-right{top:-12px;right:5px;transform:rotate(23deg)}
+    .royal-couple{position:absolute;right:1%;bottom:0;width:min(33%,355px);z-index:2;filter:drop-shadow(0 11px 12px rgba(69,39,30,.18));pointer-events:none}
+    .royal-couple svg{width:100%;height:auto;display:block}
+    .hero-inner{position:relative;width:70%;max-width:740px;margin:0 auto 0 3%;padding:102px 12px 95px;z-index:4}
+    .hero .invited{color:#71452b;font-weight:600;text-shadow:none}
+    .hero .invited::before,.hero .invited::after{background:linear-gradient(90deg,transparent,#b18a55);height:1.5px}
+    .hero h1{color:#752737;text-shadow:0 1px rgba(115,40,55,.14);font-size:clamp(72px,10vw,124px)}
+    .hero h1 .amp{color:#b38c50}
+    .hero .name-seal{background:linear-gradient(90deg,transparent,#b18a55,transparent);height:2px}
+    .hero .invite-copy{color:#6c3c41}
+    .hero .invite-sub{color:#665144}
+    .hero .date-day{color:#60313b;text-shadow:0 1px rgba(115,40,55,.17)}
+    .hero .date-meta{color:#8d613d;font-weight:700}
+    .hero .date-rule{background:linear-gradient(90deg,transparent,rgba(142,93,52,.65));height:2px}
+    .hero .button.primary{background:linear-gradient(135deg,#8e2d41,#5d1a2a);color:#fff5e6;border:1px solid #a97a48;box-shadow:0 11px 30px rgba(108,40,54,.17)}
+    .hero .button.secondary{background:rgba(255,249,239,.83);color:#663e39;border:1px solid #b58a57}
+    .hero .button.secondary:hover{background:#fffdf7}
+    .hero .scroll-cue{display:none}
+    .shell .welcome,.shell .details,.shell .rsvp-section,.shell .countdown-section,.shell .closing{border:1px solid rgba(207,162,95,.34);border-radius:10px;box-shadow:0 16px 35px rgba(0,0,0,.1)}
+    .shell .welcome,.shell .rsvp-section{background:linear-gradient(145deg,#291b1c,#171517)}
+    .shell .details,.shell .countdown-section{background:linear-gradient(145deg,#201819,#171618)}
+    .kicker,.detail-label{color:#f0ba9f}
+    .detail-icon{color:#f1d19c;border-color:rgba(230,187,120,.42)}
+    .closing{background:radial-gradient(circle at 17% 10%,rgba(135,41,52,.22),transparent 37%),linear-gradient(135deg,#281718,#151314)!important}
+    @media(max-width:900px){
+      .hero{display:block;min-height:900px}
+      .hero-inner{width:100%;margin:0 auto;max-width:700px;padding:95px 24px 310px}
+      .royal-couple{right:4%;width:min(62%,290px)}
+      .royal-arch{inset:15px 2% 10px}
+    }
+    @media(max-width:760px){
+      .hero{min-height:0}
+      .hero-inner{padding:85px 18px 320px}
+      .hero .invited{font-size:12px}
+      .hero h1{font-size:clamp(58px,18vw,83px)}
+      .hero .date-day{font-size:clamp(27px,7vw,39px)}
+      .hero .date-lockup{grid-template-columns:1fr auto 1fr;gap:7px}
+      .royal-couple{right:2%;width:min(77%,265px)}
+      .royal-flowers{font-size:32px}
+      .royal-flowers-left{left:-10px;top:5px}
+      .royal-flowers-right{right:-10px;top:5px}
+      .royal-arch{inset:7px 0 3px}
+      .hero::before{inset:6px}
+    }
+    @media(max-width:390px){
+      .hero-inner{padding:84px 12px 310px}
+      .hero h1{font-size:59px}
+      .royal-couple{width:245px}
+    }
+
   </style>
 
   <style id="salaam-responsive-fit-v2">
@@ -404,6 +468,39 @@
         <span class="bloom" style="--x:80%;--y:90%;--s:44px;--r:-18deg;--o:.3;--d:.42s"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M20 20 C20 12 28 12 28 20 C28 26 20 28 14 24 C8 20 10 10 20 8 C30 6 34 16 28 24 C22 32 10 30 8 20"/></svg></span>
         <span class="bloom" style="--x:48%;--y:3%;--s:28px;--r:6deg;--o:.22;--d:.48s"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.1"><circle cx="20" cy="10" r="7"/><circle cx="30" cy="17" r="7"/><circle cx="26" cy="28" r="7"/><circle cx="14" cy="28" r="7"/><circle cx="10" cy="17" r="7"/><circle cx="20" cy="19" r="3.2" fill="currentColor" stroke="none"/></svg></span>
       </div>
+      
+      <div class="royal-arch" aria-hidden="true">
+        <svg viewBox="0 0 800 720" preserveAspectRatio="none"><path d="M96 720V205Q96 174 126 174Q174 174 189 136Q207 95 252 100Q298 101 326 55L400 8L474 55Q502 101 548 100Q593 95 611 136Q626 174 674 174Q704 174 704 205V720" fill="none" stroke="#b18a55" stroke-width="4"/>
+        <path d="M111 720V216Q111 194 134 192Q194 182 207 144Q220 115 258 117Q310 125 338 73L400 29L462 73Q490 125 542 117Q580 115 593 144Q606 182 666 192Q689 194 689 216V720" fill="none" stroke="#dbbb86" stroke-width="2"/></svg>
+      </div>
+      <div class="royal-flowers royal-flowers-left" aria-hidden="true">❀ <span>❦</span> ✿</div>
+      <div class="royal-flowers royal-flowers-right" aria-hidden="true">✿ <span>❦</span> ❀</div>
+      <div class="royal-couple" aria-label="Stylised rear-view bride and groom in a red embroidered wedding outfit and black sherwani" role="img">
+        <svg viewBox="0 0 360 440" aria-hidden="true">
+          <defs>
+            <linearGradient id="brideFabric" x2=".7" y2="1"><stop stop-color="#ac3245"/><stop offset=".55" stop-color="#7a1d2d"/><stop offset="1" stop-color="#480d1c"/></linearGradient>
+            <linearGradient id="groomFabric" x2="1" y2="1"><stop stop-color="#3d393c"/><stop offset=".55" stop-color="#1e1c20"/><stop offset="1" stop-color="#0b0a0d"/></linearGradient>
+            <pattern id="goldThread" width="27" height="35" patternUnits="userSpaceOnUse"><path d="M13 3Q3 15 13 27Q23 15 13 3ZM13 27v8" fill="none" stroke="#e2b976" stroke-width="1.3"/><circle cx="13" cy="14" r="2" fill="#f3d49c"/></pattern>
+          </defs>
+          <path d="M121 155Q91 196 75 263L8 402Q2 418 0 428Q80 445 132 430Q179 449 246 430Q223 290 171 165Z" fill="url(#brideFabric)" stroke="#bd8f59" stroke-width="3"/>
+          <path d="M121 155Q91 196 75 263L8 402Q2 418 0 428Q80 445 132 430Q179 449 246 430Q223 290 171 165Z" fill="url(#goldThread)" opacity=".91"/>
+          <path d="M144 49Q99 44 91 102Q83 158 109 206Q74 328 0 431Q45 441 110 425Q94 346 129 211Q168 111 165 80Z" fill="#80192b" stroke="#edcd8b" stroke-width="3" opacity=".86"/>
+          <path d="M137 65Q109 88 124 127Q144 141 153 111L157 78Z" fill="#bd896a"/><path d="M122 77Q129 44 151 50Q169 53 158 83" fill="#292021"/>
+          <path d="M128 139Q108 165 116 208L171 222Q180 166 156 141Z" fill="#8e2334" stroke="#cca66b" stroke-width="2"/>
+          <path d="M125 147L163 207M161 150L124 201M11 417Q91 432 223 423" stroke="#e5bc7e" stroke-width="2.5" fill="none"/>
+          <path d="M258 67Q230 67 217 105Q204 186 206 304L209 323L348 319Q354 192 347 105Q337 68 304 65Z" fill="url(#groomFabric)" stroke="#a57b4b" stroke-width="3"/>
+          <path d="M258 67Q230 67 217 105Q204 186 206 304L209 323L348 319Q354 192 347 105Q337 68 304 65Z" fill="url(#goldThread)" opacity=".23"/>
+          <path d="M210 321L224 410L266 410L279 325M284 325L301 412L337 412L346 319" fill="#17161a" stroke="#51433c" stroke-width="3"/>
+          <path d="M221 409Q211 422 223 428L265 427L267 410M302 411Q290 426 308 429L344 428L339 411" fill="#191719" stroke="#564b45" stroke-width="2"/>
+          <path d="M266 41Q261 23 277 17Q298 11 312 28L311 70Q285 90 268 67Z" fill="#b98669"/>
+          <path d="M255 44Q245 14 267 8Q313-5 319 36Q302 31 291 33Q272 45 255 44Z" fill="#171417"/>
+          <path d="M253 77Q278 94 308 76M310 78Q336 171 344 306" stroke="#cba371" stroke-width="5" stroke-dasharray="4 6" fill="none"/>
+          <path d="M223 110Q209 182 210 236L200 258" stroke="#151417" stroke-width="24" stroke-linecap="round" fill="none"/>
+          <path d="M198 257L181 268" stroke="#b68164" stroke-width="10" stroke-linecap="round"/>
+          <path d="M173 260L184 270L198 256" stroke="#b68164" stroke-width="8" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+
       <div class="hero-inner">
         <div class="invited">You are warmly invited</div>
         <div class="names-wrap"><h1><span class="name-line one">Umar <span class="amp">&</span></span><span class="name-line two">Ansa</span></h1><span class="name-seal" aria-hidden="true"></span></div>
