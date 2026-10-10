@@ -327,6 +327,77 @@
       .time-card:nth-child(-n+2){border-color:rgba(143,104,55,.15)}
     }
 
+  
+    /* LIGHT THEME CONTRAST REFINEMENT */
+    :root{
+      --bg:#eee5d8;
+      --paper:#3c3129;
+      --paper-soft:#625247;
+      --text:#342c26;
+      --muted:rgba(52,44,38,.72);
+      --muted2:rgba(52,44,38,.52);
+      --gold:#a87737;
+      --gold2:#76522c;
+      --line:rgba(118,82,44,.27);
+    }
+
+    body{
+      background:
+        radial-gradient(circle at 50% -10%,rgba(168,119,55,.18),transparent 31%),
+        radial-gradient(circle at 5% 38%,rgba(200,166,123,.18),transparent 29%),
+        radial-gradient(circle at 96% 66%,rgba(190,158,126,.16),transparent 29%),
+        linear-gradient(180deg,#f4ecdf 0%,#ece1d1 48%,#f3eadf 100%);
+    }
+
+    .intro{
+      background:
+        radial-gradient(circle at 50% 44%,rgba(168,119,55,.14),transparent 31%),
+        #f0e6d8;
+    }
+
+    .date-rule{
+      height:1.5px;
+      background:linear-gradient(90deg,transparent,rgba(118,82,44,.58));
+    }
+    .date-day{color:#332820}
+    .date-meta{color:#76522c;font-weight:600}
+    .invited{color:#76522c}
+    .invited::before,.invited::after{
+      height:1.5px;
+      background:linear-gradient(90deg,transparent,rgba(118,82,44,.56));
+    }
+    .name-seal{
+      height:1.5px;
+      background:linear-gradient(90deg,transparent,rgba(118,82,44,.62),transparent);
+    }
+
+    .section-divider{color:rgba(118,82,44,.72)}
+    .section-divider::before,.section-divider::after{
+      height:1.5px;
+      background:linear-gradient(90deg,transparent,rgba(118,82,44,.5));
+    }
+    .heart-line::before,.heart-line::after{
+      height:1.5px;
+      background:linear-gradient(90deg,transparent,rgba(118,82,44,.48));
+    }
+
+    .detail-card:not(:last-child),
+    .time-card:not(:last-child){border-color:rgba(118,82,44,.24)}
+    .detail-icon{border-color:rgba(118,82,44,.32)}
+    .brand-mark{border-color:rgba(118,82,44,.32)}
+    .button.secondary{border-color:rgba(118,82,44,.3)}
+    .rsvp-field input,.rsvp-stepper{border-color:rgba(118,82,44,.29)}
+
+    .salaam-ornament::before,.salaam-ornament::after{
+      height:1.5px;
+      background:linear-gradient(90deg,transparent,rgba(118,82,44,.5));
+    }
+
+    @media(max-width:760px){
+      .detail-card:not(:last-child),
+      .time-card:nth-child(-n+2){border-color:rgba(118,82,44,.24)}
+    }
+
   </style>
 
   <style id="salaam-responsive-fit-v2">
