@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#f6f0e6" />
+  <meta name="theme-color" content="#f0e5d9" />
   <meta name="description" content="You are warmly invited to celebrate the wedding of Umar Siddiqui and Ansa Talib on 24 December 2026 at Grand Royale Banqueting, Luton." />
   <meta property="og:title" content="Umar & Ansa — You're Invited" />
   <meta property="og:description" content="Join us as we celebrate our wedding on 24 December 2026 in Luton." />
@@ -397,6 +397,171 @@
       .detail-card:not(:last-child),
       .time-card:nth-child(-n+2){border-color:rgba(118,82,44,.24)}
     }
+
+  
+    /* OUTFIT INSPIRED WEDDING PALETTE — maroon, antique gold, ivory, onyx */
+    :root{
+      --bg:#f0e5d9;--paper:#332a29;--paper-soft:#66565a;
+      --text:#30282a;--muted:rgba(48,40,42,.77);--muted2:rgba(48,40,42,.55);
+      --gold:#a7824e;--gold2:#805c35;--line:rgba(122,43,64,.25);
+      --glass:rgba(255,250,242,.72);--shadow:0 26px 70px rgba(60,30,31,.12);
+      --wine:#72243b;--wine-dark:#481b2c;--wine-soft:#b98793;
+      --antique-gold:#ac854b;--ivory:#f7f0e6;--onyx:#211d21;
+    }
+    html{background:var(--bg)}
+    body{background:
+      radial-gradient(ellipse at 3% 14%,rgba(114,36,59,.11),transparent 30%),
+      radial-gradient(ellipse at 95% 37%,rgba(172,133,75,.15),transparent 32%),
+      radial-gradient(ellipse at 9% 81%,rgba(145,72,87,.09),transparent 34%),
+      linear-gradient(180deg,#f8f0e6 0%,#ecddce 49%,#f5ebdf 100%)}
+    body::after{opacity:.037}
+
+    .intro{background:radial-gradient(circle at 50% 44%,rgba(114,36,59,.12),transparent 38%),#f5e9dc}
+    .intro::before,.intro::after{border-color:rgba(122,43,64,.16)}
+    .intro-monogram{background:linear-gradient(145deg,#813047,#4e1e30);color:#f8ecd8;
+      border:1px solid rgba(194,159,99,.85);
+      box-shadow:0 17px 40px rgba(75,27,43,.20),inset 0 0 0 3px rgba(250,231,187,.10)}
+    .intro-monogram span{color:#d9bb82}
+    .intro-small{color:#785e60}
+    .intro-title{color:#4a2431}
+    .salaam-section{background:
+      radial-gradient(ellipse at 48% 42%,rgba(255,249,238,.93),transparent 52%),
+      radial-gradient(circle at 4% 90%,rgba(114,36,59,.09),transparent 35%),
+      linear-gradient(150deg,#f4e8dc,#ead8c8 60%,#f2e6d8)}
+    .salaam-section::before{content:"";position:absolute;inset:17px;
+      border:1px solid rgba(142,96,57,.36);border-radius:22px;pointer-events:none;
+      z-index:0;box-shadow:inset 0 0 0 6px rgba(255,251,244,.34)}
+    .salaam-glow{background:radial-gradient(circle,rgba(166,107,101,.16),transparent 69%)}
+    .salaam-kicker,.salaam-note{color:#755f60}
+    .salaam-ornament{color:#8e5c42}
+    .salaam-ornament::before,.salaam-ornament::after{
+      background:linear-gradient(90deg,transparent,rgba(135,77,65,.58))}
+    .salaam-calligraphy{background:linear-gradient(122deg,#9a643d 0%,#b78f57 25%,#77482f 53%,#c09a64 75%,#8c5737 100%);
+      filter:drop-shadow(0 7px 20px rgba(108,60,54,.12))}
+    .latin-salaam{color:#4f3038}
+    .salaam-enter{display:flex;flex-direction:column;align-items:center;gap:10px;
+      padding:15px 24px 17px;min-width:min(286px,82vw);border:1px solid #b58b56;
+      border-radius:24px;background:linear-gradient(145deg,#852f49,#612036 72%,#4c1d30);
+      box-shadow:0 16px 34px rgba(89,31,51,.20),inset 0 1px rgba(255,244,218,.16);
+      color:#fff5e9;transition:transform .3s ease,box-shadow .3s ease}
+    .salaam-enter:hover{transform:translateY(-3px);
+      box-shadow:0 20px 42px rgba(89,31,51,.25),inset 0 1px rgba(255,244,218,.20)}
+    .salaam-enter:focus-visible,.button:focus-visible{outline:3px solid #ae8750;outline-offset:4px}
+    .salaam-enter-label{color:#fff7ec;font-size:11px;font-weight:700;letter-spacing:.13em;line-height:1.5}
+    .salaam-orb{width:42px;height:42px;
+      background:radial-gradient(circle at 31% 24%,#fff7dd,#e8c78c 47%,#aa783d 89%);
+      box-shadow:0 5px 18px rgba(35,15,22,.24),inset 0 0 0 1px rgba(255,252,239,.36)}
+
+    .nav{padding-bottom:10px;border-bottom:1px solid rgba(132,81,78,.19)}
+    .brand-mark,.salaam-brand .brand-mark{
+      background:linear-gradient(150deg,#76273f,#4c1c2f);
+      border:1px solid rgba(173,133,76,.74);color:#f8e9d0;
+      box-shadow:0 4px 15px rgba(85,39,52,.12)}
+    .brand-mark span,.salaam-brand .brand-mark span{color:#d8b779}
+    .nav-date{color:#69464f}
+    .hero{background:
+      radial-gradient(ellipse at 0% 8%,rgba(114,36,59,.07),transparent 34%),
+      radial-gradient(ellipse at 100% 96%,rgba(172,133,75,.10),transparent 35%),
+      linear-gradient(160deg,rgba(255,252,247,.86),rgba(249,237,224,.72));
+      border:1px solid rgba(151,98,83,.18);border-radius:26px;
+      box-shadow:0 24px 62px rgba(63,32,41,.075),inset 0 0 0 1px rgba(255,255,255,.44)}
+    .hero::after{content:"";position:absolute;inset:13px;
+      border:1px solid rgba(166,123,72,.32);border-radius:19px;z-index:0;pointer-events:none}
+    .bloom{color:rgba(126,49,69,var(--o,.4))}
+    .bloom svg{filter:drop-shadow(0 2px 7px rgba(110,43,60,.10))}
+    .invited{color:#752b40}
+    .invited::before,.invited::after{height:1.5px;
+      background:linear-gradient(90deg,transparent,rgba(131,54,72,.68))}
+    h1{color:#30272b;text-shadow:0 .35px 0 rgba(48,39,43,.18)}
+    h1 .amp{color:#8b3a52}
+    .name-seal{height:2px;background:linear-gradient(90deg,transparent,#ab874f,transparent)}
+    .invite-copy{color:#66364a}
+    .invite-sub{color:#615057}
+    .date-day{color:#30262a;text-shadow:0 .4px 0 rgba(48,38,42,.24)}
+    .date-meta{color:#743047;font-weight:700}
+    .date-rule{height:2px;background:linear-gradient(90deg,transparent,rgba(131,54,72,.62))}
+
+    .button.primary{color:#fff7ed;background:linear-gradient(135deg,#8d3751,#71243b 53%,#531c30);
+      border:1px solid rgba(170,120,73,.72);
+      box-shadow:0 12px 30px rgba(105,38,56,.19),inset 0 1px rgba(255,243,225,.15)}
+    .button.primary:hover{background:linear-gradient(135deg,#982f4e,#622039);
+      box-shadow:0 17px 32px rgba(105,38,56,.23)}
+    .button.secondary{color:#603041;border:1px solid rgba(125,55,70,.32);
+      background:rgba(255,250,242,.69);box-shadow:0 7px 20px rgba(76,39,45,.055)}
+    .button.secondary:hover{background:#fff9f0;border-color:rgba(125,55,70,.58)}
+    .hero-cta-invite::before{background:linear-gradient(115deg,transparent 20%,rgba(255,232,189,.32) 50%,transparent 80%)}
+
+    .section-divider{color:#9a7547}
+    .section-divider::before,.section-divider::after{height:1.5px;
+      background:linear-gradient(90deg,transparent,rgba(151,95,65,.53))}
+    .welcome{background:radial-gradient(circle at 90% 15%,rgba(114,36,59,.065),transparent 32%),rgba(255,251,244,.48);
+      border:1px solid rgba(150,104,85,.17);border-radius:25px}
+    .kicker{color:#843b4f}
+    .welcome h2,.details h2,.rsvp-section h2,.countdown-section h2{color:#35272d}
+    .welcome p{color:#5c4d50}
+    .heart-line{color:#8d4052}
+    .heart-line::before,.heart-line::after{height:1.5px;
+      background:linear-gradient(90deg,transparent,rgba(145,86,66,.5))}
+    .details{background:linear-gradient(155deg,rgba(255,250,242,.65),rgba(239,220,206,.47));
+      border:1px solid rgba(142,86,74,.18);border-radius:25px;
+      box-shadow:0 13px 36px rgba(74,38,42,.045)}
+    .detail-card:not(:last-child){border-color:rgba(127,69,72,.27)}
+    .detail-icon{color:#843c4f;border:1px solid rgba(145,86,66,.4);
+      background:radial-gradient(circle at 35% 25%,#fff6e9,#ecdbc7)}
+    .detail-card:hover .detail-icon{border-color:#af8a57;box-shadow:0 0 20px rgba(172,133,75,.19)}
+    .detail-label{color:#82384b}
+    .detail-title{color:#30262a;text-shadow:0 .25px 0 rgba(48,38,42,.17)}
+    .detail-copy{color:#625057}
+    .rsvp-section{background:radial-gradient(ellipse at 5% 0%,rgba(114,36,59,.08),transparent 35%),
+      linear-gradient(155deg,rgba(255,250,242,.96),rgba(246,231,219,.93));
+      border:1px solid rgba(130,68,73,.29);border-radius:26px;
+      box-shadow:0 21px 50px rgba(79,40,51,.065)}
+    .rsvp-state h3{color:#3e2930}
+    .rsvp-copy{color:#58494d}
+    .rsvp-note{color:#74636a}
+    .rsvp-field span{color:#723047}
+    .rsvp-field input,.rsvp-stepper{color:#34282c;background:rgba(255,253,247,.83);
+      border:1px solid rgba(116,48,69,.31)}
+    .rsvp-field input:focus{background:#fffdf8;border-color:#82364d;
+      box-shadow:0 0 0 3px rgba(130,54,77,.12)}
+    .rsvp-step-btn{color:#713047}
+    .rsvp-step-btn:hover{background:rgba(130,54,77,.10)}
+    .rsvp-step-btn:first-child{border-right-color:rgba(116,48,69,.23)}
+    .rsvp-step-btn:last-child{border-left-color:rgba(116,48,69,.23)}
+    .rsvp-decline:hover,.rsvp-back:hover{color:#782f46}
+    .rsvp-done-orb{background:radial-gradient(circle at 30% 25%,#f7e5c1,#d6a96c 70%,#9e6e3d);
+      box-shadow:0 8px 23px rgba(105,38,56,.15)}
+    .countdown-section{background:linear-gradient(140deg,rgba(236,213,201,.62),rgba(255,249,239,.75));
+      border:1px solid rgba(140,78,72,.17);border-radius:25px}
+    .time-number{color:#742c44}
+    .time-label{color:#69545b}
+    .time-card:not(:last-child){border-color:rgba(126,59,74,.24)}
+    .closing{color:#fff4e8;background:
+      radial-gradient(ellipse at 18% 0%,rgba(183,116,110,.21),transparent 44%),
+      radial-gradient(ellipse at 93% 92%,rgba(172,133,75,.20),transparent 44%),
+      linear-gradient(135deg,#542135 0%,#361d2a 53%,#201d22 100%);
+      border:1px solid rgba(181,138,83,.8);border-radius:27px;
+      box-shadow:0 24px 62px rgba(45,25,31,.20),inset 0 0 0 1px rgba(255,244,223,.08)}
+    .closing::before{color:rgba(223,185,125,.10)}
+    .closing h2{color:#fff0dc;text-shadow:0 1px 2px rgba(0,0,0,.10)}
+    .closing .kicker{color:#e7c48b}
+    .closing p{color:rgba(255,238,223,.84)}
+    .closing .signature{color:#e6bd7e}
+    .closing .button.secondary{color:#fff0dc;background:rgba(255,255,255,.07);
+      border:1px solid rgba(223,185,125,.64)}
+    .closing .button.secondary:hover{background:rgba(255,255,255,.13)}
+    .closing .button.primary{color:#2c2023;background:linear-gradient(135deg,#f2d59b,#bf9053);border:1px solid #d5ad73}
+    .footer{color:#714a56}
+    .toast{color:#3e2930;background:rgba(255,248,237,.97);
+      border-color:rgba(126,59,74,.3);box-shadow:0 12px 32px rgba(67,33,40,.17)}
+    @media(max-width:760px){
+      .salaam-section::before{inset:9px;border-radius:14px}
+      .hero::after{inset:8px;border-radius:18px}
+      .hero,.welcome,.details,.rsvp-section,.countdown-section,.closing{border-radius:20px}
+      .detail-card:not(:last-child),.time-card:nth-child(-n+2){border-color:rgba(126,59,74,.24)}
+      .salaam-enter{max-width:84vw}
+    }
+    @media(prefers-reduced-motion:reduce){.salaam-enter,.button{transition:none}}
 
   </style>
 
