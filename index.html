@@ -78,10 +78,10 @@
 /* Salaam welcome, composed around the complete Arabic artwork. */
 html{scroll-padding-top:70px}
 .salaam-section{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden;isolation:isolate;padding:28px 0;background:#170e0c;color:#efddb9;text-align:center}
-.salaam-section::before,.salaam-section::after{content:"";position:absolute;z-index:-1;top:0;bottom:0;width:clamp(95px,19vw,300px);background-repeat:no-repeat;background-size:cover;filter:brightness(.46) saturate(.78);opacity:.82;pointer-events:none}
+.salaam-section::before,.salaam-section::after{content:"";position:absolute;z-index:-1;top:0;bottom:0;width:50%;background-repeat:no-repeat;background-size:cover;filter:brightness(.72) saturate(.85);pointer-events:none}
 .salaam-section::before{left:0;background-image:var(--photo-floral-left);background-position:left center}
 .salaam-section::after{right:0;background-image:var(--photo-floral-right);background-position:right center}
-.salaam-content{position:relative;width:min(calc(100% - 18vw),1240px);min-height:calc(100svh - 56px);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:58px 30px 64px;border:1px solid #8e6a453d;background:radial-gradient(ellipse at 50% 54%,#42291f 0%,#281a16 53%,#17110f 100%);box-shadow:0 0 0 8px #120d0bad,0 25px 70px #0804048c}
+.salaam-content{position:relative;width:min(calc(100% - 18vw),1240px);min-height:calc(100svh - 56px);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:58px 30px 64px;border:1px solid #8e6a453d;background:radial-gradient(ellipse at 50% 54%,rgba(58,36,28,.81) 0%,rgba(33,21,17,.86) 59%,rgba(20,14,12,.9) 100%);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);box-shadow:0 0 0 8px #120d0bad,0 25px 70px #0804048c}
 .salaam-content::before{content:"";position:absolute;inset:8px;border:1px solid #bd926b24;pointer-events:none}
 .salaam-kicker{font:600 clamp(13px,1.6vw,20px)/1.4 'Cormorant Garamond',Georgia,serif;letter-spacing:.25em;text-transform:uppercase;color:#e1c5a2;margin:0 0 clamp(23px,3.4vh,38px)}
 .salaam-wrap{display:flex;flex-direction:column;align-items:center;width:100%}
@@ -93,8 +93,8 @@ html{scroll-padding-top:70px}
 .salaam-enter:hover{transform:translateY(-3px);box-shadow:0 13px 27px #09040470}.salaam-enter:focus-visible{outline:3px solid #fff1cf;outline-offset:5px}
 .salaam-enter-arrow{font:400 25px/1 Georgia,serif;letter-spacing:0}
 .salaam-footer{font:600 clamp(10px,1.1vw,13px)/1.4 'DM Sans',sans-serif;letter-spacing:.08em;color:#dfc7a5;margin:clamp(30px,4vh,42px) 0 0}
-@media(max-width:1000px){.salaam-content{width:calc(100% - 26px)}.salaam-section::before,.salaam-section::after{width:25%}}
-@media(max-width:680px){.salaam-section{padding:12px 0}.salaam-section::before,.salaam-section::after{width:28%;opacity:.45}.salaam-content{width:calc(100% - 22px);min-height:calc(100svh - 24px);padding:42px 17px 48px}.salaam-kicker{font-size:clamp(11px,3.1vw,14px);letter-spacing:.18em;margin-bottom:25px}.salaam-calligraphy{width:min(100%,470px)}.latin-salaam{font-size:clamp(34px,8.9vw,49px);margin-top:24px}.salaam-note{font-size:11px}.salaam-enter{min-height:60px;margin-top:34px;padding:12px 25px;font-size:clamp(13px,3.6vw,17px);gap:12px;max-width:100%}.salaam-footer{font-size:10px;margin-top:32px}}
+@media(max-width:1000px){.salaam-content{width:calc(100% - 26px)}}
+@media(max-width:680px){.salaam-section{padding:12px 0}.salaam-section::before,.salaam-section::after{filter:brightness(.55) saturate(.75)}.salaam-content{width:calc(100% - 22px);min-height:calc(100svh - 24px);padding:42px 17px 48px;background:radial-gradient(ellipse at 50% 54%,rgba(58,36,28,.86) 0%,rgba(28,18,15,.91) 100%)}.salaam-kicker{font-size:clamp(11px,3.1vw,14px);letter-spacing:.18em;margin-bottom:25px}.salaam-calligraphy{width:min(100%,470px)}.latin-salaam{font-size:clamp(34px,8.9vw,49px);margin-top:24px}.salaam-note{font-size:11px}.salaam-enter{min-height:60px;margin-top:34px;padding:12px 25px;font-size:clamp(13px,3.6vw,17px);gap:12px;max-width:100%}.salaam-footer{font-size:10px;margin-top:32px}}
 @media(max-width:375px){.salaam-enter{letter-spacing:.08em;padding:11px 17px}.salaam-content{padding-inline:12px}}
 /* Keep the photo composition while eliminating the stray golden icon and cramped typography. */
 .small-flourish,.divider-art,.ornament{display:none!important}
