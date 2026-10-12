@@ -946,19 +946,20 @@ html{scroll-padding-top:0}
   .menu-card:nth-child(odd):after{right:22px}
   .menu-card:nth-child(even):after{left:22px}
   .floral-bridge:not(.floral-bridge--hero):before,.floral-bridge:not(.floral-bridge--hero):after{
-    top:clamp(-136px,-7.1vw,-104px);
-    width:clamp(260px,19vw,365px);
+    top:clamp(-185px,-13vw,-135px);
+    width:clamp(500px,39vw,620px);
     aspect-ratio:3/2;
-    background-image:url('assets/floral-corner-seam-v1.png');
-    background-position:right top;
-    background-size:contain;
+    background-image:url('assets/floral-corner-lush-rose-a.png');
+    background-position:center;
+    background-size:68% 68%;
     opacity:1;
     mask-image:none;
     -webkit-mask-image:none;
-    filter:drop-shadow(0 11px 14px rgba(47,16,11,.28))
+    filter:drop-shadow(0 9px 12px rgba(47,16,11,.2))
   }
-  .floral-bridge:not(.floral-bridge--hero):before{left:-18px;transform:scaleX(-1)}
-  .floral-bridge:not(.floral-bridge--hero):after{right:-18px}
+  .floral-bridge:not(.floral-bridge--hero):before{left:0;transform:scaleX(-1)}
+  .floral-bridge:not(.floral-bridge--hero):after{right:0}
+  .floral-bridge.floral-bridge--details:before,.floral-bridge.floral-bridge--details:after{background-image:url('assets/floral-corner-lush-rose-b.png')}
   .paper-details,.rsvp,.menu-section{box-shadow:inset 0 1px 0 rgba(247,211,156,.46),inset 0 -1px 0 rgba(128,77,39,.32)}
 }
 </style></head>
