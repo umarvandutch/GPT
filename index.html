@@ -921,6 +921,24 @@ html{scroll-padding-top:0}
 .salaam-corner--tr,.salaam-corner--br{right:clamp(-72px,-4vw,-36px);background-image:url('assets/edge-flowers-right-2k.webp');background-position:right top}
 .salaam-corner--tl,.salaam-corner--tr{top:clamp(-74px,-5vw,-38px)}
 .salaam-corner--bl,.salaam-corner--br{bottom:clamp(-74px,-5vw,-38px);transform:scaleY(-1)}
+/* Larger rose arrangements belong to the Salaam welcome frame only. */
+@media(min-width:901px){
+  .salaam-content>.salaam-corner{
+    width:clamp(280px,27vw,440px);
+    aspect-ratio:3/2;
+    background-size:84% 84%;
+    background-position:center;
+    opacity:1
+  }
+  .salaam-corner--tl,.salaam-corner--bl{left:clamp(-30px,-1.5vw,-12px);background-image:url('assets/floral-corner-lush-rose-a.png')}
+  .salaam-corner--tr,.salaam-corner--br{right:clamp(-30px,-1.5vw,-12px);background-image:url('assets/floral-corner-lush-rose-b.png')}
+  .salaam-corner--tl,.salaam-corner--tr{top:clamp(-30px,-1.5vw,-12px)}
+  .salaam-corner--bl,.salaam-corner--br{bottom:clamp(-30px,-1.5vw,-12px)}
+  .salaam-corner--tl{transform:scaleX(-1)}
+  .salaam-corner--tr{transform:none}
+  .salaam-corner--bl{transform:scale(-1,-1)}
+  .salaam-corner--br{transform:scaleY(-1)}
+}
 @media(max-width:680px){
   .salaam-content>.salaam-corner{width:clamp(88px,29vw,132px);opacity:.82}
   .salaam-corner--tl,.salaam-corner--bl{left:-38px}
@@ -946,20 +964,14 @@ html{scroll-padding-top:0}
   .menu-card:nth-child(odd):after{right:22px}
   .menu-card:nth-child(even):after{left:22px}
   .floral-bridge:not(.floral-bridge--hero):before,.floral-bridge:not(.floral-bridge--hero):after{
-    top:clamp(-185px,-13vw,-135px);
-    width:clamp(500px,39vw,620px);
-    aspect-ratio:3/2;
-    background-image:url('assets/floral-corner-lush-rose-a.png');
-    background-position:center;
-    background-size:68% 68%;
-    opacity:1;
-    mask-image:none;
-    -webkit-mask-image:none;
-    filter:drop-shadow(0 9px 12px rgba(47,16,11,.2))
+    top:-138px;
+    width:clamp(165px,13vw,235px);
+    opacity:.96;
+    mask-image:linear-gradient(to bottom,transparent 0%,#000 14%,#000 72%,transparent 100%);
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 14%,#000 72%,transparent 100%)
   }
-  .floral-bridge:not(.floral-bridge--hero):before{left:0;transform:scaleX(-1)}
-  .floral-bridge:not(.floral-bridge--hero):after{right:0}
-  .floral-bridge.floral-bridge--details:before,.floral-bridge.floral-bridge--details:after{background-image:url('assets/floral-corner-lush-rose-b.png')}
+  .floral-bridge:not(.floral-bridge--hero):before{left:-24px}
+  .floral-bridge:not(.floral-bridge--hero):after{right:-24px}
   .paper-details,.rsvp,.menu-section{box-shadow:inset 0 1px 0 rgba(247,211,156,.46),inset 0 -1px 0 rgba(128,77,39,.32)}
 }
 </style></head>
