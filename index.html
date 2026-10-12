@@ -307,6 +307,154 @@ html{scroll-padding-top:0}
   .countdown:before,.countdown:after{width:72px}
   .detail a,.detail button{padding:8px 9px;font-size:8.2px;letter-spacing:0}
 }
+/* Premium motion and alignment pass. */
+.site-header{
+  position:relative;
+  height:72px;
+  background:linear-gradient(110deg,#0b0909 0%,#1d100d 52%,#0a0909 100%);
+  border-bottom:1px solid rgba(226,180,111,.72);
+  box-shadow:0 7px 20px rgba(19,8,5,.25);
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none
+}
+.site-header:after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:3px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#e6bc7c 18%,#fff0bd 50%,#e6bc7c 82%,transparent);
+  opacity:.58
+}
+.invitation{transform:translateZ(0)}
+.invitation-copy{top:10.8%;left:22%;width:36%;gap:4px}
+.invitation-names{font-size:clamp(64px,8vw,118px);line-height:.72;margin:7px auto 5px}
+.invitation-names .lineage{
+  max-width:100%;
+  margin:5px auto 3px;
+  font-size:clamp(12px,1.16vw,17px);
+  line-height:1.12;
+  letter-spacing:.03em
+}
+.invitation-names .amp{font-size:.27em;line-height:1;margin:3px auto 1px}
+.invitation-names .second{margin-top:0}
+.countdown{
+  padding:58px clamp(120px,16vw,220px) 56px;
+  background:radial-gradient(circle at 50% 8%,#36201a 0%,#1c1110 38%,#0f0c0c 100%);
+  box-shadow:inset 0 2px 0 rgba(255,220,163,.24),inset 0 -2px 0 rgba(255,220,163,.2),0 14px 34px rgba(36,13,8,.12)
+}
+.countdown:before,.countdown:after{width:clamp(110px,14vw,195px);opacity:.88;background-size:cover}
+.countdown .dark-kicker{font-size:13px;letter-spacing:.32em;color:#efc691}
+.countdown h2{max-width:730px;margin:12px auto 26px;font-size:clamp(34px,4vw,48px);letter-spacing:.01em;text-wrap:balance}
+.count-row{
+  width:100%;
+  max-width:710px;
+  padding:19px 6px 16px;
+  border-top:1px solid rgba(228,181,112,.68);
+  border-bottom:1px solid rgba(228,181,112,.68);
+  background:linear-gradient(90deg,transparent,rgba(105,57,37,.12) 18%,rgba(185,116,67,.11) 50%,rgba(105,57,37,.12) 82%,transparent)
+}
+.count-item{min-width:0;padding:0 14px;display:flex;align-items:center;flex-direction:column;justify-content:center}
+.count-value{min-width:2ch;font-size:clamp(43px,5.2vw,66px);line-height:.9;text-shadow:0 0 16px rgba(228,174,101,.12)}
+.count-label{font-size:11px;letter-spacing:.2em;margin-top:9px}
+.countdown .section-edge{max-width:790px;filter:drop-shadow(0 0 5px rgba(231,180,105,.22))}
+.detail a,.detail button{
+  isolation:isolate;
+  overflow:hidden;
+  min-height:39px;
+  width:min(100%,190px);
+  padding:10px 19px;
+  border:0;
+  background:linear-gradient(135deg,#9f6d39,#d2a660 52%,#8c5c31);
+  clip-path:polygon(7px 0,calc(100% - 7px) 0,100% 7px,100% calc(100% - 7px),calc(100% - 7px) 100%,7px 100%,0 calc(100% - 7px),0 7px);
+  box-shadow:none;
+  filter:drop-shadow(0 5px 7px rgba(87,48,28,.16));
+  letter-spacing:.065em
+}
+.detail a:before,.detail button:before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:1px;
+  border:0;
+  background:linear-gradient(135deg,#fff8e9 0%,#f4dfbe 50%,#e6c595 100%);
+  clip-path:polygon(6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px),0 6px);
+  box-shadow:inset 0 0 0 3px rgba(255,248,232,.8),inset 0 0 0 4px rgba(145,94,48,.35);
+  pointer-events:none
+}
+.detail a:after,.detail button:after{
+  content:"";
+  position:absolute;
+  z-index:2;
+  top:-40%;
+  bottom:-40%;
+  left:-55%;
+  width:28%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.66),transparent);
+  transform:skewX(-20deg) translateX(-260%);
+  animation:plaque-sheen 6.5s ease-in-out infinite;
+  pointer-events:none
+}
+.detail a>span,.detail button>span{position:relative;z-index:1}
+.detail a:hover,.detail button:hover,.detail a:focus-visible,.detail button:focus-visible{
+  color:#542b24;
+  transform:translateY(-3px);
+  filter:drop-shadow(0 8px 10px rgba(87,48,28,.24)) brightness(1.025);
+  box-shadow:none
+}
+.count-value.digit-flip{animation:digit-flip .38s cubic-bezier(.2,.8,.2,1)}
+@keyframes plaque-sheen{0%,64%{transform:skewX(-20deg) translateX(-260%)}82%,100%{transform:skewX(-20deg) translateX(620%)}}
+@keyframes digit-flip{0%{opacity:.4;transform:translateY(-7px);filter:blur(2px)}100%{opacity:1;transform:translateY(0);filter:blur(0)}}
+@media(prefers-reduced-motion:no-preference){
+  .motion-ready .reveal-item{opacity:0;transform:translateY(24px);filter:blur(4px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.75,.2,1),filter .8s ease;transition-delay:var(--reveal-delay,0ms)}
+  .motion-ready .reveal-item.is-visible{opacity:1;transform:translateY(0);filter:blur(0)}
+  .site-header .brand,.site-header .nav-cta{transition:color .25s ease,filter .25s ease,transform .25s ease}
+  .site-header .brand:hover,.site-header .nav-cta:hover{transform:translateY(-1px);filter:drop-shadow(0 0 8px rgba(238,193,126,.44))}
+}
+@media(max-width:900px){
+  .site-header{height:66px}
+  .invitation-copy{top:8.4%;left:13%;width:74%;gap:3px}
+  .invitation-names{font-size:clamp(57px,10.4vw,82px);line-height:.74}
+  .invitation-names .lineage{font-size:clamp(11.5px,1.8vw,14.5px)}
+  .countdown{padding-inline:78px}
+  .countdown:before,.countdown:after{width:105px}
+}
+@media(max-width:680px){
+  .site-header{height:64px;padding-inline:17px;background:linear-gradient(110deg,#0a0909,#1d100d 54%,#090808)}
+  .invitation{height:max(calc(100svh - 64px),150vw)}
+  .invitation:before{background-position:55% top}
+  .invitation-copy{top:7%;left:12.5%;width:75%;gap:3px}
+  .invitation-copy .blessings,.invitation-copy .invitation-kicker{font-size:clamp(10px,2.75vw,12.5px);line-height:1.12;letter-spacing:.055em}
+  .invitation-names{font-size:clamp(50px,13.25vw,69px);line-height:.75;margin:5px auto 4px}
+  .invitation-names .lineage{max-width:100%;font-size:clamp(10px,2.85vw,12.5px);line-height:1.12;letter-spacing:.018em;margin:5px auto 3px}
+  .invitation-names .amp{font-size:.25em;line-height:1;margin:3px auto 1px}
+  .day{font-size:clamp(13px,3.5vw,15px)}
+  .date{font-size:clamp(18px,5vw,24px)}
+  .venue{font-size:clamp(15px,4vw,20px)}
+  .venue-location{font-size:clamp(10.5px,2.8vw,13.5px)}
+  .countdown{padding:53px 17px 49px}
+  .countdown:before,.countdown:after{width:78px;opacity:.72;background-size:auto 100%}
+  .countdown:before{mask-image:linear-gradient(90deg,#000 0%,#000 42%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 42%,transparent 100%)}
+  .countdown:after{mask-image:linear-gradient(270deg,#000 0%,#000 42%,transparent 100%);-webkit-mask-image:linear-gradient(270deg,#000 0%,#000 42%,transparent 100%)}
+  .countdown .dark-kicker{font-size:10px;letter-spacing:.24em}
+  .countdown h2{max-width:310px;font-size:clamp(31px,8.8vw,37px);line-height:1.03;margin:12px auto 22px}
+  .count-row{max-width:360px;padding:17px 2px 14px;background:rgba(22,13,12,.36);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+  .count-item{padding:0 3px}
+  .count-value{font-size:clamp(34px,9.5vw,42px)}
+  .count-label{font-size:clamp(8px,2.25vw,9.5px);letter-spacing:.12em;margin-top:8px}
+  .detail a,.detail button{min-height:35px;width:min(100%,145px);padding:8px 11px;font-size:9.2px;letter-spacing:.025em;clip-path:polygon(6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px),0 6px)}
+}
+@media(max-width:360px){
+  .invitation-copy{top:6.7%;left:11.5%;width:77%}
+  .invitation-names{font-size:47px}
+  .invitation-names .lineage{font-size:9.5px}
+  .countdown{padding-inline:12px}
+  .countdown:before,.countdown:after{width:65px;opacity:.62}
+  .count-value{font-size:32px}
+  .count-label{font-size:7.8px;letter-spacing:.08em}
+  .detail a,.detail button{padding:8px 7px;font-size:8.3px;letter-spacing:0}
+}
 </style></head>
 <body>
 <section class="salaam-section" id="salaamSection" aria-label="As-salamu alaykum — peace be upon you">
@@ -334,7 +482,7 @@ html{scroll-padding-top:0}
    <div class="blessings">With the blessings of<br>Allah</div>
    <div class="small-flourish" aria-hidden="true"></div>
    <div class="invitation-kicker">You are cordially invited<br>to the wedding of</div>
-   <h1 class="invitation-names"><span class="name-line">Umar</span><span class="lineage">son of Zahid Siddiqui &amp; Rubina Hamid</span><span class="amp">&amp;</span><span class="name-line second">Ansa</span><span class="lineage">Daughter of Talib and Yasmin</span></h1>
+   <h1 class="invitation-names"><span class="name-line">Umar</span><span class="lineage">Son of Zahid Siddiqui &amp; Rubina Hamid</span><span class="amp">&amp;</span><span class="name-line second">Ansa</span><span class="lineage">Daughter of Talib and Yasmin</span></h1>
    <div class="divider-art" aria-hidden="true"></div>
    <div class="day">Thursday</div>
    <div class="date">24 December 2026</div>
@@ -349,10 +497,10 @@ html{scroll-padding-top:0}
 <div class="floral-bridge floral-bridge--countdown" aria-hidden="true"></div>
 <section class="paper-details" id="details" aria-labelledby="details-title"><p class="section-kicker">Everything you need to know</p><h2 id="details-title">The details</h2>
  <div class="four-details">
-  <article class="detail"><div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></div><h3>Date</h3><p>Thursday<br>24 December 2026</p><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Umar%20%26%20Ansa%27s%20Wedding&amp;dates=20261224%2F20261225&amp;location=Grand%20Royale%20Banqueting%2C%20Crescent%20Road%2C%20Luton%20LU2%200AH&amp;details=Umar%20Siddiqui%20%26%20Ansa%20Talib%20%E2%80%94%20Wedding%20Day" target="_blank" rel="noopener noreferrer">Add to calendar ↗</a></article>
+  <article class="detail"><div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></div><h3>Date</h3><p>Thursday<br>24 December 2026</p><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Umar%20%26%20Ansa%27s%20Wedding&amp;dates=20261224%2F20261225&amp;location=Grand%20Royale%20Banqueting%2C%20Crescent%20Road%2C%20Luton%20LU2%200AH&amp;details=Umar%20Siddiqui%20%26%20Ansa%20Talib%20%E2%80%94%20Wedding%20Day" target="_blank" rel="noopener noreferrer"><span>Add to calendar ↗</span></a></article>
   <article class="detail"><div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Venue</h3><p>Grand Royale Banqueting<br>Crescent Road, Luton LU2 0AH</p></article>
-  <article class="detail"><div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="8" r="3"/><path d="M2 21v-4c0-3 3-5 6-5s6 2 6 5v4M14 13c4-1 8 1 8 5v3"/></svg></div><h3>RSVP</h3><p>We would love to celebrate with you.</p><a href="#rsvp">Kindly respond ↓</a></article>
-  <article class="detail"><div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2V5ZM9 3v16M15 5v16"/></svg></div><h3>Directions</h3><p>Find us in the heart of Luton.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Royale+Banqueting+Crescent+Road+Luton+LU2+0AH" target="_blank" rel="noopener noreferrer">Open Google Maps ↗</a></article>
+  <article class="detail"><div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="8" r="3"/><path d="M2 21v-4c0-3 3-5 6-5s6 2 6 5v4M14 13c4-1 8 1 8 5v3"/></svg></div><h3>RSVP</h3><p>We would love to celebrate with you.</p><a href="#rsvp"><span>Kindly respond ↓</span></a></article>
+  <article class="detail"><div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2V5ZM9 3v16M15 5v16"/></svg></div><h3>Directions</h3><p>Find us in the heart of Luton.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Royale+Banqueting+Crescent+Road+Luton+LU2+0AH" target="_blank" rel="noopener noreferrer"><span>Open Google Maps ↗</span></a></article>
   </div><div class="section-edge edge-bottom edge-light" aria-hidden="true"></div>
 </section>
 <div class="floral-bridge floral-bridge--details" aria-hidden="true"></div>
@@ -374,7 +522,7 @@ html{scroll-padding-top:0}
 (()=>{
  'use strict';
  const $=id=>document.getElementById(id);
- $('salaamEnter').addEventListener('click',()=>{document.querySelector('.hero').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});});
+ $('salaamEnter').addEventListener('click',()=>{$('top').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});});
  const safeGet=(kind,key)=>{try{return (kind==='local'?localStorage:sessionStorage).getItem(key)}catch(_){return null}};
  const safeSet=(kind,key,value)=>{try{(kind==='local'?localStorage:sessionStorage).setItem(key,value)}catch(_){}};
  const toast=(msg)=>{const el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove('show'),3600)};
@@ -398,9 +546,17 @@ html{scroll-padding-top:0}
  const guest=$('rsvpYesForm').querySelector('input[name="guest_count"]');
  $('rsvpYesForm').querySelectorAll('[data-step-down],[data-step-up]').forEach(btn=>btn.addEventListener('click',()=>{const v=(parseInt(guest.value||'1',10)||1)+(btn.hasAttribute('data-step-up')?1:-1);guest.value=Math.max(1,Math.min(12,v))}));
  const target=new Date('2026-12-24T00:00:00Z').getTime();
- function tick(){let n=Math.max(0,Math.floor((target-Date.now())/1000));$('days').textContent=String(Math.floor(n/86400)).padStart(2,'0');n%=86400;$('hours').textContent=String(Math.floor(n/3600)).padStart(2,'0');n%=3600;$('minutes').textContent=String(Math.floor(n/60)).padStart(2,'0');$('seconds').textContent=String(n%60).padStart(2,'0')}
+ const setDigit=(id,value)=>{const el=$(id);if(el.textContent===value)return;el.textContent=value;el.classList.remove('digit-flip');void el.offsetWidth;el.classList.add('digit-flip')};
+ function tick(){let n=Math.max(0,Math.floor((target-Date.now())/1000));setDigit('days',String(Math.floor(n/86400)).padStart(2,'0'));n%=86400;setDigit('hours',String(Math.floor(n/3600)).padStart(2,'0'));n%=3600;setDigit('minutes',String(Math.floor(n/60)).padStart(2,'0'));setDigit('seconds',String(n%60).padStart(2,'0'))}
  tick();setInterval(tick,1000);
  $('shareButton').addEventListener('click',async()=>{const url='https://umar-ansa.co.uk';try{if(navigator.share){await navigator.share({title:'Umar & Ansa — Wedding Invitation',url});return}await navigator.clipboard.writeText(url);toast('Invitation link copied!')}catch(_){toast('Share the invitation at umar-ansa.co.uk')}});
+  if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+   document.documentElement.classList.add('motion-ready');
+   const revealTargets=[document.querySelector('.invitation-copy'),...document.querySelectorAll('.countdown>.dark-kicker,.countdown>h2,.countdown>.count-row,.paper-details>.section-kicker,.paper-details>h2,.detail,.rsvp-title,.rsvp-panel,.closing>.section-kicker,.closing>h2,.closing>p,.closing>.signature,.closing>.actions')].filter(Boolean);
+   revealTargets.forEach((el,index)=>{el.classList.add('reveal-item');if(el.classList.contains('detail'))el.style.setProperty('--reveal-delay',`${(index%4)*70}ms`)});
+   const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}}),{rootMargin:'0px 0px -9% 0px',threshold:.08});
+   revealTargets.forEach(el=>revealObserver.observe(el));
+  }
   const progressFill=$('scrollProgressFill');let progressFrame=0;
   const updateProgress=()=>{progressFrame=0;const total=Math.max(0,document.documentElement.scrollHeight-innerHeight);const amount=total?Math.min(1,Math.max(0,scrollY/total)):0;progressFill.style.transform=`scaleX(${amount})`};
   const scheduleProgress=()=>{if(!progressFrame)progressFrame=requestAnimationFrame(updateProgress)};
