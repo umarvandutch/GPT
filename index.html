@@ -763,15 +763,15 @@ html{scroll-padding-top:0}
   inset:0;
   opacity:0;
   pointer-events:none;
-  background:radial-gradient(circle at 50% 50%,rgba(255,245,207,.98) 0%,rgba(227,174,91,.78) 15%,rgba(102,45,25,.34) 38%,transparent 68%);
+  background:radial-gradient(circle at 50% 50%,rgba(255,245,215,.9) 0%,rgba(227,174,91,.62) 17%,rgba(102,45,25,.25) 42%,transparent 72%);
   mix-blend-mode:screen
 }
 @keyframes salaam-arrive{from{opacity:0;transform:translateY(20px) scale(.97);filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}
 @keyframes salaam-calligraphy-glow{0%,100%{filter:drop-shadow(0 4px 12px #a8673159)}50%{filter:drop-shadow(0 5px 20px rgba(239,185,99,.55)) brightness(1.08)}}
 @keyframes salaam-button-sheen{0%,58%{transform:skewX(-18deg) translateX(-350%)}78%,100%{transform:skewX(-18deg) translateX(720%)}}
 @keyframes salaam-aura{0%,100%{opacity:.12;transform:scale(.92)}50%{opacity:.32;transform:scale(1.08)}}
-@keyframes salaam-open{0%{opacity:0;transform:scale(.2)}42%{opacity:1}100%{opacity:0;transform:scale(2.4)}}
-@keyframes salaam-content-open{0%{opacity:1;transform:scale(1)}55%{opacity:.82;transform:scale(.985)}100%{opacity:0;transform:scale(1.035);filter:blur(7px)}}
+@keyframes salaam-open{0%{opacity:0;transform:scale(.28)}48%{opacity:.88}100%{opacity:0;transform:scale(2.05)}}
+@keyframes salaam-content-open{0%,22%{opacity:1;transform:scale(1);filter:blur(0)}62%{opacity:.82;transform:scale(.992);filter:blur(1px)}100%{opacity:.08;transform:scale(1.018);filter:blur(3px)}}
 @media(prefers-reduced-motion:no-preference){
   .salaam-kicker{animation:salaam-arrive .8s .05s both}
   .salaam-calligraphy{animation:salaam-arrive 1s .16s both,salaam-calligraphy-glow 4.2s 1.2s ease-in-out infinite}
@@ -781,8 +781,8 @@ html{scroll-padding-top:0}
   .salaam-enter::before{animation:salaam-button-sheen 4.8s 1.3s ease-in-out infinite}
   .salaam-footer{animation:salaam-arrive .8s .72s both}
   .salaam-content::after{animation:salaam-aura 5.4s ease-in-out infinite}
-  .salaam-section.is-opening .salaam-content{animation:salaam-content-open .72s cubic-bezier(.35,0,.2,1) both}
-  .salaam-section.is-opening .salaam-transition{animation:salaam-open .82s cubic-bezier(.2,.7,.2,1) both}
+  .salaam-section.is-opening .salaam-content{animation:salaam-content-open 1.02s cubic-bezier(.35,0,.2,1) both}
+  .salaam-section.is-opening .salaam-transition{animation:salaam-open 1.08s cubic-bezier(.2,.7,.2,1) both}
 }
 @media(max-width:900px){
   .invitation-names{font-size:clamp(46px,8.5vw,66px)}
@@ -790,10 +790,19 @@ html{scroll-padding-top:0}
 @media(max-width:680px){
   .invitation-kicker strong{width:80%;max-width:160px;font-size:clamp(13px,3.55vw,14.5px);line-height:1.05}
   .invitation-names{font-size:clamp(39px,10.5vw,52px);line-height:.82}
+  .invitation-copy{top:9.6%}
 }
 @media(max-width:360px){
   .invitation-kicker strong{font-size:12.5px}
   .invitation-names{font-size:38px}
+  .invitation-copy{top:9.2%}
+}
+@media(min-width:681px){.invitation-copy{top:10.9%}}
+@media(prefers-reduced-motion:no-preference){
+  .motion-ready .invitation-copy>.reveal-item{transform:translateY(18px) scale(.985);filter:blur(5px);transition-duration:.92s}
+  .motion-ready .invitation-copy>.reveal-item.is-visible{transform:translateY(0) scale(1);filter:blur(0)}
+  .motion-ready .invitation-copy>.invitation-names.reveal-item{transform:translateY(20px) scale(.96)}
+  .motion-ready .invitation-copy>.invitation-names.reveal-item.is-visible{transform:translateY(0) scale(1)}
 }
 </style></head>
 <body>
@@ -884,8 +893,8 @@ html{scroll-padding-top:0}
   if(salaam.classList.contains('is-opening'))return;
   if(reduceMotion){$('top').scrollIntoView({behavior:'auto',block:'start'});cleanUrl();return}
   salaam.classList.add('is-opening');salaamEnter.disabled=true;
-  setTimeout(()=>{$('top').scrollIntoView({behavior:scrollBehavior,block:'start'});cleanUrl()},480);
-  setTimeout(()=>{salaam.classList.remove('is-opening');salaamEnter.disabled=false},1250)
+  setTimeout(()=>{$('top').scrollIntoView({behavior:scrollBehavior,block:'start'});cleanUrl()},690);
+  setTimeout(()=>{salaam.classList.remove('is-opening');salaamEnter.disabled=false},1550)
  });
  if(!reduceMotion&&matchMedia('(pointer:fine)').matches){
   salaam.addEventListener('pointermove',event=>{const box=salaam.getBoundingClientRect();const x=((event.clientX-box.left)/box.width-.5)*-8;const y=((event.clientY-box.top)/box.height-.5)*-6;salaam.style.setProperty('--salaam-x',`${x}px`);salaam.style.setProperty('--salaam-y',`${y}px`)});
@@ -922,7 +931,7 @@ html{scroll-padding-top:0}
   if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
    document.documentElement.classList.add('motion-ready');
    const revealTargets=[...document.querySelectorAll('.invitation-copy>*,.countdown>.dark-kicker,.countdown>h2,.countdown>.count-row,.paper-details>.section-kicker,.paper-details>h2,.detail,.rsvp-title,.rsvp-panel,.closing>.section-kicker,.closing>h2,.closing>p,.closing>.signature,.closing>.actions')].filter(Boolean);
-   revealTargets.forEach((el,index)=>{el.classList.add('reveal-item');if(el.classList.contains('detail'))el.style.setProperty('--reveal-delay',`${(index%4)*70}ms`)});
+   revealTargets.forEach((el,index)=>{el.classList.add('reveal-item');if(el.parentElement?.classList.contains('invitation-copy'))el.style.setProperty('--reveal-delay',`${110+[...el.parentElement.children].indexOf(el)*85}ms`);else if(el.classList.contains('detail'))el.style.setProperty('--reveal-delay',`${(index%4)*70}ms`)});
    const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}}),{rootMargin:'0px 0px -9% 0px',threshold:.08});
    revealTargets.forEach(el=>revealObserver.observe(el));
   }
