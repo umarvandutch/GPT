@@ -455,6 +455,86 @@ html{scroll-padding-top:0}
   .count-label{font-size:7.8px;letter-spacing:.08em}
   .detail a,.detail button{padding:8px 7px;font-size:8.3px;letter-spacing:0}
 }
+/* Prestige refinement: restrained plaques and a fluid arch-centred invitation. */
+.invitation-copy{
+  left:40%;
+  width:min(38%,560px);
+  max-width:560px;
+  transform:translateX(-50%);
+  top:10.3%;
+  gap:4px;
+  text-align:center
+}
+.invitation-copy>*{max-width:100%;margin-left:auto;margin-right:auto}
+.invitation-kicker{display:flex!important;flex-direction:column;align-items:center;gap:3px;width:100%;color:#522a27;text-wrap:balance}
+.invitation-kicker strong{
+  display:block;
+  color:#701f2b;
+  font:600 clamp(15px,1.45vw,21px)/1.05 'Cormorant Garamond',Georgia,serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  text-shadow:0 1px 0 rgba(255,249,238,.85)
+}
+.invitation-kicker span{
+  display:block;
+  font:600 clamp(10px,.92vw,14px)/1.05 'Cormorant Garamond',Georgia,serif;
+  letter-spacing:.13em;
+  text-transform:uppercase
+}
+.invitation-names{font-size:clamp(62px,7.65vw,112px);line-height:.78;margin:6px auto 4px;text-wrap:balance}
+.invitation-names .lineage{max-width:100%;margin:6px auto 3px;line-height:1.15;text-wrap:balance}
+.invitation-names .amp{margin:3px auto 1px}
+.invitation-copy .divider-art{margin-top:5px;margin-bottom:4px}
+.invitation-copy .venue,.invitation-copy .venue-location{width:100%;text-wrap:balance}
+.detail a,.detail button{
+  border:1px solid #9b6a37;
+  border-radius:2px;
+  background:linear-gradient(135deg,#fff9ed 0%,#f5e4c8 48%,#e9cca0 100%);
+  clip-path:none;
+  filter:drop-shadow(0 5px 8px rgba(76,42,25,.14));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.72)
+}
+.detail a:before,.detail button:before{
+  inset:3px;
+  border:1px solid rgba(151,99,49,.42);
+  border-radius:1px;
+  background:transparent;
+  clip-path:none;
+  box-shadow:none
+}
+.detail a:hover,.detail button:hover,.detail a:focus-visible,.detail button:focus-visible{
+  transform:translateY(-3px) scale(1.015);
+  filter:drop-shadow(0 10px 13px rgba(76,42,25,.22)) brightness(1.025)
+}
+@media(max-width:900px){
+  .invitation-copy{left:50%;width:72%;max-width:570px;top:8.2%;transform:translateX(-50%)}
+  .invitation-names{font-size:clamp(56px,10.2vw,80px)}
+}
+@media(max-width:680px){
+  .invitation-copy{left:50%;width:73%;top:7.2%;transform:translateX(-50%);gap:3px}
+  .invitation-copy .blessings{font-size:clamp(9.5px,2.55vw,11.5px);line-height:1.08}
+  .invitation-kicker{gap:2px;margin-top:2px}
+  .invitation-kicker strong{font-size:clamp(12.5px,3.45vw,15px);line-height:1.05;letter-spacing:.085em}
+  .invitation-kicker span{font-size:clamp(8.5px,2.35vw,10px);letter-spacing:.08em}
+  .invitation-names{font-size:clamp(49px,13vw,67px);line-height:.79;margin:6px auto 4px}
+  .invitation-names .lineage{font-size:clamp(9.5px,2.65vw,11.5px);line-height:1.12;margin:5px auto 3px}
+  .invitation-names .amp{margin:2px auto 0}
+  .invitation-copy .divider-art{margin:4px auto 3px}
+  .day{font-size:clamp(12.5px,3.4vw,14.5px)}
+  .date{font-size:clamp(17.5px,4.8vw,23px)}
+  .venue{font-size:clamp(14px,3.8vw,18.5px);line-height:1.05}
+  .venue-location{font-size:clamp(10px,2.65vw,12.5px);line-height:1.05}
+  .detail a,.detail button{border-radius:2px;clip-path:none}
+}
+@media(max-width:360px){
+  .invitation-copy{width:76%;top:6.8%}
+  .invitation-kicker strong{font-size:11.8px}
+  .invitation-kicker span{font-size:8.2px}
+  .invitation-names{font-size:47px}
+  .invitation-names .lineage{font-size:9.1px}
+  .venue{font-size:13.5px}
+  .venue-location{font-size:9.6px}
+}
 </style></head>
 <body>
 <section class="salaam-section" id="salaamSection" aria-label="As-salamu alaykum — peace be upon you">
@@ -481,8 +561,8 @@ html{scroll-padding-top:0}
   <div class="invitation-copy">
    <div class="blessings">With the blessings of<br>Allah</div>
    <div class="small-flourish" aria-hidden="true"></div>
-   <div class="invitation-kicker">You are cordially invited<br>to the wedding of</div>
-   <h1 class="invitation-names"><span class="name-line">Umar</span><span class="lineage">Son of Zahid Siddiqui &amp; Rubina Hamid</span><span class="amp">&amp;</span><span class="name-line second">Ansa</span><span class="lineage">Daughter of Talib and Yasmin</span></h1>
+   <div class="invitation-kicker"><strong>You are warmly invited</strong><span>to celebrate the wedding of</span></div>
+   <h1 class="invitation-names"><span class="name-line">Umar</span><span class="lineage">Son of Zahid Siddiqui and Rubina Hamid</span><span class="amp">&amp;</span><span class="name-line second">Ansa</span><span class="lineage">Daughter of Talib and Yasmin</span></h1>
    <div class="divider-art" aria-hidden="true"></div>
    <div class="day">Thursday</div>
    <div class="date">24 December 2026</div>
@@ -552,7 +632,7 @@ html{scroll-padding-top:0}
  $('shareButton').addEventListener('click',async()=>{const url='https://umar-ansa.co.uk';try{if(navigator.share){await navigator.share({title:'Umar & Ansa — Wedding Invitation',url});return}await navigator.clipboard.writeText(url);toast('Invitation link copied!')}catch(_){toast('Share the invitation at umar-ansa.co.uk')}});
   if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
    document.documentElement.classList.add('motion-ready');
-   const revealTargets=[document.querySelector('.invitation-copy'),...document.querySelectorAll('.countdown>.dark-kicker,.countdown>h2,.countdown>.count-row,.paper-details>.section-kicker,.paper-details>h2,.detail,.rsvp-title,.rsvp-panel,.closing>.section-kicker,.closing>h2,.closing>p,.closing>.signature,.closing>.actions')].filter(Boolean);
+   const revealTargets=[...document.querySelectorAll('.invitation-copy>*,.countdown>.dark-kicker,.countdown>h2,.countdown>.count-row,.paper-details>.section-kicker,.paper-details>h2,.detail,.rsvp-title,.rsvp-panel,.closing>.section-kicker,.closing>h2,.closing>p,.closing>.signature,.closing>.actions')].filter(Boolean);
    revealTargets.forEach((el,index)=>{el.classList.add('reveal-item');if(el.classList.contains('detail'))el.style.setProperty('--reveal-delay',`${(index%4)*70}ms`)});
    const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}}),{rootMargin:'0px 0px -9% 0px',threshold:.08});
    revealTargets.forEach(el=>revealObserver.observe(el));
