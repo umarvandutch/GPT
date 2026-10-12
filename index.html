@@ -905,10 +905,65 @@ html{scroll-padding-top:0}
   .menu-grid{gap:0 64px}
   .menu-card{padding-inline:48px}
 }
+/* Floral corner overlays soften the welcome frame at every viewport size. */
+.salaam-content>.salaam-corner{
+  position:absolute;
+  z-index:0;
+  width:clamp(110px,17vw,245px);
+  aspect-ratio:2/3;
+  background-repeat:no-repeat;
+  background-size:contain;
+  opacity:.88;
+  filter:drop-shadow(0 8px 12px rgba(7,3,3,.35));
+  pointer-events:none
+}
+.salaam-corner--tl,.salaam-corner--bl{left:clamp(-72px,-4vw,-36px);background-image:url('assets/edge-flowers-left-2k.webp');background-position:left top}
+.salaam-corner--tr,.salaam-corner--br{right:clamp(-72px,-4vw,-36px);background-image:url('assets/edge-flowers-right-2k.webp');background-position:right top}
+.salaam-corner--tl,.salaam-corner--tr{top:clamp(-74px,-5vw,-38px)}
+.salaam-corner--bl,.salaam-corner--br{bottom:clamp(-74px,-5vw,-38px);transform:scaleY(-1)}
+@media(max-width:680px){
+  .salaam-content>.salaam-corner{width:clamp(88px,29vw,132px);opacity:.82}
+  .salaam-corner--tl,.salaam-corner--bl{left:-38px}
+  .salaam-corner--tr,.salaam-corner--br{right:-38px}
+  .salaam-corner--tl,.salaam-corner--tr{top:-42px}
+  .salaam-corner--bl,.salaam-corner--br{bottom:-42px}
+}
+/* Desktop-only border geometry and floral seam refinement. */
+@media(min-width:901px){
+  .section-edge:before{
+    top:50%;
+    transform:translateY(-50%);
+    mask-image:linear-gradient(90deg,#000 0 calc(50% - 111px),transparent calc(50% - 111px) calc(50% + 111px),#000 calc(50% + 111px));
+    -webkit-mask-image:linear-gradient(90deg,#000 0 calc(50% - 111px),transparent calc(50% - 111px) calc(50% + 111px),#000 calc(50% + 111px))
+  }
+  .section-edge:after{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:220px;
+    transform:translate(-50%,-50%)
+  }
+  .menu-card:nth-child(odd):after{right:22px}
+  .menu-card:nth-child(even):after{left:22px}
+  .floral-bridge:not(.floral-bridge--hero):before,.floral-bridge:not(.floral-bridge--hero):after{
+    top:-138px;
+    width:clamp(165px,13vw,235px);
+    opacity:.96;
+    mask-image:linear-gradient(to bottom,transparent 0%,#000 14%,#000 72%,transparent 100%);
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 14%,#000 72%,transparent 100%)
+  }
+  .floral-bridge:not(.floral-bridge--hero):before{left:-24px}
+  .floral-bridge:not(.floral-bridge--hero):after{right:-24px}
+  .paper-details,.rsvp,.menu-section{box-shadow:inset 0 1px 0 rgba(247,211,156,.46),inset 0 -1px 0 rgba(128,77,39,.32)}
+}
 </style></head>
 <body>
 <section class="salaam-section" id="salaamSection" aria-label="As-salamu alaykum — peace be upon you">
   <div class="salaam-content">
+    <span class="salaam-corner salaam-corner--tl" aria-hidden="true"></span>
+    <span class="salaam-corner salaam-corner--tr" aria-hidden="true"></span>
+    <span class="salaam-corner salaam-corner--bl" aria-hidden="true"></span>
+    <span class="salaam-corner salaam-corner--br" aria-hidden="true"></span>
     <p class="salaam-kicker">With the blessings of Allah</p>
     <div class="salaam-wrap">
       <img class="salaam-calligraphy" src="assets/salaam-gold.png" alt="" width="2172" height="724" fetchpriority="high">
