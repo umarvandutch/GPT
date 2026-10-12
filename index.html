@@ -141,7 +141,7 @@ main{position:relative;isolation:isolate}
 .hero{min-height:0;padding:0;display:block;overflow:visible;background:#1a100d}
 .hero:before,.hero:after,.hero-intro,.hero-end{display:none}
 .invitation{width:100%;min-height:650px;aspect-ratio:3/2;filter:none;transition:none}
-.invitation:before{inset:0;background-image:url('assets/hero-landscape-2k.webp');background-size:cover;background-position:center;border:0}
+.invitation:before{inset:0;background-image:url('assets/hero-landscape-v2.png');background-size:cover;background-position:center;border:0}
 .invitation:after{display:none}
 .invitation-copy{left:23%;top:12%;width:34%;height:auto;gap:3px;color:#4c2e26}
 .invitation-copy .blessings,.invitation-copy .invitation-kicker{display:block;font-size:clamp(11px,1.15vw,16px);line-height:1.1}
@@ -164,7 +164,7 @@ main{position:relative;isolation:isolate}
 .floral-bridge--details:before,.floral-bridge--details:after{top:-155px}
 .floral-bridge--rsvp:before,.floral-bridge--rsvp:after{top:-225px}
 .closing:before,.closing:after{display:none}
-@media(max-width:900px){.invitation{min-height:0;aspect-ratio:2/3}.invitation:before{background-image:url('assets/hero-portrait-2k.webp');background-position:center}.invitation-copy{left:18%;top:13%;width:50%;gap:2px}.invitation-names{font-size:clamp(65px,10vw,85px)}.venue{font-size:clamp(17px,2.5vw,22px)}}
+@media(max-width:900px){.invitation{min-height:0;aspect-ratio:2/3}.invitation:before{background-image:url('assets/hero-portrait-v2.png');background-position:center}.invitation-copy{left:18%;top:13%;width:50%;gap:2px}.invitation-names{font-size:clamp(65px,10vw,85px)}.venue{font-size:clamp(17px,2.5vw,22px)}}
 @media(max-width:680px){.site-header{height:58px}.invitation{height:calc(100svh - 58px);min-height:680px;max-height:850px;aspect-ratio:auto}.invitation:before{background-position:55% center}.invitation-copy{left:15%;top:14%;width:60%;gap:2px}.invitation-copy .blessings,.invitation-copy .invitation-kicker{display:block;font-size:clamp(9px,2.6vw,12px);letter-spacing:.05em}.invitation-names{font-size:clamp(54px,13.5vw,70px);line-height:.7;margin:4px 0}.invitation-copy .divider-art{margin:2px auto;font-size:10px}.day{font-size:13px}.date{font-size:clamp(17px,4.5vw,23px)}.venue{font-size:clamp(14px,3.7vw,19px)}.venue-location{font-size:clamp(10px,2.6vw,13px)}.countdown{padding:43px 9px 47px}.paper-details{padding-top:51px}.four-details{padding:15px 3px}.floral-bridge:before,.floral-bridge:after{width:clamp(175px,41vw,230px);top:-110px}.floral-bridge:before{left:-8%}.floral-bridge:after{right:-8%}.floral-bridge--hero:before,.floral-bridge--hero:after{top:-130px}.floral-bridge--details:before,.floral-bridge--details:after{top:-90px}.floral-bridge--rsvp:before,.floral-bridge--rsvp:after{top:-105px}}
 @media(max-width:375px){.invitation-copy{top:13%;left:14%;width:62%}.invitation-names{font-size:51px}}
 main{overflow:clip}
@@ -803,6 +803,38 @@ html{scroll-padding-top:0}
   .motion-ready .invitation-copy>.reveal-item.is-visible{transform:translateY(0) scale(1);filter:blur(0)}
   .motion-ready .invitation-copy>.invitation-names.reveal-item{transform:translateY(20px) scale(.96)}
   .motion-ready .invitation-copy>.invitation-names.reveal-item.is-visible{transform:translateY(0) scale(1)}
+}
+/* Spacious invitation composition with the couple as a secondary detail. */
+.invitation-copy{left:38%;width:min(44%,580px);max-width:580px;top:9.4%}
+.invitation-copy .blessings{font-size:clamp(14px,1.35vw,19px)}
+.invitation-kicker strong{font-size:clamp(18px,1.7vw,25px)}
+.invitation-kicker span{font-size:clamp(12px,1.05vw,15px)}
+.invitation-names{font-size:clamp(64px,7.8vw,112px);line-height:.8;margin:8px auto 6px}
+.invitation-names .lineage{font-size:clamp(12px,1.15vw,16px);margin:7px auto 4px}
+.day{font-size:clamp(16px,1.55vw,21px)}
+.date{font-size:clamp(24px,2.45vw,35px)}
+.venue{font-size:clamp(19px,2vw,28px)}
+.venue-location{font-size:clamp(13px,1.2vw,17px)}
+@media(max-width:900px){
+  .invitation-copy{left:50%;width:78%;max-width:640px;top:8.8%}
+  .invitation-names{font-size:clamp(58px,10.4vw,80px)}
+}
+@media(max-width:680px){
+  .invitation-copy{width:80%;top:8.9%;gap:4px}
+  .invitation-copy .blessings{width:68%;max-width:150px;font-size:clamp(10.5px,2.8vw,12.5px)}
+  .invitation-kicker strong{width:82%;max-width:190px;font-size:clamp(15px,4vw,17.5px);line-height:1.06}
+  .invitation-kicker span{width:90%;max-width:220px;font-size:clamp(9.5px,2.6vw,11px)}
+  .invitation-names{font-size:clamp(50px,13.2vw,64px);line-height:.82;margin:8px auto 5px}
+  .invitation-names .lineage{font-size:clamp(10.5px,2.9vw,12.5px);line-height:1.14;margin:6px auto 4px}
+  .day{font-size:clamp(14px,3.8vw,16px)}
+  .date{font-size:clamp(20px,5.4vw,26px)}
+  .venue{font-size:clamp(16px,4.4vw,21px)}
+  .venue-location{font-size:clamp(11px,3vw,14px)}
+}
+@media(max-width:360px){
+  .invitation-copy{width:82%;top:8.7%}
+  .invitation-names{font-size:47px}
+  .invitation-kicker strong{font-size:14px}
 }
 </style></head>
 <body>
