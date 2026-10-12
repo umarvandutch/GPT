@@ -197,6 +197,116 @@ html{scroll-padding-top:0}
 @media(max-width:900px){.countdown{padding-inline:80px}.paper-details{padding-inline:45px}.paper-details:before,.paper-details:after{width:135px}}
 @media(max-width:680px){.invitation-copy{top:11.2%;left:14.5%;width:61%}.invitation-copy .venue:before{inset:-9px -20px -23px}.invitation-copy .venue-location{color:#4b2822!important;font-size:clamp(11px,3vw,14px);font-weight:700;text-shadow:0 1px 0 #fff8ec}.floral-bridge:before,.floral-bridge:after{width:124px;top:-145px}.floral-bridge:before{left:-31px}.floral-bridge:after{right:-31px}.floral-bridge--hero:before,.floral-bridge--hero:after,.floral-bridge--details:before,.floral-bridge--details:after,.floral-bridge--rsvp:before,.floral-bridge--rsvp:after{top:-145px}.floral-bridge--details:before,.floral-bridge--details:after,.floral-bridge--rsvp:before,.floral-bridge--rsvp:after{width:98px}.floral-bridge--details:before,.floral-bridge--rsvp:before{left:-78px}.floral-bridge--details:after,.floral-bridge--rsvp:after{right:-78px}.countdown{padding-inline:52px}.paper-details{padding:52px 18px 68px;background:linear-gradient(90deg,transparent 0 4%,rgba(255,241,222,.93) 16% 84%,transparent 96%),url('assets/edge-flowers-left-2k.webp') left -42px top -65px/132px auto no-repeat,url('assets/edge-flowers-right-2k.webp') right -42px top -65px/132px auto no-repeat,radial-gradient(ellipse at 50% 44%,#fff2e1 0%,#f5e3cf 72%,#e8d1b5 100%)}.paper-details:before,.paper-details:after{top:12px;bottom:12px;width:92px;opacity:.45}.paper-details h2{font-size:42px;line-height:1;letter-spacing:.025em;margin-bottom:20px}.four-details{margin-top:19px;padding:14px 3px 8px}.detail{background:rgba(255,244,228,.36)}}
 @media(max-width:360px){.invitation-copy{top:10.6%;left:13%;width:64%}.countdown{padding-inline:43px}.floral-bridge:before{left:-37px}.floral-bridge:after{right:-37px}}
+/* October refinement: centered family names, continuous florals and stone detail actions. */
+.site-header{
+  background:linear-gradient(90deg,rgba(12,8,7,.76),rgba(28,16,11,.59) 50%,rgba(12,8,7,.76));
+  border-bottom:1px solid rgba(225,180,112,.48);
+  backdrop-filter:blur(3px);
+  -webkit-backdrop-filter:blur(3px)
+}
+.site-header .brand,.site-header .header-nav{filter:drop-shadow(0 1px 2px rgba(0,0,0,.82))}
+.invitation-copy{left:22.5%;width:35%;text-align:center;align-items:center}
+.invitation-copy .venue:before{display:none!important}
+.invitation-copy .venue,.invitation-copy .venue-location{
+  color:#542726;
+  text-shadow:0 1px 0 rgba(255,248,236,.85),0 0 3px rgba(255,244,226,.68)
+}
+.invitation-names{width:100%;margin:4px auto 3px;white-space:normal;line-height:.62}
+.invitation-names .name-line{white-space:nowrap}
+.invitation-names .lineage{
+  margin:.38em auto .18em;
+  max-width:94%;
+  color:#5b302d;
+  font:600 clamp(11px,1.12vw,16px)/1.05 'Cormorant Garamond',Georgia,serif;
+  letter-spacing:.035em;
+  text-transform:none
+}
+.invitation-names .amp{margin:.22em auto .12em}
+.invitation-names .second{margin-top:.01em}
+.floral-bridge--hero{display:none}
+.countdown{
+  isolation:isolate;
+  padding-inline:clamp(110px,16vw,225px);
+  box-shadow:inset 0 2px 0 rgba(240,202,141,.18),inset 0 -2px 0 rgba(240,202,141,.18)
+}
+.countdown:before,.countdown:after{
+  display:block!important;
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:0;
+  bottom:0;
+  width:clamp(120px,15vw,225px);
+  height:auto;
+  opacity:.96;
+  background-repeat:no-repeat;
+  background-size:cover;
+  filter:none;
+  mask-image:none;
+  -webkit-mask-image:none;
+  pointer-events:none
+}
+.countdown:before{left:0;background-image:var(--photo-floral-left);background-position:left center}
+.countdown:after{right:0;background-image:var(--photo-floral-right);background-position:right center}
+.countdown>.dark-kicker,.countdown>h2,.countdown>.count-row,.countdown>.section-edge{position:relative;z-index:2}
+.paper-details{
+  border-top:1px solid #c8955b;
+  border-bottom:1px solid #c8955b;
+  box-shadow:inset 0 2px 0 rgba(255,248,232,.72),inset 0 -2px 0 rgba(153,103,59,.18)
+}
+.paper-details:before,.paper-details:after{display:none!important}
+.detail a,.detail button{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:10px 21px;
+  border:1px solid #93643b;
+  border-radius:0;
+  background:linear-gradient(145deg,#fff5e4 0%,#efd7b5 48%,#d7b17d 100%);
+  color:#5b3028;
+  text-decoration:none;
+  text-underline-offset:0;
+  clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,12px 100%,0 50%);
+  box-shadow:inset 0 0 0 3px #f9ead2,inset 0 0 0 4px rgba(139,91,48,.5),0 6px 13px rgba(84,46,26,.18);
+  text-shadow:0 1px 0 rgba(255,255,255,.55);
+  transition:transform .2s ease,filter .2s ease,box-shadow .2s ease;
+  white-space:nowrap
+}
+.detail a:hover,.detail button:hover,.detail a:focus-visible,.detail button:focus-visible{
+  color:#5b3028;
+  transform:translateY(-2px);
+  filter:brightness(1.04);
+  box-shadow:inset 0 0 0 3px #fff0d9,inset 0 0 0 4px rgba(139,91,48,.62),0 8px 16px rgba(84,46,26,.24)
+}
+@media(max-width:900px){
+  .invitation-copy{left:14%;top:10.2%;width:72%}
+  .invitation-names{font-size:clamp(52px,9.5vw,78px)}
+  .invitation-names .lineage{font-size:clamp(11px,1.75vw,14px)}
+  .countdown{padding-inline:92px}
+  .countdown:before,.countdown:after{width:120px}
+}
+@media(max-width:680px){
+  .site-header{background:linear-gradient(90deg,rgba(12,8,7,.74),rgba(29,16,11,.55) 50%,rgba(12,8,7,.74))}
+  .invitation-copy{left:13.5%;top:9.5%;width:73%;gap:1px}
+  .invitation-names{font-size:clamp(47px,12.3vw,64px);line-height:.59;margin:3px auto 2px}
+  .invitation-names .lineage{max-width:100%;font-size:clamp(9px,2.55vw,11.5px);line-height:1.05;letter-spacing:.02em;margin:.42em auto .16em}
+  .invitation-names .amp{font-size:.26em;margin:.18em auto .08em}
+  .invitation-copy .venue,.invitation-copy .venue-location{text-shadow:0 1px 0 rgba(255,248,236,.76),0 0 2px rgba(255,244,226,.44)}
+  .countdown{padding-inline:50px}
+  .countdown:before,.countdown:after{width:88px;opacity:.96;background-size:auto 100%}
+  .paper-details{padding-inline:18px}
+  .detail a,.detail button{min-height:37px;max-width:100%;padding:8px 13px;font-size:9px;letter-spacing:.025em;clip-path:polygon(9px 0,calc(100% - 9px) 0,100% 50%,calc(100% - 9px) 100%,9px 100%,0 50%)}
+}
+@media(max-width:360px){
+  .invitation-copy{left:13%;top:9%;width:74%}
+  .invitation-names{font-size:45px}
+  .invitation-names .lineage{font-size:9px}
+  .countdown{padding-inline:42px}
+  .countdown:before,.countdown:after{width:72px}
+  .detail a,.detail button{padding:8px 9px;font-size:8.2px;letter-spacing:0}
+}
 </style></head>
 <body>
 <section class="salaam-section" id="salaamSection" aria-label="As-salamu alaykum — peace be upon you">
@@ -224,7 +334,7 @@ html{scroll-padding-top:0}
    <div class="blessings">With the blessings of<br>Allah</div>
    <div class="small-flourish" aria-hidden="true"></div>
    <div class="invitation-kicker">You are cordially invited<br>to the wedding of</div>
-   <h1 class="invitation-names"><span>Umar</span><span class="amp">&amp;</span><span class="second">Ansa</span></h1>
+   <h1 class="invitation-names"><span class="name-line">Umar</span><span class="lineage">son of Zahid Siddiqui &amp; Rubina Hamid</span><span class="amp">&amp;</span><span class="name-line second">Ansa</span><span class="lineage">Daughter of Talib and Yasmin</span></h1>
    <div class="divider-art" aria-hidden="true"></div>
    <div class="day">Thursday</div>
    <div class="date">24 December 2026</div>
