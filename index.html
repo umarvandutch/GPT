@@ -946,14 +946,19 @@ html{scroll-padding-top:0}
   .menu-card:nth-child(odd):after{right:22px}
   .menu-card:nth-child(even):after{left:22px}
   .floral-bridge:not(.floral-bridge--hero):before,.floral-bridge:not(.floral-bridge--hero):after{
-    top:-138px;
-    width:clamp(165px,13vw,235px);
-    opacity:.96;
-    mask-image:linear-gradient(to bottom,transparent 0%,#000 14%,#000 72%,transparent 100%);
-    -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 14%,#000 72%,transparent 100%)
+    top:clamp(-136px,-7.1vw,-104px);
+    width:clamp(260px,19vw,365px);
+    aspect-ratio:3/2;
+    background-image:url('assets/floral-corner-seam-v1.png');
+    background-position:right top;
+    background-size:contain;
+    opacity:1;
+    mask-image:none;
+    -webkit-mask-image:none;
+    filter:drop-shadow(0 11px 14px rgba(47,16,11,.28))
   }
-  .floral-bridge:not(.floral-bridge--hero):before{left:-24px}
-  .floral-bridge:not(.floral-bridge--hero):after{right:-24px}
+  .floral-bridge:not(.floral-bridge--hero):before{left:-18px;transform:scaleX(-1)}
+  .floral-bridge:not(.floral-bridge--hero):after{right:-18px}
   .paper-details,.rsvp,.menu-section{box-shadow:inset 0 1px 0 rgba(247,211,156,.46),inset 0 -1px 0 rgba(128,77,39,.32)}
 }
 </style></head>
