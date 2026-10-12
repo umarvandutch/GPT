@@ -909,22 +909,24 @@ html{scroll-padding-top:0}
 .salaam-content>.salaam-corner{
   position:absolute;
   z-index:0;
-  top:-2px;
-  bottom:-2px;
-  width:clamp(92px,13vw,188px);
+  width:clamp(110px,17vw,245px);
+  aspect-ratio:2/3;
   background-repeat:no-repeat;
-  background-size:auto 100%;
+  background-size:contain;
   opacity:.88;
   filter:drop-shadow(0 8px 12px rgba(7,3,3,.35));
   pointer-events:none
 }
-.salaam-corner--tl{left:clamp(-50px,-3vw,-28px);background-image:url('assets/edge-flowers-left-2k.webp');background-position:left center}
-.salaam-corner--tr{right:clamp(-50px,-3vw,-28px);background-image:url('assets/edge-flowers-right-2k.webp');background-position:right center}
-.salaam-corner--bl,.salaam-corner--br{display:none}
+.salaam-corner--tl,.salaam-corner--bl{left:clamp(-72px,-4vw,-36px);background-image:url('assets/edge-flowers-left-2k.webp');background-position:left top}
+.salaam-corner--tr,.salaam-corner--br{right:clamp(-72px,-4vw,-36px);background-image:url('assets/edge-flowers-right-2k.webp');background-position:right top}
+.salaam-corner--tl,.salaam-corner--tr{top:clamp(-74px,-5vw,-38px)}
+.salaam-corner--bl,.salaam-corner--br{bottom:clamp(-74px,-5vw,-38px);transform:scaleY(-1)}
 @media(max-width:680px){
-  .salaam-content>.salaam-corner{top:-1px;bottom:-1px;width:clamp(50px,14vw,62px);opacity:.8}
-  .salaam-corner--tl{left:-28px}
-  .salaam-corner--tr{right:-28px}
+  .salaam-content>.salaam-corner{width:clamp(88px,29vw,132px);opacity:.82}
+  .salaam-corner--tl,.salaam-corner--bl{left:-38px}
+  .salaam-corner--tr,.salaam-corner--br{right:-38px}
+  .salaam-corner--tl,.salaam-corner--tr{top:-42px}
+  .salaam-corner--bl,.salaam-corner--br{bottom:-42px}
 }
 /* Desktop-only border geometry and floral seam refinement. */
 @media(min-width:901px){
