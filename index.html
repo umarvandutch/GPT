@@ -175,6 +175,28 @@ html{scroll-padding-top:0}
 .rsvp{min-height:420px;padding:68px 20px 70px}
 @media(max-width:680px){.rsvp{min-height:0;padding:52px 16px 60px}}
 @media(max-width:680px){.invitation{height:max(calc(100svh - 58px),150vw);max-height:none}.floral-bridge:before,.floral-bridge:after{width:95px;top:-120px}.floral-bridge--hero:before,.floral-bridge--hero:after,.floral-bridge--details:before,.floral-bridge--details:after,.floral-bridge--rsvp:before,.floral-bridge--rsvp:after{top:-120px}.countdown h2{font-size:29px}}
+/* Refinement: protected invitation copy, fuller floral seams and an integrated details arch. */
+.divider-art{font-size:0!important}
+.invitation-copy .venue{position:relative;isolation:isolate}
+.invitation-copy .venue:before{content:"";position:absolute;z-index:-1;inset:-12px -34px -28px;background:radial-gradient(ellipse,rgba(255,244,225,.95) 0%,rgba(255,244,225,.76) 57%,transparent 78%);filter:blur(2px);pointer-events:none}
+.invitation-copy .venue,.invitation-copy .venue-location{text-shadow:0 1px 0 #fff8ec,0 0 7px #fff5e8,0 0 13px #fff5e8}
+.floral-bridge:before,.floral-bridge:after{top:-250px;width:clamp(220px,23vw,360px);mask-image:linear-gradient(to bottom,transparent,#000 10%,#000 88%,transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 10%,#000 88%,transparent)}
+.floral-bridge:before{left:-3.5%}.floral-bridge:after{right:-3.5%}
+.floral-bridge--hero:before,.floral-bridge--hero:after{top:-255px}
+.floral-bridge--details:before,.floral-bridge--details:after,.floral-bridge--rsvp:before,.floral-bridge--rsvp:after{top:-245px}
+.floral-bridge--details:before,.floral-bridge--details:after,.floral-bridge--rsvp:before,.floral-bridge--rsvp:after{top:-185px;width:160px;mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 56%,transparent 84%);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 56%,transparent 84%)}
+.floral-bridge--details:before,.floral-bridge--rsvp:before{left:-150px}.floral-bridge--details:after,.floral-bridge--rsvp:after{right:-150px}
+.countdown{padding-inline:clamp(85px,17vw,220px)}
+.paper-details{padding:62px clamp(75px,9vw,135px) 82px;border-top:1px solid #c8955b;border-bottom:1px solid #c8955b;background:linear-gradient(90deg,transparent 0 7%,rgba(255,241,222,.84) 16% 84%,transparent 93%),url('assets/edge-flowers-left-2k.webp') left -82px top -155px/300px auto no-repeat,url('assets/edge-flowers-right-2k.webp') right -82px top -155px/300px auto no-repeat,radial-gradient(ellipse at 50% 44%,#fff2e1 0%,#f5e3cf 72%,#e8d1b5 100%)}
+.paper-details:before,.paper-details:after{display:block!important;content:"";position:absolute;z-index:0;top:18px;bottom:18px;width:clamp(110px,15vw,220px);opacity:.58;pointer-events:none;background:radial-gradient(ellipse 115% 25% at -8% 17%,transparent 72%,#ae7849 73%,#e1bb86 74%,transparent 75%),radial-gradient(ellipse 118% 29% at -8% 50%,transparent 72%,#ae7849 73%,#e1bb86 74%,transparent 75%),radial-gradient(ellipse 115% 25% at -8% 83%,transparent 72%,#ae7849 73%,#e1bb86 74%,transparent 75%)}
+.paper-details:before{left:0}.paper-details:after{right:0;transform:scaleX(-1)}
+.paper-details>.section-kicker,.paper-details>h2,.paper-details>.four-details,.paper-details>.section-edge{position:relative;z-index:2}
+.paper-details .section-kicker{margin-top:0}
+.paper-details h2{font-size:clamp(34px,4.2vw,57px);letter-spacing:.06em;margin:8px auto 22px}
+.four-details{max-width:1180px;margin-top:21px;padding:24px 0 12px}
+@media(max-width:900px){.countdown{padding-inline:80px}.paper-details{padding-inline:45px}.paper-details:before,.paper-details:after{width:135px}}
+@media(max-width:680px){.invitation-copy{top:11.2%;left:14.5%;width:61%}.invitation-copy .venue:before{inset:-9px -20px -23px}.invitation-copy .venue-location{color:#4b2822!important;font-size:clamp(11px,3vw,14px);font-weight:700;text-shadow:0 1px 0 #fff8ec}.floral-bridge:before,.floral-bridge:after{width:124px;top:-145px}.floral-bridge:before{left:-31px}.floral-bridge:after{right:-31px}.floral-bridge--hero:before,.floral-bridge--hero:after,.floral-bridge--details:before,.floral-bridge--details:after,.floral-bridge--rsvp:before,.floral-bridge--rsvp:after{top:-145px}.floral-bridge--details:before,.floral-bridge--details:after,.floral-bridge--rsvp:before,.floral-bridge--rsvp:after{width:98px}.floral-bridge--details:before,.floral-bridge--rsvp:before{left:-78px}.floral-bridge--details:after,.floral-bridge--rsvp:after{right:-78px}.countdown{padding-inline:52px}.paper-details{padding:52px 18px 68px;background:linear-gradient(90deg,transparent 0 4%,rgba(255,241,222,.93) 16% 84%,transparent 96%),url('assets/edge-flowers-left-2k.webp') left -42px top -65px/132px auto no-repeat,url('assets/edge-flowers-right-2k.webp') right -42px top -65px/132px auto no-repeat,radial-gradient(ellipse at 50% 44%,#fff2e1 0%,#f5e3cf 72%,#e8d1b5 100%)}.paper-details:before,.paper-details:after{top:12px;bottom:12px;width:92px;opacity:.45}.paper-details h2{font-size:42px;line-height:1;letter-spacing:.025em;margin-bottom:20px}.four-details{margin-top:19px;padding:14px 3px 8px}.detail{background:rgba(255,244,228,.36)}}
+@media(max-width:360px){.invitation-copy{top:10.6%;left:13%;width:64%}.countdown{padding-inline:43px}.floral-bridge:before{left:-37px}.floral-bridge:after{right:-37px}}
 </style></head>
 <body>
 <section class="salaam-section" id="salaamSection" aria-label="As-salamu alaykum — peace be upon you">
@@ -200,13 +222,13 @@ html{scroll-padding-top:0}
  <div class="invitation" role="group" aria-label="Luxurious wedding invitation decorated with red roses, gold lanterns and rear-view artwork of a couple in traditional wedding outfits">
   <div class="invitation-copy">
    <div class="blessings">With the blessings of<br>Allah</div>
-   <div class="small-flourish" aria-hidden="true">❧</div>
+   <div class="small-flourish" aria-hidden="true"></div>
    <div class="invitation-kicker">You are cordially invited<br>to the wedding of</div>
    <h1 class="invitation-names"><span>Umar</span><span class="amp">&amp;</span><span class="second">Ansa</span></h1>
-   <div class="divider-art" aria-hidden="true">❦</div>
+   <div class="divider-art" aria-hidden="true"></div>
    <div class="day">Thursday</div>
    <div class="date">24 December 2026</div>
-   <div class="divider-art" aria-hidden="true">✥</div>
+   <div class="divider-art" aria-hidden="true"></div>
    <div class="venue">Grand Royale Banqueting</div><div class="venue-location">Luton · United Kingdom</div>
   </div>
  </div>
@@ -215,7 +237,7 @@ html{scroll-padding-top:0}
 <div class="floral-bridge floral-bridge--hero" aria-hidden="true"></div>
 <section class="countdown" id="countdown" aria-label="Wedding day countdown"><div class="section-edge edge-top" aria-hidden="true"></div><div class="dark-kicker">✦ &nbsp; Our special day &nbsp; ✦</div><h2>Counting down to forever</h2><div class="count-row"><div class="count-item"><div class="count-value" id="days">—</div><div class="count-label">Days</div></div><div class="count-item"><div class="count-value" id="hours">—</div><div class="count-label">Hours</div></div><div class="count-item"><div class="count-value" id="minutes">—</div><div class="count-label">Minutes</div></div><div class="count-item"><div class="count-value" id="seconds">—</div><div class="count-label">Seconds</div></div></div><div class="section-edge edge-bottom" aria-hidden="true"></div></section>
 <div class="floral-bridge floral-bridge--countdown" aria-hidden="true"></div>
-<section class="paper-details" id="details" aria-labelledby="details-title"><div class="ornament" aria-hidden="true">❦</div><p class="section-kicker">Everything you need to know</p><h2 id="details-title">The wedding details</h2>
+<section class="paper-details" id="details" aria-labelledby="details-title"><p class="section-kicker">Everything you need to know</p><h2 id="details-title">The details</h2>
  <div class="four-details">
   <article class="detail"><div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></div><h3>Date</h3><p>Thursday<br>24 December 2026</p><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Umar%20%26%20Ansa%27s%20Wedding&amp;dates=20261224%2F20261225&amp;location=Grand%20Royale%20Banqueting%2C%20Crescent%20Road%2C%20Luton%20LU2%200AH&amp;details=Umar%20Siddiqui%20%26%20Ansa%20Talib%20%E2%80%94%20Wedding%20Day" target="_blank" rel="noopener noreferrer">Add to calendar ↗</a></article>
   <article class="detail"><div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Venue</h3><p>Grand Royale Banqueting<br>Crescent Road, Luton LU2 0AH</p></article>
@@ -224,7 +246,7 @@ html{scroll-padding-top:0}
   </div><div class="section-edge edge-bottom edge-light" aria-hidden="true"></div>
 </section>
 <div class="floral-bridge floral-bridge--details" aria-hidden="true"></div>
-<section class="rsvp" id="rsvp" aria-labelledby="rsvp-title"><div class="section-edge edge-bottom" aria-hidden="true"></div><div class="rsvp-inner"><div class="rsvp-title"><div class="dark-kicker">❦ &nbsp; With love, Umar &amp; Ansa</div><h2 id="rsvp-title">Kindly respond</h2><p>It would be an honour to celebrate our special day with you. Please let us know if you can attend.</p></div>
+<section class="rsvp" id="rsvp" aria-labelledby="rsvp-title"><div class="section-edge edge-bottom" aria-hidden="true"></div><div class="rsvp-inner"><div class="rsvp-title"><div class="dark-kicker">With love, Umar &amp; Ansa</div><h2 id="rsvp-title">Kindly respond</h2><p>It would be an honour to celebrate our special day with you. Please let us know if you can attend.</p></div>
 <div class="rsvp-panel" aria-live="polite">
  <div class="rsvp-state" data-state="already" hidden><h3>Thank you for responding</h3><p class="helper">A response has already been sent from this device.</p><button class="btn btn-outline" type="button" id="rsvpSubmitAnother">Add another guest's response</button></div>
  <div class="rsvp-state" data-state="ask"><h3>Will you join us?</h3><p class="helper">Can you celebrate with us on 24 December 2026?</p><div class="actions"><button type="button" id="rsvpYesBtn" class="btn">Yes, with pleasure</button><button type="button" id="rsvpNoBtn" class="btn btn-outline">Regretfully, no</button></div></div>
@@ -233,7 +255,7 @@ html{scroll-padding-top:0}
  <div class="rsvp-state" data-state="done" hidden><h3 id="rsvpDoneTitle">Thank you!</h3><p class="helper" id="rsvpDoneCopy">We have received your response.</p></div>
 </div></div></section>
 <div class="floral-bridge floral-bridge--rsvp" aria-hidden="true"></div>
-<section class="closing" aria-labelledby="closing-title"><div class="ornament" aria-hidden="true">❦</div><p class="section-kicker">With the blessings of Allah</p><h2 id="closing-title">A day of love, faith &amp; togetherness</h2><p>We look forward to sharing this joyful occasion with our family and friends. Your presence will make our day even more special.</p><div class="signature">Umar &amp; Ansa</div><div class="actions"><button id="shareButton" type="button" class="btn btn-outline">Share this invitation</button><a href="#rsvp" class="btn">Kindly respond</a></div></section>
+<section class="closing" aria-labelledby="closing-title"><p class="section-kicker">With the blessings of Allah</p><h2 id="closing-title">A day of love, faith &amp; togetherness</h2><p>We look forward to sharing this joyful occasion with our family and friends. Your presence will make our day even more special.</p><div class="signature">Umar &amp; Ansa</div><div class="actions"><button id="shareButton" type="button" class="btn btn-outline">Share this invitation</button><a href="#rsvp" class="btn">Kindly respond</a></div></section>
 </main>
 <footer class="site-footer"><span>U &amp; A</span><span>Thursday · 24 December 2026 · Grand Royale Banqueting, Luton</span></footer>
 <div class="scroll-progress" aria-hidden="true"><span id="scrollProgressFill"></span></div>
