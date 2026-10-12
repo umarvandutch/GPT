@@ -535,6 +535,77 @@ html{scroll-padding-top:0}
   .venue{font-size:13.5px}
   .venue-location{font-size:9.6px}
 }
+/* Menu section, clean navigation and tighter arch typography. */
+.invitation-copy{width:min(35.5%,520px);max-width:520px}
+.invitation-names{font-size:clamp(58px,7.1vw,102px)}
+.invitation-kicker strong{font-size:clamp(14px,1.3vw,19px)}
+.menu-section{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding:76px clamp(55px,8vw,125px) 88px;
+  color:#542b27;
+  text-align:center;
+  border-top:1px solid #c8955b;
+  border-bottom:1px solid #c8955b;
+  background:linear-gradient(90deg,rgba(247,231,210,.9),rgba(255,242,224,.98) 18% 82%,rgba(239,216,188,.9)),url('assets/edge-flowers-left-2k.webp') left -105px top -150px/300px auto no-repeat,url('assets/edge-flowers-right-2k.webp') right -105px top -150px/300px auto no-repeat
+}
+.menu-section:before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0;
+  background:radial-gradient(circle at 50% 12%,rgba(255,255,255,.64),transparent 47%),linear-gradient(180deg,rgba(255,247,232,.2),rgba(225,193,155,.13));
+  pointer-events:none
+}
+.menu-section .section-kicker{color:#936438;margin-top:0}
+.menu-section h2{font:500 clamp(42px,5vw,68px)/1 'Cormorant Garamond',Georgia,serif;color:#762d30;margin:10px auto 12px}
+.menu-intro{max-width:610px;margin:0 auto 35px;font:500 19px/1.35 'Cormorant Garamond',Georgia,serif;color:#654037}
+.menu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;max-width:1050px;margin:0 auto}
+.menu-card{
+  position:relative;
+  min-height:190px;
+  padding:30px 22px 24px;
+  background:linear-gradient(145deg,rgba(255,249,238,.94),rgba(244,224,198,.88));
+  border:1px solid rgba(164,111,59,.62);
+  box-shadow:inset 0 0 0 4px rgba(255,248,233,.74),inset 0 0 0 5px rgba(171,119,67,.22),0 10px 22px rgba(91,52,29,.08)
+}
+.menu-card:after{content:"";position:absolute;left:38%;right:38%;bottom:15px;height:1px;background:linear-gradient(90deg,transparent,#b47d43,transparent)}
+.menu-number{display:block;color:#b07b42;font:600 10px/1 'DM Sans',Arial,sans-serif;letter-spacing:.22em;margin-bottom:13px}
+.menu-card h3{color:#742d31;text-transform:uppercase;font:600 22px/1.1 'Cormorant Garamond',Georgia,serif;letter-spacing:.08em;margin:0 0 13px}
+.menu-card p{font:500 17px/1.35 'Cormorant Garamond',Georgia,serif;color:#4d312b;margin:0}
+.menu-section .section-edge{margin-top:45px}
+@media(max-width:900px){
+  .invitation-copy{width:68%;max-width:520px}
+  .invitation-names{font-size:clamp(50px,9.3vw,72px)}
+  .menu-section{padding-inline:42px}
+  .menu-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:680px){
+  .invitation-copy{width:66%;top:7.8%}
+  .invitation-kicker strong{font-size:clamp(11.5px,3.05vw,13px);letter-spacing:.065em}
+  .invitation-kicker span{font-size:clamp(8px,2.05vw,9px);letter-spacing:.065em}
+  .invitation-names{font-size:clamp(43px,11.4vw,57px);line-height:.8}
+  .invitation-names .lineage{font-size:clamp(8.5px,2.3vw,10.2px);line-height:1.15;margin:5px auto 3px}
+  .day{font-size:clamp(11.5px,3.05vw,13.5px)}
+  .date{font-size:clamp(16px,4.35vw,20.5px)}
+  .venue{font-size:clamp(12.8px,3.35vw,16px)}
+  .venue-location{font-size:clamp(9px,2.35vw,11px)}
+  .menu-section{padding:60px 18px 70px;background:linear-gradient(90deg,rgba(247,231,210,.93),rgba(255,242,224,.98) 13% 87%,rgba(239,216,188,.93)),url('assets/edge-flowers-left-2k.webp') left -70px top -70px/155px auto no-repeat,url('assets/edge-flowers-right-2k.webp') right -70px top -70px/155px auto no-repeat}
+  .menu-section h2{font-size:44px}
+  .menu-intro{max-width:310px;font-size:17px;margin-bottom:27px}
+  .menu-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .menu-card{min-height:165px;padding:23px 9px 20px}
+  .menu-card h3{font-size:18px;letter-spacing:.055em}
+  .menu-card p{font-size:14px;line-height:1.28}
+}
+@media(max-width:360px){
+  .invitation-copy{width:70%;top:7.2%}
+  .invitation-names{font-size:42px}
+  .invitation-names .lineage{font-size:8.2px}
+  .menu-grid{grid-template-columns:1fr;max-width:270px}
+  .menu-card{min-height:145px;padding:21px 14px}
+}
 </style></head>
 <body>
 <section class="salaam-section" id="salaamSection" aria-label="As-salamu alaykum — peace be upon you">
@@ -554,7 +625,7 @@ html{scroll-padding-top:0}
 </section>
 
 <main id="top">
-<header class="site-header"><a class="brand" href="#top" aria-label="Umar and Ansa, back to top">U<span>&amp;</span>A</a><nav class="header-nav" aria-label="Wedding site navigation"><a href="#top">Home</a><a href="#details">The details</a><a href="#countdown">Countdown</a><a href="#rsvp" class="nav-cta">Kindly respond</a></nav></header>
+<header class="site-header"><a class="brand" href="#top" aria-label="Umar and Ansa, back to top">U<span>&amp;</span>A</a><nav class="header-nav" aria-label="Wedding site navigation"><a href="#top">Home</a><a href="#details">The details</a><a href="#countdown">Countdown</a><a href="#menu">Menu</a><a href="#rsvp" class="nav-cta">Kindly respond</a></nav></header>
 <section class="hero" aria-label="Umar and Ansa's wedding invitation">
  <p class="hero-intro">Together with our families · you are warmly invited</p>
  <div class="invitation" role="group" aria-label="Luxurious wedding invitation decorated with red roses, gold lanterns and rear-view artwork of a couple in traditional wedding outfits">
@@ -578,9 +649,9 @@ html{scroll-padding-top:0}
 <section class="paper-details" id="details" aria-labelledby="details-title"><p class="section-kicker">Everything you need to know</p><h2 id="details-title">The details</h2>
  <div class="four-details">
   <article class="detail"><div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></div><h3>Date</h3><p>Thursday<br>24 December 2026</p><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Umar%20%26%20Ansa%27s%20Wedding&amp;dates=20261224%2F20261225&amp;location=Grand%20Royale%20Banqueting%2C%20Crescent%20Road%2C%20Luton%20LU2%200AH&amp;details=Umar%20Siddiqui%20%26%20Ansa%20Talib%20%E2%80%94%20Wedding%20Day" target="_blank" rel="noopener noreferrer"><span>Add to calendar ↗</span></a></article>
-  <article class="detail"><div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Venue</h3><p>Grand Royale Banqueting<br>Crescent Road, Luton LU2 0AH</p></article>
+  <article class="detail"><div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Venue</h3><p>Grand Royale Banqueting<br>Crescent Road, Luton LU2 0AH</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Royale+Banqueting+Crescent+Road+Luton+LU2+0AH" target="_blank" rel="noopener noreferrer"><span>Open Google Maps ↗</span></a></article>
   <article class="detail"><div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="8" r="3"/><path d="M2 21v-4c0-3 3-5 6-5s6 2 6 5v4M14 13c4-1 8 1 8 5v3"/></svg></div><h3>RSVP</h3><p>We would love to celebrate with you.</p><a href="#rsvp"><span>Kindly respond ↓</span></a></article>
-  <article class="detail"><div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2V5ZM9 3v16M15 5v16"/></svg></div><h3>Directions</h3><p>Find us in the heart of Luton.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Royale+Banqueting+Crescent+Road+Luton+LU2+0AH" target="_blank" rel="noopener noreferrer"><span>Open Google Maps ↗</span></a></article>
+  <article class="detail"><div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3v6M10 3v6M7 6h3M8.5 9v12M16 3v18M16 3c-2 3-2 7 0 10"/></svg></div><h3>Menu</h3><p>Discover the flavours planned for our celebration.</p><a href="#menu"><span>View the menu ↓</span></a></article>
   </div><div class="section-edge edge-bottom edge-light" aria-hidden="true"></div>
 </section>
 <div class="floral-bridge floral-bridge--details" aria-hidden="true"></div>
@@ -593,7 +664,18 @@ html{scroll-padding-top:0}
  <div class="rsvp-state" data-state="done" hidden><h3 id="rsvpDoneTitle">Thank you!</h3><p class="helper" id="rsvpDoneCopy">We have received your response.</p></div>
 </div></div></section>
 <div class="floral-bridge floral-bridge--rsvp" aria-hidden="true"></div>
-<section class="closing" aria-labelledby="closing-title"><p class="section-kicker">With the blessings of Allah</p><h2 id="closing-title">A day of love, faith &amp; togetherness</h2><p>We look forward to sharing this joyful occasion with our family and friends. Your presence will make our day even more special.</p><div class="signature">Umar &amp; Ansa</div><div class="actions"><button id="shareButton" type="button" class="btn btn-outline">Share this invitation</button><a href="#rsvp" class="btn">Kindly respond</a></div></section>
+<section class="menu-section" id="menu" aria-labelledby="menu-title">
+ <p class="section-kicker">A taste of our celebration</p><h2 id="menu-title">The wedding menu</h2><p class="menu-intro">A preview of the food and drinks planned for the day.</p>
+ <div class="menu-grid">
+  <article class="menu-card"><span class="menu-number">01</span><h3>Welcome drinks</h3><p>Rose and lychee spritz<br>Mint and lime cooler</p></article>
+  <article class="menu-card"><span class="menu-number">02</span><h3>Canapés</h3><p>Mini seekh kebabs<br>Chaat tartlets</p></article>
+  <article class="menu-card"><span class="menu-number">03</span><h3>Starter</h3><p>Tandoori chicken tikka<br>Paneer tikka</p></article>
+  <article class="menu-card"><span class="menu-number">04</span><h3>Main</h3><p>Lamb biryani and butter chicken<br>Paneer makhani and fresh naan</p></article>
+  <article class="menu-card"><span class="menu-number">05</span><h3>Dessert</h3><p>Gulab jamun cheesecake<br>Cardamom kulfi</p></article>
+  <article class="menu-card"><span class="menu-number">06</span><h3>Carts</h3><p>Paan cart<br>Masala chai and coffee cart</p></article>
+ </div><div class="section-edge edge-bottom edge-light" aria-hidden="true"></div>
+</section>
+<section class="closing" aria-labelledby="closing-title"><p class="section-kicker">With the blessings of Allah</p><h2 id="closing-title">A day of love, faith &amp; togetherness</h2><p>We look forward to sharing this joyful occasion with our family and friends. Your presence will make our day even more special.</p><div class="signature">Umar &amp; Ansa</div><div class="actions"><button id="backToTopButton" type="button" class="btn btn-outline">Back to top ↑</button><a href="#rsvp" class="btn">Kindly respond</a></div></section>
 </main>
 <footer class="site-footer"><span>U &amp; A</span><span>Thursday · 24 December 2026 · Grand Royale Banqueting, Luton</span></footer>
 <div class="scroll-progress" aria-hidden="true"><span id="scrollProgressFill"></span></div>
@@ -602,7 +684,11 @@ html{scroll-padding-top:0}
 (()=>{
  'use strict';
  const $=id=>document.getElementById(id);
- $('salaamEnter').addEventListener('click',()=>{$('top').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});});
+ const scrollBehavior=window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
+ const cleanUrl=()=>{try{history.replaceState(null,'',location.pathname+location.search)}catch(_){}};
+ if(location.hash)cleanUrl();
+ $('salaamEnter').addEventListener('click',()=>{$('top').scrollIntoView({behavior:scrollBehavior,block:'start'});cleanUrl()});
+ document.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',event=>{const target=document.querySelector(link.getAttribute('href'));if(!target)return;event.preventDefault();target.scrollIntoView({behavior:scrollBehavior,block:'start'});cleanUrl()}));
  const safeGet=(kind,key)=>{try{return (kind==='local'?localStorage:sessionStorage).getItem(key)}catch(_){return null}};
  const safeSet=(kind,key,value)=>{try{(kind==='local'?localStorage:sessionStorage).setItem(key,value)}catch(_){}};
  const toast=(msg)=>{const el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove('show'),3600)};
@@ -629,10 +715,10 @@ html{scroll-padding-top:0}
  const setDigit=(id,value)=>{const el=$(id);if(el.textContent===value)return;el.textContent=value;el.classList.remove('digit-flip');void el.offsetWidth;el.classList.add('digit-flip')};
  function tick(){let n=Math.max(0,Math.floor((target-Date.now())/1000));setDigit('days',String(Math.floor(n/86400)).padStart(2,'0'));n%=86400;setDigit('hours',String(Math.floor(n/3600)).padStart(2,'0'));n%=3600;setDigit('minutes',String(Math.floor(n/60)).padStart(2,'0'));setDigit('seconds',String(n%60).padStart(2,'0'))}
  tick();setInterval(tick,1000);
- $('shareButton').addEventListener('click',async()=>{const url='https://umar-ansa.co.uk';try{if(navigator.share){await navigator.share({title:'Umar & Ansa — Wedding Invitation',url});return}await navigator.clipboard.writeText(url);toast('Invitation link copied!')}catch(_){toast('Share the invitation at umar-ansa.co.uk')}});
+ $('backToTopButton').addEventListener('click',()=>{$('top').scrollIntoView({behavior:scrollBehavior,block:'start'});cleanUrl()});
   if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
    document.documentElement.classList.add('motion-ready');
-   const revealTargets=[...document.querySelectorAll('.invitation-copy>*,.countdown>.dark-kicker,.countdown>h2,.countdown>.count-row,.paper-details>.section-kicker,.paper-details>h2,.detail,.rsvp-title,.rsvp-panel,.closing>.section-kicker,.closing>h2,.closing>p,.closing>.signature,.closing>.actions')].filter(Boolean);
+   const revealTargets=[...document.querySelectorAll('.invitation-copy>*,.countdown>.dark-kicker,.countdown>h2,.countdown>.count-row,.paper-details>.section-kicker,.paper-details>h2,.detail,.rsvp-title,.rsvp-panel,.menu-section>.section-kicker,.menu-section>h2,.menu-intro,.menu-card,.closing>.section-kicker,.closing>h2,.closing>p,.closing>.signature,.closing>.actions')].filter(Boolean);
    revealTargets.forEach((el,index)=>{el.classList.add('reveal-item');if(el.classList.contains('detail'))el.style.setProperty('--reveal-delay',`${(index%4)*70}ms`)});
    const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}}),{rootMargin:'0px 0px -9% 0px',threshold:.08});
    revealTargets.forEach(el=>revealObserver.observe(el));
