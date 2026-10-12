@@ -724,6 +724,77 @@ html{scroll-padding-top:0}
   .menu-card{padding-left:75px}
   .menu-card:nth-child(odd):after,.menu-card:nth-child(even):after{width:20px}
 }
+/* Ceremonial Salaam reveal and refined invitation hierarchy. */
+.invitation-names{font-size:clamp(52px,6.45vw,92px)}
+.invitation-kicker strong{font-size:clamp(16px,1.48vw,22px)}
+.salaam-section{--salaam-x:0px;--salaam-y:0px}
+.salaam-section::before,.salaam-section::after{
+  transform:translate3d(var(--salaam-x),var(--salaam-y),0) scale(1.018);
+  transition:transform .75s cubic-bezier(.2,.7,.2,1),filter .6s ease
+}
+.salaam-content{will-change:transform,opacity;transition:box-shadow .6s ease}
+.salaam-content>*{position:relative;z-index:1}
+.salaam-content::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:18% 12%;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(228,170,89,.17),rgba(139,70,35,.05) 46%,transparent 72%);
+  filter:blur(20px);
+  pointer-events:none
+}
+.salaam-calligraphy{will-change:filter,transform}
+.salaam-enter{position:relative;overflow:hidden;isolation:isolate}
+.salaam-enter::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:-90%;bottom:-90%;left:-34%;
+  width:24%;
+  background:linear-gradient(90deg,transparent,rgba(255,250,226,.74),transparent);
+  transform:skewX(-18deg) translateX(-350%);
+  pointer-events:none
+}
+.salaam-enter>span{position:relative;z-index:1}
+.salaam-transition{
+  position:absolute;
+  z-index:8;
+  inset:0;
+  opacity:0;
+  pointer-events:none;
+  background:radial-gradient(circle at 50% 50%,rgba(255,245,207,.98) 0%,rgba(227,174,91,.78) 15%,rgba(102,45,25,.34) 38%,transparent 68%);
+  mix-blend-mode:screen
+}
+@keyframes salaam-arrive{from{opacity:0;transform:translateY(20px) scale(.97);filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes salaam-calligraphy-glow{0%,100%{filter:drop-shadow(0 4px 12px #a8673159)}50%{filter:drop-shadow(0 5px 20px rgba(239,185,99,.55)) brightness(1.08)}}
+@keyframes salaam-button-sheen{0%,58%{transform:skewX(-18deg) translateX(-350%)}78%,100%{transform:skewX(-18deg) translateX(720%)}}
+@keyframes salaam-aura{0%,100%{opacity:.12;transform:scale(.92)}50%{opacity:.32;transform:scale(1.08)}}
+@keyframes salaam-open{0%{opacity:0;transform:scale(.2)}42%{opacity:1}100%{opacity:0;transform:scale(2.4)}}
+@keyframes salaam-content-open{0%{opacity:1;transform:scale(1)}55%{opacity:.82;transform:scale(.985)}100%{opacity:0;transform:scale(1.035);filter:blur(7px)}}
+@media(prefers-reduced-motion:no-preference){
+  .salaam-kicker{animation:salaam-arrive .8s .05s both}
+  .salaam-calligraphy{animation:salaam-arrive 1s .16s both,salaam-calligraphy-glow 4.2s 1.2s ease-in-out infinite}
+  .latin-salaam{animation:salaam-arrive .9s .34s both}
+  .salaam-note{animation:salaam-arrive .85s .45s both}
+  .salaam-enter{animation:salaam-arrive .85s .58s both}
+  .salaam-enter::before{animation:salaam-button-sheen 4.8s 1.3s ease-in-out infinite}
+  .salaam-footer{animation:salaam-arrive .8s .72s both}
+  .salaam-content::after{animation:salaam-aura 5.4s ease-in-out infinite}
+  .salaam-section.is-opening .salaam-content{animation:salaam-content-open .72s cubic-bezier(.35,0,.2,1) both}
+  .salaam-section.is-opening .salaam-transition{animation:salaam-open .82s cubic-bezier(.2,.7,.2,1) both}
+}
+@media(max-width:900px){
+  .invitation-names{font-size:clamp(46px,8.5vw,66px)}
+}
+@media(max-width:680px){
+  .invitation-kicker strong{width:80%;max-width:160px;font-size:clamp(13px,3.55vw,14.5px);line-height:1.05}
+  .invitation-names{font-size:clamp(39px,10.5vw,52px);line-height:.82}
+}
+@media(max-width:360px){
+  .invitation-kicker strong{font-size:12.5px}
+  .invitation-names{font-size:38px}
+}
 </style></head>
 <body>
 <section class="salaam-section" id="salaamSection" aria-label="As-salamu alaykum — peace be upon you">
@@ -740,6 +811,7 @@ html{scroll-padding-top:0}
     </button>
     <p class="salaam-footer">UMAR &amp; ANSA · 24 DECEMBER 2026</p>
   </div>
+  <div class="salaam-transition" aria-hidden="true"></div>
 </section>
 
 <main id="top">
@@ -802,10 +874,23 @@ html{scroll-padding-top:0}
 (()=>{
  'use strict';
  const $=id=>document.getElementById(id);
- const scrollBehavior=window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
+ const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const scrollBehavior=reduceMotion?'auto':'smooth';
  const cleanUrl=()=>{try{history.replaceState(null,'',location.pathname+location.search)}catch(_){}};
  if(location.hash)cleanUrl();
- $('salaamEnter').addEventListener('click',()=>{$('top').scrollIntoView({behavior:scrollBehavior,block:'start'});cleanUrl()});
+ const salaam=$('salaamSection');
+ const salaamEnter=$('salaamEnter');
+ salaamEnter.addEventListener('click',()=>{
+  if(salaam.classList.contains('is-opening'))return;
+  if(reduceMotion){$('top').scrollIntoView({behavior:'auto',block:'start'});cleanUrl();return}
+  salaam.classList.add('is-opening');salaamEnter.disabled=true;
+  setTimeout(()=>{$('top').scrollIntoView({behavior:scrollBehavior,block:'start'});cleanUrl()},480);
+  setTimeout(()=>{salaam.classList.remove('is-opening');salaamEnter.disabled=false},1250)
+ });
+ if(!reduceMotion&&matchMedia('(pointer:fine)').matches){
+  salaam.addEventListener('pointermove',event=>{const box=salaam.getBoundingClientRect();const x=((event.clientX-box.left)/box.width-.5)*-8;const y=((event.clientY-box.top)/box.height-.5)*-6;salaam.style.setProperty('--salaam-x',`${x}px`);salaam.style.setProperty('--salaam-y',`${y}px`)});
+  salaam.addEventListener('pointerleave',()=>{salaam.style.setProperty('--salaam-x','0px');salaam.style.setProperty('--salaam-y','0px')})
+ }
  document.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',event=>{const target=document.querySelector(link.getAttribute('href'));if(!target)return;event.preventDefault();target.scrollIntoView({behavior:scrollBehavior,block:'start'});cleanUrl()}));
  const safeGet=(kind,key)=>{try{return (kind==='local'?localStorage:sessionStorage).getItem(key)}catch(_){return null}};
  const safeSet=(kind,key,value)=>{try{(kind==='local'?localStorage:sessionStorage).setItem(key,value)}catch(_){}};
